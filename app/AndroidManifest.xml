@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.twirling.testcard">
+
+
+    <!-- The app has largeHeap enabled which is required for loading large files. -->
+    <application
+        android:allowBackup="true"
+        android:label="TwirlingPlayer"
+        android:largeHeap="true"
+        android:supportsRtl="true">
+        <!-- This demo is singleTask since it makes launching via custom adb intents easier. -->
+        <activity
+            android:name=".ListShowActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <!-- Primary intent when launching from the home screen -->
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SimpleVrVideoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <category android:name="com.google.intent.category.CARDBOARD" />
+        </activity>
+        <activity
+            android:name=".PlayLoadActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+    </application>
+
+    <!-- These permissions are used by Google VR SDK to get the best Google VR headset profiles. !-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+</manifest>

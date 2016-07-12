@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion setup.compileSdk
+    buildToolsVersion setup.buildTools
+
+    defaultConfig {
+        applicationId "com.twirling.testcard"
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 251
+        versionName "2.5.1"
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['aidl']
+            renderscript.srcDirs = ['rs']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jni.srcDirs = [];
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    productFlavors {
+        arm {
+            ndk {
+                abiFilter "armeabi"
+            }
+        }
+        armv7 {
+            ndk {
+                abiFilter "armeabi-v7a"
+            }
+        }
+        armv8 {
+            ndk {
+                abiFilter "armeabi"
+            }
+        }
+        x86 {
+            ndk {
+                abiFilter "armeabi"
+            }
+        }
+        mips {
+            ndk {
+                abiFilter "armeabi"
+            }
+        }
+        fat
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile(name: 'videowidget', ext: 'aar')
+    compile(name: 'common', ext: 'aar')
+    compile(name: 'commonwidget', ext: 'aar')
+    compile(name: 'base', ext: 'aar')
+}
