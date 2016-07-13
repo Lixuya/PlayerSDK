@@ -8,8 +8,8 @@ android {
         applicationId "com.twirling.testcard"
         minSdkVersion 19
         targetSdkVersion 23
-        versionCode 251
-        versionName "2.5.1"
+        versionCode 4
+        versionName "1.5.4"
     }
     sourceSets {
         main {
@@ -62,6 +62,7 @@ repositories {
         dirs 'libs'
     }
 }
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile(name: 'videowidget', ext: 'aar')

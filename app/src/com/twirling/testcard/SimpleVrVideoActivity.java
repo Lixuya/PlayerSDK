@@ -216,7 +216,6 @@ public class SimpleVrVideoActivity extends Activity {
             seekBar.setProgress((int) videoWidgetView.getCurrentPosition());
         }
 
-
         @Override
         public void onCompletion() {
             videoWidgetView.seekTo(0);

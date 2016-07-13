@@ -22,7 +22,7 @@ public class PlayLoadActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.playpanel);
+        setContentView(R.layout.play_load);
 
         load = (Button) findViewById(R.id.button);
         load.setOnClickListener(new View.OnClickListener() {
@@ -88,16 +88,12 @@ public class PlayLoadActivity extends Activity {
                 mPbLoading.setProgress((int) file.length());
 
             }
-
             // 完毕，关闭所有链接
             os.close();
             is.close();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
 }

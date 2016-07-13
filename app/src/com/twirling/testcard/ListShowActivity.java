@@ -19,7 +19,7 @@ public class ListShowActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.videolist);
+        setContentView(R.layout.video_list);
         TabHost tabhost = (TabHost) this.findViewById(R.id.tabhost);
         tabhost.setup();
         tabhost.addTab(tabhost.newTabSpec("tab1").setIndicator("在线").setContent(
