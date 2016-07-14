@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,37 +25,40 @@ public class SimpleVrVideoActivity extends Activity {
     public static final int LOAD_VIDEO_STATUS_UNKNOWN = 0;
     public static final int LOAD_VIDEO_STATUS_SUCCESS = 1;
     public static final int LOAD_VIDEO_STATUS_ERROR = 2;
+    //
     private int loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
-
-    public int getLoadVideoStatus() {
-        return loadVideoStatus;
-    }
-
     private Uri fileUri;
     private VrVideoView videoWidgetView;
     private SeekBar seekBar;
     private TextView statusText;
     private boolean isPaused = false;
-
-    /**
-     * Configuration information for the video.
-     **/
     private VrVideoView.Options videoOptions = new VrVideoView.Options();
+    private WidgetMediaController wmc;
+    private ImageView iv_play;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
-
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        //
         seekBar = (SeekBar) findViewById(R.id.seek_bar);
         seekBar.setOnSeekBarChangeListener(new SeekBarListener());
         statusText = (TextView) findViewById(R.id.status_text);
 
         videoWidgetView = (VrVideoView) findViewById(R.id.video_view);
+        videoWidgetView.setFullscreenButtonEnabled(false);
+        videoWidgetView.setInfoButtonEnabled(false);
         videoWidgetView.setEventListener(new ActivityEventListener());
-
+        //
+        wmc = (WidgetMediaController) findViewById(R.id.wmc);
+        wmc.setVisibility(View.GONE);
+        //
+        iv_play = (ImageView) findViewById(R.id.iv_play);
+        iv_play.setVisibility(View.GONE);
+        //
         loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
-
+        //
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         String uri = bundle.getString("uri");
@@ -64,6 +70,10 @@ public class SimpleVrVideoActivity extends Activity {
         //handleIntent(getIntent());
     }
 
+    public int getLoadVideoStatus() {
+        return loadVideoStatus;
+    }
+
     @Override
     protected void onNewIntent(Intent intent) {
         Log.i(TAG, this.hashCode() + ".onNewIntent()");
@@ -72,7 +82,6 @@ public class SimpleVrVideoActivity extends Activity {
     }
 
     private void handleIntent(Intent intent) {
-
         if (Intent.ACTION_VIEW.equals(intent.getAction())) {
             Log.i(TAG, "ACTION_VIEW Intent received");
             fileUri = intent.getData();
@@ -88,12 +97,12 @@ public class SimpleVrVideoActivity extends Activity {
 
         try {
             VrVideoView.Options options = new VrVideoView.Options();
+            options.inputFormat = VrVideoView.Options.FORMAT_DEFAULT;
             if (fileUri == null) {
                 options.inputType = VrVideoView.Options.TYPE_STEREO_OVER_UNDER;
                 videoWidgetView.loadVideoFromAsset("congo.mp4", options);
             } else {
                 options.inputType = VrVideoView.Options.TYPE_MONO;
-                options.inputFormat = VrVideoView.Options.FORMAT_DEFAULT;
                 videoWidgetView.loadVideo(fileUri, options);
             }
         } catch (IOException e) {
@@ -153,8 +162,12 @@ public class SimpleVrVideoActivity extends Activity {
 
     private void togglePause() {
         if (isPaused) {
+            wmc.setVisibility(View.GONE);
+            iv_play.setVisibility(View.GONE);
             videoWidgetView.playVideo();
         } else {
+            wmc.setVisibility(View.VISIBLE);
+            iv_play.setVisibility(View.VISIBLE);
             videoWidgetView.pauseVideo();
         }
         isPaused = !isPaused;
