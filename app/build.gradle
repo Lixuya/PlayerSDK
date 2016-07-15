@@ -8,8 +8,8 @@ android {
         applicationId "com.twirling.testcard"
         minSdkVersion 19
         targetSdkVersion 23
-        versionCode 4
-        versionName "1.5.4"
+        versionCode 5
+        versionName "1.5.5"
     }
     sourceSets {
         main {
