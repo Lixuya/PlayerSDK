@@ -15,9 +15,8 @@
 	FragmentDownload.java：本地文件播放。
 ##2. 接口介绍：
 ##3. 项目展示：
-![image](https://github.com/xieqiupeng/TwirlingPlayerSDK/blob/master/images/2.png)
-<p></p>
 ![image](https://github.com/xieqiupeng/TwirlingPlayerSDK/blob/master/images/1.png)
+![image](https://github.com/xieqiupeng/TwirlingPlayerSDK/blob/master/images/2.png)
 ##3. 工程配置：
 第一步：在工程app/libs目录下放入aar包。
 --------
