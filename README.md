@@ -19,9 +19,9 @@
 --------
 第二步：导入aar包。<br/>
 --------
-	菜单栏选择File->Project Structor->Modules->Dependencies,点击+号，<br/>
-	选择File dependency，选择jar包导入。<br/>
-	如果导入失败可以找到moudle下的build.gradle文件进行修改：<br/>
+	菜单栏选择File->Project Structor->Modules->Dependencies,点击+号，
+	选择File dependency，选择jar包导入。
+	如果导入失败可以找到moudle下的build.gradle文件进行修改：
 <code>repositories {</code><br/>
 <code>	flatDir {<br/></code><br/>
 <code>		dirs 'libs'</code><br/>
@@ -37,7 +37,7 @@
 <code>}</code><br/>
 <p></p>
 ###第三步：修改AndroidManifest.xml文件，在里面加入：<br/>
-\<!-- These permissions are used by Google VR SDK to get the best Google VR headset profiles. !-->
+\<!-- These permissions are used by Google VR SDK to get the best Google VR headset profiles. !--><br/>
 <code>\<uses-permission android:name="android.permission.INTERNET" /></code><br/>
 <code>\<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /></code><br/>
 <code>\<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /></code><br/>
