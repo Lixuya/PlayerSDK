@@ -3,6 +3,7 @@
 这是时代拓灵全景视频播放器AndroidSDK的文档及使用方法
 # 最新版本 version 1.5.6
 	运行环境：Android 4.4（API level 19）及其以上版本。
+	开发工具：推荐Android Studio 2.0版本及以上
 ##1. 目录介绍
 1)SDK：SDK所需的文件，如果开发者重新建立工程或将播放器集成到自己工程，请将该目录下所有文件拷贝到工程对应目录下。<br/>
 2)TwirlingPlayerSDK：demo程序，演示了如何使用全景播放器SDK。此demo是一个moudle，导入project后使用。开发环境Android Studio2.1，如果Android Studio版本比较低需要更新一下插件。<br/>
@@ -12,9 +13,7 @@
 	SimpleVrVideoActivity.java:播放器各种功能的实现。<br/>
 ##2. 接口介绍：
 import com.google.vr.sdk.widgets.video.VrVideoView;<br/>
-##3. 开发工具
-Android Studio工程配置方法
-推荐用Android Studio 2.0版本及以上
+##3. 工程配置：
 第一步：在工程app/libs目录下放入aar包。
 --------
 第二步：导入aar包。<br/>
@@ -22,11 +21,11 @@ Android Studio工程配置方法
 菜单栏选择File->Project Structor->Modules->Dependencies,点击+号，
 选择File dependency，选择jar包导入。
 如果导入失败可以找到moudle下的build.gradle文件进行修改：
-<code>		repositories {</code><br/>
+<code>repositories {</code><br/>
 <code>			flatDir {<br/></code><br/>
 <code>			dirs 'libs'</code><br/>
 <code>			}</code><br/>
-<code>		}</code><br/>
+<code>}</code><br/>
 <p></p>
 <code>dependencies {<br/></code><br/>
 <code>		compile fileTree(dir: 'libs', include: ['*.jar'])</code><br/>
