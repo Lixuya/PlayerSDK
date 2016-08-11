@@ -35,6 +35,7 @@ public class SimpleVrVideoActivity extends Activity {
     private VrVideoView.Options videoOptions = new VrVideoView.Options();
     private WidgetMediaController wmc;
     private ImageView iv_play;
+    private String uri;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,9 +60,18 @@ public class SimpleVrVideoActivity extends Activity {
         //
         loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
         //
+        initData();
+        //
         Intent videoIntent = new Intent(Intent.ACTION_VIEW);
         videoIntent.setDataAndType(fileUri, "video/*");
         onNewIntent(videoIntent);
+    }
+
+    public void initData() {
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            fileUri = Uri.parse(bundle.getString("uri"));
+        }
     }
 
     public int getLoadVideoStatus() {
@@ -87,14 +97,11 @@ public class SimpleVrVideoActivity extends Activity {
             Log.i(TAG, "Intent is not ACTION_VIEW. Using the default video.");
             fileUri = null;
         }
-        loadUrl(videoWidgetView, fileUri);
+        loadUrl(videoWidgetView);
     }
 
-    protected void loadUrl(VrVideoView videoWidgetView, Uri fileUri) {
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        String uri = bundle.getString("uri");
-        fileUri = Uri.parse(uri);
+    //
+    protected void loadUrl(VrVideoView videoWidgetView) {
         try {
             VrVideoView.Options options = new VrVideoView.Options();
             options.inputFormat = VrVideoView.Options.FORMAT_DEFAULT;

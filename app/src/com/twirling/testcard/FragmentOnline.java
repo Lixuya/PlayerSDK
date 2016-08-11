@@ -10,46 +10,43 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by 谢秋鹏 on 2016/5/27.
  */
 public class FragmentOnline extends Fragment {
-    private Button load;
-    private Button play;
-    private ProgressBar mPbLoading;
-    private String loadurl;
-    private String savepath = "sdcard/test.mp4";
+    @BindView(R.id.button)
+    Button load;
+    @BindView(R.id.button2)
+    Button play;
+    @BindView(R.id.pb_loading)
+    ProgressBar mPbLoading;
+    //
     private String playuri = "http://www.twirlingvr.com/App_Media/videos/_tianjin_jiaoyu_1920x1080_5mb_a.mp4";
-
-    Runnable networkTask = new Runnable() {
-        @Override
-        public void run() {
-            Down(loadurl, savepath);
-        }
-    };
     public int contentLength;
-    public File file;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.play_load, null);
-        load = (Button) view.findViewById(R.id.button);
+        ButterKnife.bind(this, view);
         load.setOnClickListener(new View.OnClickListener() {
-
             public void onClick(View v) {
-                loadurl = com.twirling.testcard.ListShowActivity.playuri;
-                new Thread(networkTask).start();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        download(playuri);
+                    }
+                }).start();
             }
         });
-        play = (Button) view.findViewById(R.id.button2);
         play.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -60,16 +57,20 @@ public class FragmentOnline extends Fragment {
                 startActivity(intent);
             }
         });
-        mPbLoading = (ProgressBar) view.findViewById(R.id.pb_loading);
         return view;
     }
 
-    public void Down(String _urlStr, String _filePath) {
-        file = new File(_filePath);
-        //如果目标文件已经存在，则删除。产生覆盖旧文件的效果
-        if (file.exists()) {
-            file.delete();
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        if (isVisibleToUser) {
+            if (Constant.isDownload == false && Constant.getFile() == null) {
+                mPbLoading.setProgress(0);
+            }
         }
+        super.setUserVisibleHint(isVisibleToUser);
+    }
+
+    public void download(String _urlStr) {
         try {
             // 构造URL
             URL url = new URL(_urlStr);
@@ -87,13 +88,12 @@ public class FragmentOnline extends Fragment {
             int len;
 
             // 输出的文件流
-            FileOutputStream os = new FileOutputStream(_filePath);
+            FileOutputStream os = new FileOutputStream(Constant.savepath);
 
             // 开始读取
             while ((len = is.read(bs)) != -1) {
                 os.write(bs, 0, len);
-                mPbLoading.setProgress((int) file.length());
-
+                mPbLoading.setProgress((int) Constant.getFile().length());
             }
             // 完毕，关闭所有链接
             os.close();

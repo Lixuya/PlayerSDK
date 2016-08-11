@@ -42,6 +42,7 @@ public class FragmentDownload extends Fragment {
             public void onClick(View v) {
                 Constant.isDownload = false;
                 fl.setVisibility(View.GONE);
+                Constant.deleteFile();
             }
         });
         return rootView;

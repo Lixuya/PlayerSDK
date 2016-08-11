@@ -11,9 +11,9 @@ public class HLSActivity extends SimpleVrVideoActivity {
     private static final String TAG = HLSActivity.class.getSimpleName();
 
     @Override
-    protected void loadUrl(VrVideoView videoWidgetView, Uri fileUri) {
+    protected void loadUrl(VrVideoView videoWidgetView) {
         String uri = "http://yahooios2-i.akamaihd.net/hls/live/224964/iosstream/adinsert_test/master.m3u8";
-        fileUri = Uri.parse(uri);
+        Uri fileUri = Uri.parse(uri);
         try {
             videoWidgetView.setInfoButtonEnabled(false);
             VrVideoView.Options options = new VrVideoView.Options();
