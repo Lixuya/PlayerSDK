@@ -14,7 +14,9 @@
 	FragmentOnline.java：在线播放和下载页面。
 	FragmentDownload.java：本地文件播放。
 ##2. 接口介绍：
-
+##3. 项目展示：
+![image](https://github.com/xieqiupeng/TwirlingPlayerSDK/blob/master/images/0.png)
+![image](https://github.com/xieqiupeng/TwirlingPlayerSDK/blob/master/images/1.png)
 ##3. 工程配置：
 第一步：在工程app/libs目录下放入aar包。
 --------
