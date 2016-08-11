@@ -44,4 +44,4 @@ dependencies {<br/>
 在你的<intent-filter>里添加：<br/>
 <code>\<category android:name="com.google.intent.category.CARDBOARD" /></code><br/>
 ##4. issue<br/>
-如果有bug反馈或者建议，欢迎在issue里讨论。<br/>
+如果有bug反馈或者建议，欢迎在issues里讨论。<br/>
