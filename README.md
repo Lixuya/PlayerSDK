@@ -33,6 +33,7 @@
 <code>}</code><br/>
 <p></p>
 ###第三步：修改AndroidManifest.xml文件，在里面加入：<br/>
+----------
 <!-- These permissions are used by Google VR SDK to get the best Google VR headset profiles. !-->
 <code>\<uses-permission android:name="android.permission.INTERNET" /></code><br/>
 <code>\<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /></code><br/>
@@ -40,7 +41,8 @@
 <code>\<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /></code><br/>
 <code>\<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /></code><br/>
 <code>\<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/></code><br/>
-在你的<intent-filter>里添加：<br/>
+在你的\<intent-filter>里添加：<br/>
+----------
 <code>\<category android:name="com.google.intent.category.CARDBOARD" /></code><br/>
 ##4. issue<br/>
 如果有bug反馈或者建议，欢迎在issues里讨论。<br/>
