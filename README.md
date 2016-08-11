@@ -20,18 +20,18 @@ import com.google.vr.sdk.widgets.video.VrVideoView;<br/>
 --------
 菜单栏选择File->Project Structor->Modules->Dependencies,点击+号，
 选择File dependency，选择jar包导入。
-如果导入失败可以找到moudle下的build.gradle文件进行修改：
-<code>repositories {</code><br/>
-<code>			flatDir {<br/></code><br/>
-<code>			dirs 'libs'</code><br/>
-<code>			}</code><br/>
-<code>}</code><br/>
-<p></p>
-<code>dependencies {<br/></code><br/>
-<code>		compile fileTree(dir: 'libs', include: ['*.jar'])</code><br/>
-<code>		compile(name: 'videowidget', ext: 'aar')</code><br/>
-<code>		compile(name: 'common', ext: 'aar')</code><br/>
-<code>		compile(name: 'commonwidget', ext: 'aar')</code><br/>
+如果导入失败可以找到moudle下的build.gradle文件进行修改：<br/>
+	<code>repositories {</code><br/>
+	<code>			flatDir {<br/></code><br/>
+	<code>			dirs 'libs'</code><br/>
+	<code>			}</code><br/>
+	<code>}</code><br/>
+	<p></p>
+<code>dependencies {</code><br/>
+<code>	compile fileTree(dir: 'libs', include: ['*.jar'])</code><br/>
+<code>	compile(name: 'videowidget', ext: 'aar')</code><br/>
+<code>	compile(name: 'common', ext: 'aar')</code><br/>
+<code>	compile(name: 'commonwidget', ext: 'aar')</code><br/>
 <code>}</code><br/>
 <p></p>
 ###第三步：修改AndroidManifest.xml文件，在里面加入：<br/>
