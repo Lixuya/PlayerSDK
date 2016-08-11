@@ -9,35 +9,36 @@ PlayLoadActivity.java：下载和播放页面，主要是针对在线视频设�
 SimpleVrVideoActivity.java:播放器各种功能的实现。<br/>
 2.	接口介绍：<br/>
   import com.google.vr.sdk.widgets.video.VrVideoView;<br/>
-3. 开发工具
+3. 开发工具<br/>
 Android开发工具很多，在这我们推荐各位开发者使用Android Studio作为自己的开发工具。下面我们将针对Android Studio介绍一下SDK的工程配置方法。<br/>
 
-Android Studio工程配置方法
-推荐用Android Studio 2.0版本及以上
-第一步：在工程app/libs目录下放入aar包。
-第二步：导入aar包。菜单栏选择File->Project Structor->Modules->Dependencies,点击+号，选择File dependency，选择jar包导入。如果导入失败可以找到moudle下的build.gradle文件进行修改：
-repositories {
-    flatDir {
-        dirs 'libs'
-    }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile(name: 'videowidget', ext: 'aar')
-    compile(name: 'common', ext: 'aar')
-    compile(name: 'commonwidget', ext: 'aar')
-    compile(name: 'base', ext: 'aar')
-}
-第三步：修改AndroidManifest.xml文件，在里面加入：
-<!-- These permissions are used by Google VR SDK to get the best Google VR headset profiles. !-->
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-在你的<intent-filter>里添加：
-<category android:name="com.google.intent.category.CARDBOARD" />
-3. 运行环境
-运行环境需求：Android 4.4（API level 19）及其以上版本。
+Android Studio工程配置方法<br/>
+推荐用Android Studio 2.0版本及以上<br/>
+第一步：在工程app/libs目录下放入aar包。<br/>
+第二步：导入aar包。菜单栏选择File->Project Structor->Modules->Dependencies,点击+号，选择File dependency，选择jar包导入。如果导入失败可以找到moudle下的build.gradle文件进行修改：<br/>
+repositories {<br/>
+    flatDir {<br/>
+        dirs 'libs'<br/>
+    }<br/>
+}<br/>
+<p></p>
+dependencies {<br/>
+    compile fileTree(dir: 'libs', include: ['*.jar'])<br/>
+    compile(name: 'videowidget', ext: 'aar')<br/>
+    compile(name: 'common', ext: 'aar')<br/>
+    compile(name: 'commonwidget', ext: 'aar')<br/>
+    compile(name: 'base', ext: 'aar')<br/>
+}<br/>
+<p></p>
+第三步：修改AndroidManifest.xml文件，在里面加入：<br/>
+<!-- These permissions are used by Google VR SDK to get the best Google VR headset profiles. !--><br/>
+<uses-permission android:name="android.permission.INTERNET" /><br/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /><br/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /><br/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /><br/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /><br/>
+<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/><br/>
+在你的<intent-filter>里添加：<br/>
+<category android:name="com.google.intent.category.CARDBOARD" /><br/>
+3. 运行环境<br/>
+运行环境需求：Android 4.4（API level 19）及其以上版本。<br/>
