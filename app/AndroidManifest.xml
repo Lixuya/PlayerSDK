@@ -7,6 +7,7 @@
     <!-- The app has largeHeap enabled which is required for loading large files. -->
     <application
         android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
         android:label="TwirlingPlayerSDK"
         android:largeHeap="true"
         android:supportsRtl="true">
@@ -14,7 +15,8 @@
         <activity
             android:name=".ListShowActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.AppCompat">
             <intent-filter>
                 <!-- Primary intent when launching from the home screen -->
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +33,7 @@
             <category android:name="com.google.intent.category.CARDBOARD" />
         </activity>
         <activity
-            android:name=".PlayLoadActivity"
+            android:name=".HLSActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
     </application>
