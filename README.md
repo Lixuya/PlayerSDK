@@ -33,7 +33,6 @@
 <code>	compile(name: 'videowidget', ext: 'aar')</code><br/>
 <code>	compile(name: 'common', ext: 'aar')</code><br/>
 <code>	compile(name: 'commonwidget', ext: 'aar')</code><br/>
-<code>	compile(name: 'base', ext: 'aar')</code><br/>
 <code>}</code><br/>
 <p></p>
 ###第三步：修改AndroidManifest.xml文件，在里面加入：<br/>
