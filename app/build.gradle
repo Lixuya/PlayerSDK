@@ -25,29 +25,6 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-    productFlavors {
-        arm {
-            ndk {
-                abiFilter "armeabi"
-            }
-        }
-        armv7 {
-            ndk {
-                abiFilter "armeabi-v7a"
-            }
-        }
-        armv8 {
-            ndk {
-                abiFilter "arm64-v8a"
-            }
-        }
-        x86 {
-            ndk {
-                abiFilter "armeabi"
-            }
-        }
-        fat
-    }
     lintOptions {
         abortOnError false
     }
@@ -64,7 +41,7 @@ dependencies {
     compile(name: 'videowidget', ext: 'aar')
     compile(name: 'common', ext: 'aar')
     compile(name: 'commonwidget', ext: 'aar')
-    compile(name: 'base', ext: 'aar')
+//    compile(name: 'base', ext: 'aar')
     //
     compile 'com.jakewharton:butterknife:8.1.0'
     apt "com.jakewharton:butterknife-compiler:8.1.0"

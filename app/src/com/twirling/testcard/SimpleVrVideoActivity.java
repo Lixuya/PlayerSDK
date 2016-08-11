@@ -59,15 +59,9 @@ public class SimpleVrVideoActivity extends Activity {
         //
         loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
         //
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        String uri = bundle.getString("uri");
-        fileUri = Uri.parse(uri);
-
         Intent videoIntent = new Intent(Intent.ACTION_VIEW);
         videoIntent.setDataAndType(fileUri, "video/*");
         onNewIntent(videoIntent);
-        //handleIntent(getIntent());
     }
 
     public int getLoadVideoStatus() {
@@ -76,7 +70,6 @@ public class SimpleVrVideoActivity extends Activity {
 
     @Override
     protected void onNewIntent(Intent intent) {
-        Log.i(TAG, this.hashCode() + ".onNewIntent()");
         setIntent(intent);
         handleIntent(intent);
     }
@@ -94,7 +87,14 @@ public class SimpleVrVideoActivity extends Activity {
             Log.i(TAG, "Intent is not ACTION_VIEW. Using the default video.");
             fileUri = null;
         }
+        loadUrl(videoWidgetView, fileUri);
+    }
 
+    protected void loadUrl(VrVideoView videoWidgetView, Uri fileUri) {
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        String uri = bundle.getString("uri");
+        fileUri = Uri.parse(uri);
         try {
             VrVideoView.Options options = new VrVideoView.Options();
             options.inputFormat = VrVideoView.Options.FORMAT_DEFAULT;
@@ -115,7 +115,6 @@ public class SimpleVrVideoActivity extends Activity {
                     Toast.makeText(SimpleVrVideoActivity.this, "Error opening file. ", Toast.LENGTH_LONG).show();
                 }
             });
-            Log.e(TAG, "Could not open video: " + e);
         }
     }
 

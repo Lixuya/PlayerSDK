@@ -11,7 +11,6 @@ import android.view.View;
  */
 public class WidgetMediaController extends android.widget.MediaController {
 
-
     public WidgetMediaController(Context context, AttributeSet attrs) {
         super(context, attrs);
         View mRoot = LayoutInflater.from(context).inflate(R.layout.widget_media_controller, this);

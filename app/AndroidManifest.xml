@@ -35,7 +35,11 @@
         <activity
             android:name=".HLSActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen"
+            tools:ignore="NewApi">
+            <category android:name="com.google.intent.category.CARDBOARD" />
+        </activity>
     </application>
 
     <!-- These permissions are used by Google VR SDK to get the best Google VR headset profiles. !-->
