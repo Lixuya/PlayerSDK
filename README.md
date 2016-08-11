@@ -13,7 +13,8 @@
   Android Studio工程配置方法<br/>
   推荐用Android Studio 2.0版本及以上<br/>
 ###第一步：在工程app/libs目录下放入aar包。<br/>
-###第二步：导入aar包。菜单栏选择File->Project Structor->Modules->Dependencies,点击+号，选择File dependency，选择jar包导入。如果导入失败可以找到moudle下的build.gradle文件进行修改：<br/>
+###第二步：导入aar包。<br/>
+    菜单栏选择File->Project Structor->Modules->Dependencies,点击+号，选择File dependency，选择jar包导入。如果导入失败可以找到moudle下的build.gradle文件进行修改：<br/>
 repositories {<br/>
     flatDir {<br/>
       dirs 'libs'<br/>
