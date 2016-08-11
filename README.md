@@ -1,5 +1,6 @@
 # TwirlingPlayerSDK
-这是时代拓灵全景视频播放器AndroidSDK-1.5.6的文档及使用方法<br/>
+这是时代拓灵全景视频播放器AndroidSDK的文档及使用方法<br/>
+# 最新版本 version 1.5.6
 ##1. 目录介绍<br/>
   1)	SDK：SDK所需的文件，如果开发者重新建立工程或将播放器集成到自己工程，请将该目录下所有文件拷贝到工程对应目录下。<br/>
   2)	TwirlingPlayerSDK：demo程序，演示了如何使用全景播放器SDK。此demo是一个moudle，导入project后使用。开发环境Android Studio2.1，如果Android Studio版本比较低需要更新一下插件。<br/>
@@ -41,3 +42,4 @@ dependencies {<br/>
 <category android:name="com.google.intent.category.CARDBOARD" /><br/>
 ##4. 运行环境<br/>
   运行环境需求：Android 4.4（API level 19）及其以上版本。<br/>
+##5. 如果有bug反馈或者建议，欢迎在issue里讨论。
