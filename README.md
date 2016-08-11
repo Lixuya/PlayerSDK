@@ -7,9 +7,8 @@
 ##1. 目录介绍
 	1) SDK：SDK所需的文件。
 	如果开发者重新建立工程或将播放器集成到自己工程，请将该目录下所有文件拷贝到工程对应目录下。
-	2) TwirlingPlayerSDK：demo程序。
-	演示了如何使用全景播放器SDK。此demo是一个module，导入project后使用。
-	3) Demo程序：
+	2) Demo：播放器sourcecode：
+	此demo是一个module，导入project后使用。
 	SimpleVrVideoActivity.java:播放器各种功能的实现。
 	HLSActivity.java:直播播放器功能的实现。
 	FragmentOnline.java：在线播放和下载页面。
