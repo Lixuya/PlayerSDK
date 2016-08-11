@@ -33,14 +33,14 @@ dependencies {<br/>
 <p></p>
 ###第三步：修改AndroidManifest.xml文件，在里面加入：<br/>
 <!-- These permissions are used by Google VR SDK to get the best Google VR headset profiles. !-->
-<code><uses-permission android:name="android.permission.INTERNET" /></code><br/>
-<code><uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /></code><br/>
-<code><uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /></code><br/>
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /><br/>
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /><br/>
-<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/><br/>
+<code>\<uses-permission android:name="android.permission.INTERNET" /></code><br/>
+<code>\<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /></code><br/>
+<code>\<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /></code><br/>
+\<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /><br/>
+\<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /><br/>
+\<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/><br/>
 在你的<intent-filter>里添加：<br/>
-<code><category android:name="com.google.intent.category.CARDBOARD" /></code><br/>
+<code>\<category android:name="com.google.intent.category.CARDBOARD" /></code><br/>
 ##4. 运行环境<br/>
   运行环境需求：Android 4.4（API level 19）及其以上版本。<br/>
 ##5. 如果有bug反馈或者建议，欢迎在issue里讨论。
