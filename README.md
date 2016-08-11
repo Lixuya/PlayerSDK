@@ -19,19 +19,19 @@
 ###第一步：在工程app/libs目录下放入aar包。<br/>
 ###第二步：导入aar包。<br/>
     菜单栏选择File->Project Structor->Modules->Dependencies,点击+号，选择File dependency，选择jar包导入。如果导入失败可以找到moudle下的build.gradle文件进行修改：<br/>
-<code>\repositories {</code>
-<code>\    flatDir {<br/></code>
-<code>\      dirs 'libs'<br/></code>
-<code>\    }<br/></code>
-<code>\}<br/></code>
+<code>repositories {</code><br/>
+<code>    flatDir {<br/></code><br/>
+<code>      dirs 'libs'</code><br/>
+<code>   }</code><br/>
+<code>}</code><br/>
 <p></p>
-<code>\dependencies {<br/></code>
-<code>\   compile fileTree(dir: 'libs', include: ['*.jar'])
-<code>\    compile(name: 'videowidget', ext: 'aar')<br/></code>
-<code>\    compile(name: 'common', ext: 'aar')<br/></code>
-<code>\    compile(name: 'commonwidget', ext: 'aar')<br/></code>
-<code>\    compile(name: 'base', ext: 'aar')<br/></code>
-<code>\}<br/>
+<code>\dependencies {<br/></code><br/>
+<code>\   compile fileTree(dir: 'libs', include: ['*.jar'])</code><br/>
+<code>\    compile(name: 'videowidget', ext: 'aar')</code><br/>
+<code>\    compile(name: 'common', ext: 'aar')</code><br/>
+<code>\    compile(name: 'commonwidget', ext: 'aar')</code><br/>
+<code>\    compile(name: 'base', ext: 'aar')</code><br/>
+<code>\}</code><br/>
 <p></p>
 ###第三步：修改AndroidManifest.xml文件，在里面加入：<br/>
 <!-- These permissions are used by Google VR SDK to get the best Google VR headset profiles. !-->
