@@ -5,11 +5,12 @@ import android.content.res.Configuration;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.MediaController;
 
 /**
  * Created by 谢秋鹏 on 2016/7/13.
  */
-public class WidgetMediaController extends android.widget.MediaController {
+public class WidgetMediaController extends MediaController {
 
     public WidgetMediaController(Context context, AttributeSet attrs) {
         super(context, attrs);
