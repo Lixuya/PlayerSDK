@@ -1,4 +1,4 @@
-package com.twirling.testcard;
+package com.twirling.player;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

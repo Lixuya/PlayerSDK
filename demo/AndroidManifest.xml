@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.twirling.testcard">
+    package="com.twirling.player">
 
     <!-- The app has largeHeap enabled which is required for loading large files. -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="TwirlingPlayerSDK"
+        android:label="Player"
         android:largeHeap="true"
         android:supportsRtl="true">
         <!-- This demo is singleTask since it makes launching via custom adb intents easier. -->
         <activity
-            android:name=".ListShowActivity"
+            android:name="com.twirling.player.activity.ListShowActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.AppCompat">
@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SimpleVrVideoActivity"
+            android:name="com.twirling.player.activity.SimpleVrVideoActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen"
@@ -31,7 +31,7 @@
             <category android:name="com.google.intent.category.CARDBOARD" />
         </activity>
         <activity
-            android:name=".HLSActivity"
+            android:name="com.twirling.player.activity.HLSActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen"

@@ -1,4 +1,4 @@
-package com.twirling.testcard;
+package com.twirling.player;
 
 import android.content.Context;
 import android.content.res.Configuration;

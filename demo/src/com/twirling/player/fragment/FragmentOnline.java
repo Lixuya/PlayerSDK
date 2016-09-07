@@ -1,4 +1,4 @@
-package com.twirling.testcard;
+package com.twirling.player.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
+
+import com.twirling.player.Constants;
+import com.twirling.player.R;
+import com.twirling.player.activity.SimpleVrVideoActivity;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -63,7 +67,7 @@ public class FragmentOnline extends Fragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         if (isVisibleToUser) {
-            if (Constant.isDownload == false && Constant.getFile() == null) {
+            if (Constants.isDownload == false && Constants.getFile() == null) {
                 mPbLoading.setProgress(0);
             }
         }
@@ -88,17 +92,17 @@ public class FragmentOnline extends Fragment {
             int len;
 
             // 输出的文件流
-            FileOutputStream os = new FileOutputStream(Constant.savepath);
+            FileOutputStream os = new FileOutputStream(Constants.FILE_PATH);
 
             // 开始读取
             while ((len = is.read(bs)) != -1) {
                 os.write(bs, 0, len);
-                mPbLoading.setProgress((int) Constant.getFile().length());
+                mPbLoading.setProgress((int) Constants.getFile().length());
             }
             // 完毕，关闭所有链接
             os.close();
             is.close();
-            Constant.isDownload = true;
+            Constants.isDownload = true;
         } catch (Exception e) {
             e.printStackTrace();
         }

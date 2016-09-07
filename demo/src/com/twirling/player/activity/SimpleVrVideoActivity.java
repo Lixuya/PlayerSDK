@@ -1,4 +1,4 @@
-package com.twirling.testcard;
+package com.twirling.player.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.google.vr.sdk.widgets.video.VrVideoEventListener;
 import com.google.vr.sdk.widgets.video.VrVideoView;
+import com.twirling.player.R;
+import com.twirling.player.WidgetMediaController;
 
 import java.io.IOException;
 
@@ -226,7 +228,7 @@ public class SimpleVrVideoActivity extends Activity {
 
         @Override
         public void onClick() {
-            togglePause();
+//            togglePause();
         }
 
         @Override

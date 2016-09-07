@@ -1,10 +1,16 @@
-package com.twirling.testcard;
+package com.twirling.player.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+
+import com.twirling.player.R;
+import com.twirling.player.ViewPagerAdapter;
+import com.twirling.player.fragment.FragmentDownload;
+import com.twirling.player.fragment.FragmentLive;
+import com.twirling.player.fragment.FragmentOnline;
 
 public class ListShowActivity extends AppCompatActivity {
     public static String playuri;

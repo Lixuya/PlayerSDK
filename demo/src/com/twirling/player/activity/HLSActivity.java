@@ -1,4 +1,4 @@
-package com.twirling.testcard;
+package com.twirling.player.activity;
 
 import android.net.Uri;
 
@@ -12,7 +12,8 @@ public class HLSActivity extends SimpleVrVideoActivity {
 
     @Override
     protected void loadUrl(VrVideoView videoWidgetView) {
-        String uri = "http://yahooios2-i.akamaihd.net/hls/live/224964/iosstream/adinsert_test/master.m3u8";
+        //  String uri = "http://yahooios2-i.akamaihd.net/hls/live/224964/iosstream/adinsert_test/master.m3u8";
+        String uri = "http://2997.liveplay.myqcloud.com/2997_cf282c595e0911e6a2cba4dcbef5e35a_550.m3u8";
         Uri fileUri = Uri.parse(uri);
         try {
             videoWidgetView.setInfoButtonEnabled(false);

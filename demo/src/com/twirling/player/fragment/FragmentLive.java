@@ -1,4 +1,4 @@
-package com.twirling.testcard;
+package com.twirling.player.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.twirling.player.activity.HLSActivity;
+import com.twirling.player.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
