@@ -19,7 +19,6 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
@@ -43,7 +42,6 @@ public class ConnectionService extends Service {
     // Input and out streams for communication
     protected BufferedReader mIn;
     protected PrintWriter mOut;
-    private InfoListener listener2;
 
     private final IBinder mBinder = new LocalBinder();
 
@@ -54,7 +52,6 @@ public class ConnectionService extends Service {
         Log.v(TAG, "Service - onCreate");
         settings = PreferenceManager.getDefaultSharedPreferences(this);
         notifyman = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        listener2 = new InfoListener(ConnectionService.this);
         super.onCreate();
     }
 
@@ -66,7 +63,7 @@ public class ConnectionService extends Service {
     }
 
     public boolean isConnected() {
-        return listener2.isConnected() && mOut != null;
+        return false;
     }
 
     public void sendMessage(JSONObject message) {
@@ -88,43 +85,14 @@ public class ConnectionService extends Service {
                     // 1
                     String ip = settings.getString(PreferenceKeys.HOST_IP, Constants.DEFAULT_IP);
                     int port = settings.getInt(PreferenceKeys.HOST_PORT, Constants.DEFAULT_PORT);
-                    IPListener listener1 = new IPListener(ip, port);
+                    Client01 listener1 = new Client01(ip, port);
                     ip = listener1.listen();
                     //
                     LocalBroadcastManager.getInstance(ConnectionService.this).sendBroadcast(new Intent(CONNECTED));
                     //
-                    SendClient sendClient = new SendClient();
+                    Client02 sendClient = new Client02();
                     sendClient.setIp(ip);
                     sendClient.sendMessage(ConnectionService.this);
-
-                    // 3
-                    listener2.setIp(ip);
-                    listener2.setPort(10002);
-                    listener2.setTimeout(Constants.DEFAULT_TIMEOUT);
-                    mSocket = listener2.listen();
-                    try {
-                        mIn = new BufferedReader(new InputStreamReader(mSocket.getInputStream()));
-                        mOut = new PrintWriter(mSocket.getOutputStream());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    String inputMsg = null;
-                    int j = 0;
-                    if (mIn != null && j < 10) {
-                        try {
-                            while ((inputMsg = mIn.readLine()) != null && j < 20) {
-                                Log.v("www", "Message received: " + inputMsg);
-                                Intent i = new Intent(ConnectionService.MESSAGERECEIVED);
-                                i.putExtra("msg", inputMsg);
-                                LocalBroadcastManager.getInstance(getBaseContext()).sendBroadcast(i);
-                                Log.v("www", "BROADCAST send: " + i.toString());
-                                j++;
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    disconnect();
                 }
             });
             connectThread.start();

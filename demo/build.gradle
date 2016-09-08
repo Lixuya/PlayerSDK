@@ -6,7 +6,7 @@ android {
     buildToolsVersion setup.buildTools
 
     defaultConfig {
-        applicationId "com.twirling.testcard"
+        applicationId "com.twirling.player"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 6
@@ -36,6 +36,8 @@ repositories {
     }
 }
 
+def Rxbinding_Version = '0.4.0'
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile(name: 'videowidget', ext: 'aar')
@@ -52,4 +54,11 @@ dependencies {
     //
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.jcodecraeer:xrecyclerview:1.2.6'
+    //
+    //
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.6'
+    compile "com.jakewharton.rxbinding:rxbinding:$Rxbinding_Version"
+    compile "com.jakewharton.rxbinding:rxbinding-appcompat-v7:$Rxbinding_Version"
+    compile "com.jakewharton.rxbinding:rxbinding-design:$Rxbinding_Version"
 }

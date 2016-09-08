@@ -4,6 +4,7 @@
     package="com.twirling.player">
 
     <!-- The app has largeHeap enabled which is required for loading large files. -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
