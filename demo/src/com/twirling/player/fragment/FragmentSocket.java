@@ -17,6 +17,7 @@ import com.twirling.player.OffineAdapter;
 import com.twirling.player.R;
 import com.twirling.player.client.Client01;
 import com.twirling.player.client.Client02;
+import com.twirling.player.client.Client03;
 import com.twirling.player.config.PreferenceKeys;
 
 import java.util.ArrayList;
@@ -81,7 +82,7 @@ public class FragmentSocket extends Fragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         if (isVisibleToUser) {
-            loadData();
+//            loadData();
         }
         super.setUserVisibleHint(isVisibleToUser);
     }
@@ -105,6 +106,16 @@ public class FragmentSocket extends Fragment {
                     @Override
                     public String call(String ip) {
                         Client02 sendClient = new Client02();
+                        sendClient.setIp(ip);
+                        String clientID = sendClient.sendMessage(getActivity());
+                        return ip;
+                    }
+                })
+                .observeOn(Schedulers.io())
+                .map(new Func1<String, String>() {
+                    @Override
+                    public String call(String ip) {
+                        Client03 sendClient = new Client03();
                         sendClient.setIp(ip);
                         String clientID = sendClient.sendMessage(getActivity());
                         return clientID;

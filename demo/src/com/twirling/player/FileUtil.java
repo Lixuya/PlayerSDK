@@ -4,22 +4,16 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.widget.ProgressBar;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +22,7 @@ import java.util.List;
  */
 public class FileUtil {
     public int contentLength;
-    public File file;
+    public static File file;
 
     // 读文件
     public static String readFromSDCard(String fileName) {
@@ -62,45 +56,10 @@ public class FileUtil {
         return text.toString();
     }
 
-    private String getPath() {
-        String savepath = Environment.getDownloadCacheDirectory().getPath();
-        return savepath;
-    }
 
-    public void down(String videoUrl, String name, ProgressBar mPbLoading) {
-        file = new File(getPath() + name);
-        //如果目标文件已经存在，则删除。产生覆盖旧文件的效果
-        if (file.exists()) {
-            file.delete();
-        }
+    public static void downMp4(String inputMsg, File file) {
         try {
-            // 构造URL
-            URL url = new URL(videoUrl);
-            // 打开连接
-            URLConnection con = url.openConnection();
-            //获得文件的长度
-            contentLength = con.getContentLength();
-            if (mPbLoading != null) {
-                mPbLoading.setMax(contentLength);
-            }
-            // 输入流
-            InputStream is = con.getInputStream();
-            // 1K的数据缓冲
-            byte[] bs = new byte[1024];
-            // 读取到的数据长度
-            int len;
-            // 输出的文件流
-            FileOutputStream os = new FileOutputStream(getPath() + name);
-            // 开始读取
-            while ((len = is.read(bs)) != -1) {
-                os.write(bs, 0, len);
-                if (mPbLoading != null) {
-                    mPbLoading.setProgress((int) file.length());
-                }
-            }
-            // 完毕，关闭所有链接
-            os.close();
-            is.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

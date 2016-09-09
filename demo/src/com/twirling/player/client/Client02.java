@@ -3,8 +3,12 @@ package com.twirling.player.client;
 import android.content.Context;
 import android.util.Log;
 
+import com.twirling.player.Constants;
 import com.twirling.player.util.NetUtil;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -27,8 +31,7 @@ public class Client02 {
         String inputMsg = "";
         Socket socket = null;
         try {
-            socket = new Socket(ip, 10002);
-            Log.i("www", ip);
+            socket = new Socket(ip, port);
             String mac = NetUtil.getMacAddress(context);
             mac = mac.replace(":", "-");
             //构建IO
@@ -41,19 +44,49 @@ public class Client02 {
             Log.e("www", mac);
             //读取服务器返回的消息
             Reader reader = new InputStreamReader(is, "UTF-8");
-//            BufferedReader br = new BufferedReader(reader);
-//            Log.i("mess", br.readLine());
-            while ((index = reader.read()) != 0) {
-                inputMsg += (char) index;
-                Log.w("mess", index + " " + inputMsg + " " + Thread.currentThread().getName());
+            BufferedReader br = new BufferedReader(reader);
+            char[] chars = new char[1024];
+            reader.read(chars, 0, chars.length);
+            //
+            inputMsg = br.readLine();
+            int index = -1;
+            String[] info = inputMsg.split(";");
+//            String clientNum = info[index].split("_")[2];
+            String sent = info[index + 1].split("_")[2];
+            String file = info[index + 2].split("_")[2];
+            String media = info[index + 3].split("_")[2];
+            String name = info[index + 4].split("_")[2];
+            String size = info[index + 5].split("_")[2];
+            Log.w(Client02.class.getSimpleName(), inputMsg + " " + info.toString());
+            //
+            File download = new File(Constants.PAPH_DOWNLOAD + name);
+            FileOutputStream outFile = new FileOutputStream(download);
+            int length = 0;
+            while ((inputMsg = br.readLine()) != null) {
+                length += inputMsg.getBytes().length;
+                if (length >= Integer.valueOf(size)) {
+                    String recieve = "VR_RECEIVE_MEDIA_SIZE_" + size;
+                    writer.write(recieve);
+                    writer.flush();
+                    break;
+                }
+                Log.w(Client02.class.getSimpleName(), inputMsg);
+                outFile.write(inputMsg.getBytes());
             }
-            socket.close();
+            //
+            Log.v(Client02.class.getSimpleName(), inputMsg);
+            outFile.close();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            Log.e("mess2", inputMsg);
+            Log.e(Client02.class.getSimpleName(), inputMsg);
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             return inputMsg;
         }
     }

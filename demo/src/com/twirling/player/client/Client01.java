@@ -1,5 +1,7 @@
 package com.twirling.player.client;
 
+import android.util.Log;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -37,6 +39,7 @@ public class Client01 {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
+            Log.d(Client01.class.getSimpleName(), getIP(message));
             return getIP(message);
         }
     }
@@ -44,14 +47,5 @@ public class Client01 {
     public String getIP(String message) {
         String[] strs = message.split("_");
         return strs[strs.length - 1];
-    }
-
-    public static void main(String[] args) {
-        int port = 10002;
-        String host = "192.168.1.118";
-        Client01 ml = new Client01(host, port);
-        while (true) {
-            ml.listen();
-        }
     }
 }
