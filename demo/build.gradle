@@ -1,6 +1,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
     compileSdkVersion setup.compileSdk
     buildToolsVersion setup.buildTools
@@ -11,6 +14,18 @@ android {
         targetSdkVersion 23
         versionCode 6
         versionName "1.5.6"
+    }
+    signingConfigs {
+        def isRelease = gradle.startParameter.taskNames.any { it.contains('Release') }
+        def path = isRelease ? properties.getProperty("keystore.path") : 'debug.keystore'
+        def password = isRelease ? properties.getProperty("keystore.password") : ''
+        def alias = isRelease ? properties.getProperty("keystore.alias") : ''
+        myConfig {
+            storeFile file(path)
+            storePassword password
+            keyAlias alias
+            keyPassword password
+        }
     }
     sourceSets {
         main {
@@ -27,6 +42,13 @@ android {
     }
     lintOptions {
         abortOnError false
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.myConfig
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-android-optimize.pro'
+        }
     }
 }
 

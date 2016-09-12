@@ -42,7 +42,6 @@ public class OffineAdapter extends RecyclerView.Adapter<OffineAdapter.ViewHolder
         holder.tv_name.setText(datas.get(position));
         holder.iv_delete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Constants.isDownload = false;
                 holder.cv_card.setVisibility(View.GONE);
                 Constants.deleteFile();
             }

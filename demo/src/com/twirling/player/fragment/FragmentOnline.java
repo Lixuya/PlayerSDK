@@ -67,7 +67,7 @@ public class FragmentOnline extends Fragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         if (isVisibleToUser) {
-            if (Constants.isDownload == false && Constants.getFile() == null) {
+            if (Constants.getFile() == null) {
                 mPbLoading.setProgress(0);
             }
         }
@@ -102,7 +102,6 @@ public class FragmentOnline extends Fragment {
             // 完毕，关闭所有链接
             os.close();
             is.close();
-            Constants.isDownload = true;
         } catch (Exception e) {
             e.printStackTrace();
         }

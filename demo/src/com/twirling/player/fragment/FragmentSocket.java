@@ -98,6 +98,7 @@ public class FragmentSocket extends Fragment {
                         int port = settings.getInt(PreferenceKeys.HOST_PORT, Constants.DEFAULT_PORT);
                         Client01 listener1 = new Client01(ip, port);
                         ip = listener1.listen();
+//                        Toast.makeText(getActivity(), ip, Toast.LENGTH_LONG).show();
                         return ip;
                     }
                 })

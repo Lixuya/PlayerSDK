@@ -9,7 +9,6 @@ import java.io.File;
  */
 public class Constants {
     //
-    public static boolean isDownload = false;
     public static final String PAPH_DOWNLOAD = Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS + "/";
     public static final String FILE_NAME = "jiaoyu.mp4";
     public static final String FILE_PATH = PAPH_DOWNLOAD + FILE_NAME;
