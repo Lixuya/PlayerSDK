@@ -1,4 +1,4 @@
-package com.twirling.player;
+package com.twirling.player.fragment;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

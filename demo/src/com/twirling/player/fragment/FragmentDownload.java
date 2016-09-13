@@ -10,8 +10,7 @@ import android.view.ViewGroup;
 
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
-import com.twirling.player.FileUtil;
-import com.twirling.player.OffineAdapter;
+import com.twirling.player.util.FileUtil;
 import com.twirling.player.R;
 
 import java.util.ArrayList;

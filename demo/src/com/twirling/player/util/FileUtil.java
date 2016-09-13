@@ -1,4 +1,4 @@
-package com.twirling.player;
+package com.twirling.player.util;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
+
+import com.twirling.player.Constants;
 
 import java.io.BufferedReader;
 import java.io.File;

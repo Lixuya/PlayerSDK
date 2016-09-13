@@ -43,8 +43,7 @@ public class Client02 {
             socket = new Socket(ip, port);
 //            socket.setReceiveBufferSize();
 //            socket.setSoTimeout(5000);-
-            String mac = NetUtil.getMacAddress(context);
-            mac = mac.replace(":", "-");
+            String mac = NetUtil.getMac();
             //构建IO
             InputStream is = socket.getInputStream();
             OutputStream os = socket.getOutputStream();
@@ -112,28 +111,27 @@ public class Client02 {
                 fileLen += len;
                 outFile.write(bytes, 0, len);
                 outFile.flush();
-                if (fileLen >= Integer.valueOf(size)) {
+                if (fileLen >= size) {
                     outFile.write(bytes, 0, len - (fileLen - size));
                     break;
                 }
             }
             Log.d(Client02.class.getSimpleName(), new String(bytes));
             Log.e(Client02.class.getSimpleName(), "socket close");
-//            Toast.makeText(context, "socket close", Toast.LENGTH_LONG).show();
             int length = ";VR_MEDIA_OVER".length();
-            //String str = new String(bytes, len - (fileLen - size), length);
             StringBuilder stringBuilder2 = new StringBuilder();
             for (int i = 0; i < length; i++) {
                 stringBuilder2.append(new String(bytes, len - (fileLen - size) + i, 1));
             }
-            Log.e(Client02.class.getSimpleName(), stringBuilder2.toString());
+            Log.w(Client02.class.getSimpleName(), stringBuilder2.toString());
             //
-//            String back = "VR_RECEIVE_MEDIA_SIZE_%" + size;
-//            writer.write(back);
-//            writer.flush();
-//            back = "VR_READY";
-//            writer.write(back);
-//            writer.flush();
+            String back = "VR_RECEIVE_MEDIA_SIZE_%" + size;
+            writer.write(back);
+            writer.flush();
+            //
+            back = "VR_READY";
+            writer.write(back);
+            writer.flush();
             //
         } catch (FileNotFoundException e) {
             e.printStackTrace();

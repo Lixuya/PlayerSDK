@@ -13,11 +13,11 @@ import android.view.ViewGroup;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.twirling.player.Constants;
-import com.twirling.player.OffineAdapter;
 import com.twirling.player.R;
 import com.twirling.player.client.Client01;
 import com.twirling.player.client.Client02;
 import com.twirling.player.client.Client03;
+import com.twirling.player.client.Client04;
 import com.twirling.player.config.PreferenceKeys;
 
 import java.util.ArrayList;
@@ -98,7 +98,6 @@ public class FragmentSocket extends Fragment {
                         int port = settings.getInt(PreferenceKeys.HOST_PORT, Constants.DEFAULT_PORT);
                         Client01 listener1 = new Client01(ip, port);
                         ip = listener1.listen();
-//                        Toast.makeText(getActivity(), ip, Toast.LENGTH_LONG).show();
                         return ip;
                     }
                 })
@@ -109,7 +108,16 @@ public class FragmentSocket extends Fragment {
                         Client02 sendClient = new Client02();
                         sendClient.setIp(ip);
                         String clientID = sendClient.sendMessage(getActivity());
-                        return ip;
+                        return clientID;
+                    }
+                })
+                .observeOn(Schedulers.io())
+                .map(new Func1<String, String>() {
+                    @Override
+                    public String call(String s) {
+                        Client04 listener4 = new Client04(Constants.DEFAULT_IP, Constants.DEFAULT_PORT);
+                        String message = listener4.listen();
+                        return message;
                     }
                 })
                 .observeOn(Schedulers.io())
@@ -126,7 +134,7 @@ public class FragmentSocket extends Fragment {
                 .subscribe(new Action1<String>() {
                     @Override
                     public void call(String s) {
-                        // 1
+                      //
                     }
                 });
     }

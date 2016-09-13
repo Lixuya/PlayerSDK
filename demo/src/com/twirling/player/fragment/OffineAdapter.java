@@ -1,6 +1,8 @@
-package com.twirling.player;
+package com.twirling.player.fragment;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,7 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.twirling.player.activity.SimpleVrVideoActivity;
+import com.twirling.player.Constants;
+import com.twirling.player.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,9 +52,18 @@ public class OffineAdapter extends RecyclerView.Adapter<OffineAdapter.ViewHolder
         //
         holder.cv_card.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.putExtra("uri", Constants.PAPH_DOWNLOAD + datas.get(position));
-                intent.setClass(holder.itemView.getContext(), SimpleVrVideoActivity.class);
+//                Intent intent = new Intent();
+//                intent.putExtra("uri", Constants.PAPH_DOWNLOAD + datas.get(position));
+//                intent.setClass(holder.itemView.getContext(), SimpleVrVideoActivity.class);
+//                holder.itemView.getContext().startActivity(intent);
+                //
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_LAUNCHER);
+                String pkg = "com.oculus.oculus360videossdk";
+                String cls = "com.oculus.oculus360videossdk.MainActivity";
+                ComponentName cn = new ComponentName(pkg, cls);
+                intent.setComponent(cn);
+                intent.setData(Uri.parse(Constants.PAPH_DOWNLOAD + datas.get(position)));
                 holder.itemView.getContext().startActivity(intent);
             }
         });

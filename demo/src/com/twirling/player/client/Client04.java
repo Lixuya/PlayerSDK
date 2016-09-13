@@ -8,15 +8,15 @@ import java.net.DatagramSocket;
 import java.net.UnknownHostException;
 
 /**
- * Created by xieqi on 2016/9/5.
+ * Created by xieqi on 2016/9/13.
  */
-public class Client01 {
-
+public class Client04 {
     private int port;
     private String host;
     byte[] data = new byte[256];
+    String[] command = new String[]{"COMMAND_PLAY", "COMMAND_PAUSE", "COMMAND_STOP", "COMMAND_REPLAY", "COMMAND_SEEK_"};
 
-    public Client01(String host, int port) {
+    public Client04(String host, int port) {
         this.host = host;
         this.port = port;
     }
@@ -27,10 +27,21 @@ public class Client01 {
         try {
             socket = new DatagramSocket(port);
             DatagramPacket packet = new DatagramPacket(data, data.length);
-            //receive()是阻塞方法，会等待客户端发送过来的信息
             socket.receive(packet);
-            message = new String(packet.getData(), 0, packet.getLength());
-            System.out.println(host + " " + port + " " + message);
+            boolean breakFlag = false;
+            while (true) {
+                Thread.currentThread().join(500);
+                message = new String(packet.getData(), 0, packet.getLength());
+                System.out.println(host + " " + port + " " + message);
+                for (String str : command) {
+                    if (str.equals(message)) {
+                        breakFlag = true;
+                    }
+                }
+                if (breakFlag) {
+                    break;
+                }
+            }
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -38,13 +49,9 @@ public class Client01 {
         } finally {
             socket.disconnect();
             socket.close();
-            Log.d(Client01.class.getSimpleName(), getIP(message));
-            return getIP(message);
+            Log.d(Client01.class.getSimpleName(), message);
+            return message;
         }
     }
 
-    public String getIP(String message) {
-        String[] strs = message.split("_");
-        return strs[strs.length - 1];
-    }
 }
