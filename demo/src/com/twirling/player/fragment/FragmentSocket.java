@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +16,9 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.twirling.player.Constants;
 import com.twirling.player.R;
 import com.twirling.player.client.Client01;
+import com.twirling.player.client.Client01Command;
 import com.twirling.player.client.Client02;
 import com.twirling.player.client.Client03;
-import com.twirling.player.client.Client04;
-import com.twirling.player.config.PreferenceKeys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,9 +73,8 @@ public class FragmentSocket extends Fragment {
     }
 
     private void loadData() {
-        init();
-//        datas.clear();
-//        datas.addAll();
+        settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        getIp();
         mAdapter.notifyDataSetChanged();
     }
 
@@ -87,54 +86,118 @@ public class FragmentSocket extends Fragment {
         super.setUserVisibleHint(isVisibleToUser);
     }
 
-    public void init() {
-        settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        Observable.just("")
+    private String ip = "";
+
+    // getIp
+    public void getIp() {
+        Observable.just(ip)
+                .filter(new Func1<String, Boolean>() {
+                    @Override
+                    public Boolean call(String ip) {
+                        return TextUtils.isEmpty(ip);
+                    }
+                })
                 .observeOn(Schedulers.io())
                 .map(new Func1<String, String>() {
                     @Override
                     public String call(String s) {
-                        String ip = settings.getString(PreferenceKeys.HOST_IP, Constants.DEFAULT_IP);
-                        int port = settings.getInt(PreferenceKeys.HOST_PORT, Constants.DEFAULT_PORT);
-                        Client01 listener1 = new Client01(ip, port);
-                        ip = listener1.listen();
+                        Client01 client = new Client01(Constants.DEFAULT_IP, Constants.DEFAULT_PORT);
+                        String ip = client.listen();
                         return ip;
-                    }
-                })
-                .observeOn(Schedulers.io())
-                .map(new Func1<String, String>() {
-                    @Override
-                    public String call(String ip) {
-                        Client02 sendClient = new Client02();
-                        sendClient.setIp(ip);
-                        String clientID = sendClient.sendMessage(getActivity());
-                        return clientID;
-                    }
-                })
-                .observeOn(Schedulers.io())
-                .map(new Func1<String, String>() {
-                    @Override
-                    public String call(String s) {
-                        Client04 listener4 = new Client04(Constants.DEFAULT_IP, Constants.DEFAULT_PORT);
-                        String message = listener4.listen();
-                        return message;
-                    }
-                })
-                .observeOn(Schedulers.io())
-                .map(new Func1<String, String>() {
-                    @Override
-                    public String call(String ip) {
-                        Client03 sendClient = new Client03();
-                        sendClient.setIp(ip);
-                        String clientID = sendClient.sendMessage(getActivity());
-                        return clientID;
                     }
                 })
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<String>() {
                     @Override
-                    public void call(String s) {
-                      //
+                    public void call(String str) {
+                        ip = str;
+                        getCommand();
+                        recieveFile();
+                    }
+                });
+    }
+
+    // command
+    public void getCommand() {
+        Observable.just(ip)
+                .filter(new Func1<String, Boolean>() {
+                    @Override
+                    public Boolean call(String ip) {
+                        return !TextUtils.isEmpty(ip);
+                    }
+                })
+                .observeOn(Schedulers.io())
+                .map(new Func1<String, String>() {
+                    @Override
+                    public String call(String s) {
+                        Client01Command client = new Client01Command(Constants.DEFAULT_IP, Constants.DEFAULT_PORT);
+                        String message = client.listen();
+                        return message;
+                    }
+                })
+                .filter(new Func1<String, Boolean>() {
+                    @Override
+                    public Boolean call(String message) {
+                        return message.split(".").length != 4;
+                    }
+                })
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<String>() {
+                    @Override
+                    public void call(String message) {
+                        // controlVideo
+                    }
+                });
+    }
+
+    // 02 03
+    public void recieveFile() {
+        Observable.just(ip)
+                .filter(new Func1<String, Boolean>() {
+                    @Override
+                    public Boolean call(String s) {
+                        return !TextUtils.isEmpty(s);
+                    }
+                })
+                .observeOn(Schedulers.io())
+                .flatMap(new Func1<String, Observable<Client02>>() {
+                    @Override
+                    public Observable<Client02> call(String ip) {
+                        Client02 client = new Client02();
+                        client.setIp(ip);
+                        client.getClientNum();
+                        sendMessage(ip);
+                        client.getFileInfo();
+                        client.recieveFile();
+                        return Observable.just(client);
+                    }
+                })
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<Client02>() {
+                    @Override
+                    public void call(Client02 client02) {
+//                        Client03 client = new Client03();
+//                        client.setIp(ip);
+//                        client.sendMessage(getActivity());
+                    }
+                });
+    }
+
+    public void sendMessage(String ip) {
+        Observable.just(ip)
+                .filter(new Func1<String, Boolean>() {
+                    @Override
+                    public Boolean call(String s) {
+                        return !TextUtils.isEmpty(s);
+                    }
+                })
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Action1<String>() {
+                    @Override
+                    public void call(String ip) {
+                        Client03 client = new Client03();
+                        client.setIp(ip);
+                        client.sendMessage(getActivity());
                     }
                 });
     }

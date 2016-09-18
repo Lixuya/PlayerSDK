@@ -58,14 +58,14 @@ public class NetUtil {
     }
 
     public static int getBatter(Context context) {
-        IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
-        Intent batteryStatus = context.registerReceiver(null, ifilter);
+        IntentFilter filter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        Intent batteryStatus = context.registerReceiver(null, filter);
         //当前剩余电量
-        int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+        int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
         //电量最大值
-        int scale = batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+        int scale = batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, 0);
         //电量百分比
-        int batteryPct = level / scale;
-        return batteryPct;
+        // int batteryPct = level / scale;
+        return level;
     }
 }

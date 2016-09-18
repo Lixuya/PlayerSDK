@@ -10,13 +10,13 @@ import java.net.UnknownHostException;
 /**
  * Created by xieqi on 2016/9/13.
  */
-public class Client04 {
+public class Client01Command {
     private int port;
     private String host;
     byte[] data = new byte[256];
     String[] command = new String[]{"COMMAND_PLAY", "COMMAND_PAUSE", "COMMAND_STOP", "COMMAND_REPLAY", "COMMAND_SEEK_"};
 
-    public Client04(String host, int port) {
+    public Client01Command(String host, int port) {
         this.host = host;
         this.port = port;
     }
@@ -27,20 +27,17 @@ public class Client04 {
         try {
             socket = new DatagramSocket(port);
             DatagramPacket packet = new DatagramPacket(data, data.length);
-            socket.receive(packet);
-            boolean breakFlag = false;
             while (true) {
                 Thread.currentThread().join(500);
+                socket.receive(packet);
                 message = new String(packet.getData(), 0, packet.getLength());
                 System.out.println(host + " " + port + " " + message);
                 for (String str : command) {
                     if (str.equals(message)) {
-                        breakFlag = true;
+                        break;
                     }
                 }
-                if (breakFlag) {
-                    break;
-                }
+                Log.w(Client01.class.getSimpleName(), message);
             }
         } catch (UnknownHostException e) {
             e.printStackTrace();

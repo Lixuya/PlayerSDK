@@ -9,10 +9,7 @@ import android.util.Log;
 
 import com.twirling.player.Constants;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -27,35 +24,20 @@ public class FileUtil {
     public static File file;
 
     // 读文件
-    public static String readFromSDCard(String fileName) {
-        return readFromSDCard(fileName, Constants.PAPH_DOWNLOAD);
-    }
-
-    // 读文件
-    public static String readFromSDCard(String fileName, String folderPath) {
-        StringBuilder text = new StringBuilder();
-        File file = new File(folderPath, fileName);
+    public static File readFromSDCard(String fileName) {
+        File file = new File(Constants.PAPH_OCULUS, fileName);
         try {
-            File path = new File(folderPath);
+            File path = new File(Constants.PAPH_OCULUS);
             if (!path.exists()) {
                 path.mkdirs();
             }
             if (!file.exists()) {
                 file.createNewFile();
             }
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String line = "";
-            while ((line = br.readLine()) != null) {
-                text.append(line);
-                text.append('\n');
-            }
-            br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return text.toString();
+        return file;
     }
 
 
@@ -89,7 +71,7 @@ public class FileUtil {
     public static List<String> getFileList() {
         //new的一个File对象
         List<String> list = new ArrayList<String>();
-        File f = new File(Constants.PAPH_DOWNLOAD);
+        File f = new File(Constants.PAPH_OCULUS);
         if (f.isDirectory()) {
             for (File file : f.listFiles()) {
                 if (file.getName().endsWith("mp4")) {

@@ -20,33 +20,45 @@ public class Client03 {
     private String ip = "";
     private int port = 10003;
     int index = 0;
-    String heart = "HEARTBEAT";
-    String charge = "VR_CHARGE_";
-    String batter = "VR_BATT_";
-    String time = "VR_TIME_";
+    private final String heart = "HEARTBEAT;";
+    private final String CHARGE = "VR_CHARGE_";
+    private final String BATTER = "VR_BATT_";
+    private final String time = "VR_TIME_";
 
     public String sendMessage(Context context) {
         String inputMsg = "";
         Socket socket = null;
         try {
             socket = new Socket(ip, 10003);
-            //构建IO
+            // 构建IO
             InputStream is = socket.getInputStream();
             OutputStream os = socket.getOutputStream();
-            //向服务器端发送一条消息
+            // 向服务器端发送一条消息
             Writer writer = new OutputStreamWriter(os);
+            writer.write(NetUtil.getMac());
+            writer.flush();
+            //
             int i = 1;
             while (true) {
                 Thread.currentThread().join(1000);
+                Log.v(Client03.class.getSimpleName(), time + i * 1000);
                 writer.write(time + i * 1000);
-                if (i % 5 == 0) {
-                    writer.write(heart);
-                }
-                if (i % 60 == 0) {
-                    writer.write(charge + NetUtil.isCharge(context));
-                    writer.write(batter + NetUtil.getBatter(context));
-                }
                 writer.flush();
+                if (i % 5 == 0) {
+                    Log.e(Client03.class.getSimpleName(), heart);
+                    writer.write(heart);
+                    writer.flush();
+                }
+                if (i % 6 == 0) {
+                    String charge = CHARGE + NetUtil.isCharge(context) + ";";
+                    String batter = BATTER + NetUtil.getBatter(context) + ";";
+                    Log.d(Client03.class.getSimpleName(), charge);
+                    Log.w(Client03.class.getSimpleName(), batter);
+                    writer.write(charge);
+                    writer.flush();
+                    writer.write(batter);
+                    writer.flush();
+                }
                 i++;
             }
         } catch (UnknownHostException e) {
