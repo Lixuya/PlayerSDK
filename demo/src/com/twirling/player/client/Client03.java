@@ -23,7 +23,7 @@ public class Client03 {
     private final String heart = "HEARTBEAT;";
     private final String CHARGE = "VR_CHARGE_";
     private final String BATTER = "VR_BATT_";
-    private final String time = "VR_TIME_";
+    private final String TIME = "VR_TIME_";
 
     public String sendMessage(Context context) {
         String inputMsg = "";
@@ -41,15 +41,16 @@ public class Client03 {
             int i = 1;
             while (true) {
                 Thread.currentThread().join(1000);
-                Log.v(Client03.class.getSimpleName(), time + i * 1000);
-                writer.write(time + i * 1000);
+                String time = TIME + i * 1000 + ";";
+                Log.v(Client03.class.getSimpleName(), time);
+                writer.write(time);
                 writer.flush();
                 if (i % 5 == 0) {
                     Log.e(Client03.class.getSimpleName(), heart);
                     writer.write(heart);
                     writer.flush();
                 }
-                if (i % 6 == 0) {
+                if (i % 60 == 0) {
                     String charge = CHARGE + NetUtil.isCharge(context) + ";";
                     String batter = BATTER + NetUtil.getBatter(context) + ";";
                     Log.d(Client03.class.getSimpleName(), charge);
