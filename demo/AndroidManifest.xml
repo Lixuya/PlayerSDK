@@ -10,7 +10,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="Player"
         android:largeHeap="true"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        tools:replace="android:label">
         <!-- This demo is singleTask since it makes launching via custom adb intents easier. -->
         <activity
             android:name="com.twirling.player.activity.ListShowActivity"

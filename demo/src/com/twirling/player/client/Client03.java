@@ -38,7 +38,7 @@ public class Client03 {
             writer.write(NetUtil.getMac());
             writer.flush();
             //
-            int i = 1;
+            int i = 0;
             while (true) {
                 Thread.currentThread().join(1000);
                 String time = TIME + i * 1000 + ";";
@@ -50,7 +50,7 @@ public class Client03 {
                     writer.write(heart);
                     writer.flush();
                 }
-                if (i % 60 == 0) {
+                if ((i + 60) % 60 == 0) {
                     String charge = CHARGE + NetUtil.isCharge(context) + ";";
                     String batter = BATTER + NetUtil.getBatter(context) + ";";
                     Log.d(Client03.class.getSimpleName(), charge);

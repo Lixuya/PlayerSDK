@@ -21,6 +21,16 @@ public class Client01Command {
         this.port = port;
     }
 
+    // Interface
+    public interface Listener {
+        public void setMessage(String sp1);
+    }
+
+    private Listener listener = null;
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
+    }
     public String listen() {
         String message = "";
         DatagramSocket socket = null;
@@ -37,7 +47,7 @@ public class Client01Command {
                         break;
                     }
                 }
-                Log.w(Client01.class.getSimpleName(), message);
+                listener.setMessage(message);
             }
         } catch (UnknownHostException e) {
             e.printStackTrace();

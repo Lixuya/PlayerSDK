@@ -24,6 +24,7 @@ public class SimpleVrVideoActivity extends Activity {
     private static final String STATE_IS_PAUSED = "isPaused";
     private static final String STATE_PROGRESS_TIME = "progressTime";
     private static final String STATE_VIDEO_DURATION = "videoDuration";
+    //
     public static final int LOAD_VIDEO_STATUS_UNKNOWN = 0;
     public static final int LOAD_VIDEO_STATUS_SUCCESS = 1;
     public static final int LOAD_VIDEO_STATUS_ERROR = 2;
@@ -37,13 +38,24 @@ public class SimpleVrVideoActivity extends Activity {
     private VrVideoView.Options videoOptions = new VrVideoView.Options();
     private WidgetMediaController wmc;
     private ImageView iv_play;
-    private String uri;
 
+    //
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        //
+        initData();
+        //
+        initView();
+        //
+        Intent videoIntent = new Intent(Intent.ACTION_VIEW);
+        videoIntent.setDataAndType(fileUri, "video/*");
+        onNewIntent(videoIntent);
+    }
+
+    public void initView() {
         //
         seekBar = (SeekBar) findViewById(R.id.seek_bar);
         seekBar.setOnSeekBarChangeListener(new SeekBarListener());
@@ -60,33 +72,20 @@ public class SimpleVrVideoActivity extends Activity {
         iv_play = (ImageView) findViewById(R.id.iv_play);
         iv_play.setVisibility(View.GONE);
         //
-        loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
-        //
-        initData();
-        //
-        Intent videoIntent = new Intent(Intent.ACTION_VIEW);
-        videoIntent.setDataAndType(fileUri, "video/*");
-        onNewIntent(videoIntent);
     }
 
     public void initData() {
+        loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             fileUri = Uri.parse(bundle.getString("uri"));
         }
     }
 
-    public int getLoadVideoStatus() {
-        return loadVideoStatus;
-    }
-
     @Override
     protected void onNewIntent(Intent intent) {
         setIntent(intent);
-        handleIntent(intent);
-    }
-
-    private void handleIntent(Intent intent) {
+        //
         if (Intent.ACTION_VIEW.equals(intent.getAction())) {
             Log.i(TAG, "ACTION_VIEW Intent received");
             fileUri = intent.getData();
@@ -241,5 +240,9 @@ public class SimpleVrVideoActivity extends Activity {
         public void onCompletion() {
             videoWidgetView.seekTo(0);
         }
+    }
+
+    public int getLoadVideoStatus() {
+        return loadVideoStatus;
     }
 }
