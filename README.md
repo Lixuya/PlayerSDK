@@ -14,6 +14,7 @@
 	FragmentOnline.java：在线播放和下载页面。
 	FragmentDownload.java：本地文件播放。
 ##2. 接口介绍：
+[![](https://jitpack.io/v/xieqiupeng/TwirlingPlayerSDK.svg)](https://jitpack.io/#xieqiupeng/TwirlingPlayerSDK)
 ##3. 项目展示：
 ![image](https://github.com/xieqiupeng/TwirlingPlayerSDK/blob/master/images/0.png)
 ![image](https://github.com/xieqiupeng/TwirlingPlayerSDK/blob/master/images/1.png)
