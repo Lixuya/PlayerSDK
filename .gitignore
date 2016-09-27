@@ -7,11 +7,13 @@
 /build
 /captures
 .idea/
-gradle/
-gradlew
-gradlew.bat
 gradle.properties
 settings.gradle
 images/3.png
 images/4.png
 demo/demo-release.apk
+demo/gradlew
+demo/gradlew.bat
+gradlew
+gradlew.bat
+demo/gradle/
