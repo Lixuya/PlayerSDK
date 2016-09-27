@@ -56,9 +56,9 @@ public class SimpleVrVideoActivity extends Activity {
 
     public void initView() {
         //
-        seekBar = (SeekBar) findViewById(R.id.seek_bar);
+        seekBar = (SeekBar) findViewById(R.id.sb);
         seekBar.setOnSeekBarChangeListener(new SeekBarListener());
-        statusText = (TextView) findViewById(R.id.status_text);
+        statusText = (TextView) findViewById(R.id.tv_load);
 
         videoWidgetView = (VrVideoView) findViewById(R.id.video_view);
         videoWidgetView.setFullscreenButtonEnabled(false);

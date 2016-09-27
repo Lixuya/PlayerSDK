@@ -6,7 +6,7 @@
 
     <!-- Seeking UI & progress indicator.-->
     <TextView
-        android:id="@+id/status_text"
+        android:id="@+id/tv_load"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="20dp"
@@ -14,7 +14,7 @@
         android:textSize="@dimen/caption_text_size" />
 
     <SeekBar
-        android:id="@+id/seek_bar"
+        android:id="@+id/sb"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="32dp"
