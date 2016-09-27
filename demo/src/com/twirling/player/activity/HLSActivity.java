@@ -1,6 +1,7 @@
 package com.twirling.player.activity;
 
 import android.net.Uri;
+import android.widget.Toast;
 
 import com.google.vr.sdk.widgets.video.VrVideoView;
 import com.twirling.www.libgvr.activity.SimpleVrVideoActivity;
@@ -13,8 +14,8 @@ public class HLSActivity extends SimpleVrVideoActivity {
 
     @Override
     protected void loadUrl(VrVideoView videoWidgetView) {
-        //  String uri = "http://yahooios2-i.akamaihd.net/hls/live/224964/iosstream/adinsert_test/master.m3u8";
-        String uri = "http://2997.liveplay.myqcloud.com/2997_cf282c595e0911e6a2cba4dcbef5e35a_550.m3u8";
+          String uri = "http://yahooios2-i.akamaihd.net/hls/live/224964/iosstream/adinsert_test/master.m3u8";
+//        String uri = "http://2997.liveplay.myqcloud.com/2997_cf282c595e0911e6a2cba4dcbef5e35a_550.m3u8";
         Uri fileUri = Uri.parse(uri);
         try {
             videoWidgetView.setInfoButtonEnabled(false);
@@ -24,6 +25,13 @@ public class HLSActivity extends SimpleVrVideoActivity {
             videoWidgetView.loadVideo(fileUri, options);
         } catch (IOException e) {
             e.printStackTrace();
+            // Since this is a background thread, we need to switch to the main thread to show a toast.
+            videoWidgetView.post(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(HLSActivity.this, "Error opening file. ", Toast.LENGTH_LONG).show();
+                }
+            });
         }
     }
 }

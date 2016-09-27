@@ -10,10 +10,10 @@ android {
 
     defaultConfig {
         applicationId "com.twirling.player"
-        minSdkVersion 19
-        targetSdkVersion 23
-        versionCode 6
-        versionName "1.5.6"
+        minSdkVersion setup.minSdk
+        targetSdkVersion setup.targetSdk
+        versionCode setup.vcode
+        versionName setup.vname
     }
     signingConfigs {
         def isRelease = gradle.startParameter.taskNames.any { it.contains('Release') }

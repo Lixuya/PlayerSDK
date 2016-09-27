@@ -35,7 +35,6 @@ public class SimpleVrVideoActivity extends Activity {
     private SeekBar seekBar;
     private TextView statusText;
     private boolean isPaused = false;
-    private VrVideoView.Options videoOptions = new VrVideoView.Options();
     private WidgetMediaController wmc;
     private ImageView iv_play;
 
@@ -227,7 +226,7 @@ public class SimpleVrVideoActivity extends Activity {
 
         @Override
         public void onClick() {
-//            togglePause();
+            togglePause();
         }
 
         @Override
