@@ -40,7 +40,8 @@ public class ListShowActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tl);
         tabLayout.addTab(tabLayout.newTab().setText(adapter.getPageTitle(0)));
         tabLayout.addTab(tabLayout.newTab().setText(adapter.getPageTitle(1)));
-//        tabLayout.addTab(tabLayout.newTab().setText(adapter.getPageTitle(2)));
+        tabLayout.addTab(tabLayout.newTab().setText(adapter.getPageTitle(2)));
+        tabLayout.addTab(tabLayout.newTab().setText(adapter.getPageTitle(3)));
         tabLayout.setupWithViewPager(viewPager);
     }
 
