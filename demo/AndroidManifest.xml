@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.twirling.player.activity.SimpleVrVideoActivity"
+            android:name="com.twirling.player.com.twirling.www.libgvr.activity.SimpleVrVideoActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen"

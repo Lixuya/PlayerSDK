@@ -1,4 +1,4 @@
-package com.twirling.player.util;
+package com.twirling.www.libgvr.util;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
 
-import com.twirling.player.Constants;
+import com.twirling.www.libgvr.Constants;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +20,7 @@ import java.util.List;
  * Created by 谢秋鹏 on 2016/5/27.
  */
 public class FileUtil {
-    public int contentLength;
+    //
     public static File file;
 
     // 读文件
@@ -39,7 +39,6 @@ public class FileUtil {
         }
         return file;
     }
-
 
     public static void downMp4(String inputMsg, File file) {
         try {

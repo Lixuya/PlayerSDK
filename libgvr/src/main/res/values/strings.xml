@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">libgvr</string>
+    <string name="loading_video">加载视频...</string>
 </resources>

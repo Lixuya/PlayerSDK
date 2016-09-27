@@ -136,7 +136,7 @@
 
 
 #com.toughwo.entities,because using Gson
--keep class com.twirling.player.config.PreferenceKeys{*;}
+-keep class com.twirling.player.client.PreferenceKeys{*;}
 -keep class com.twirling.player.client.Client01{*;}
 -keep class com.twirling.player.client.Client02{*;}
 -keep class com.twirling.player.client.Client03{*;}

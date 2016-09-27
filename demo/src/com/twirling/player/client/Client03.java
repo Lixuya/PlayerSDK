@@ -3,7 +3,7 @@ package com.twirling.player.client;
 import android.content.Context;
 import android.util.Log;
 
-import com.twirling.player.util.NetUtil;
+import com.twirling.www.libgvr.util.NetUtil;
 
 import java.io.IOException;
 import java.io.InputStream;

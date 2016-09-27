@@ -1,4 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 android {
     compileSdkVersion 24
@@ -7,8 +11,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        versionCode 6
+        versionName "1.5.6"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -17,6 +21,16 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            aidl.srcDirs = ['aidl']
+            renderscript.srcDirs = ['rs']
+            assets.srcDirs = ['assets']
+            jni.srcDirs = [];
+            jniLibs.srcDirs = ['libs']
         }
     }
 }
@@ -29,6 +43,9 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
     //
-    compile 'com.github.User:Repo:Tag'
-    //
+    compile(name: 'videowidget', ext: 'aar')
+    compile(name: 'common', ext: 'aar')
+    compile(name: 'commonwidget', ext: 'aar')
+//    compile(name: 'base', ext: 'aar')
+
 }

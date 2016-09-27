@@ -1,4 +1,4 @@
-package com.twirling.player;
+package com.twirling.www.libgvr.widget;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.MediaController;
+
+import com.twirling.www.libgvr.R;
 
 /**
  * Created by 谢秋鹏 on 2016/7/13.

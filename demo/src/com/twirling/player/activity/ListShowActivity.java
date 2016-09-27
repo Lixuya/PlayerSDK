@@ -11,7 +11,7 @@ import com.twirling.player.fragment.FragmentDownload;
 import com.twirling.player.fragment.FragmentLive;
 import com.twirling.player.fragment.FragmentOnline;
 import com.twirling.player.fragment.FragmentSocket;
-import com.twirling.player.fragment.ViewPagerAdapter;
+import com.twirling.www.libgvr.adapter.ViewPagerAdapter;
 
 public class ListShowActivity extends AppCompatActivity {
     public static String playuri;

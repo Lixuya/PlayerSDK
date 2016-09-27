@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.twirling.player.Constants;
 import com.twirling.player.R;
-import com.twirling.player.activity.SimpleVrVideoActivity;
+import com.twirling.www.libgvr.activity.SimpleVrVideoActivity;
 
 import java.util.ArrayList;
 import java.util.List;

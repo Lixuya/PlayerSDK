@@ -2,8 +2,8 @@ package com.twirling.player.client;
 
 import android.util.Log;
 
-import com.twirling.player.util.FileUtil;
-import com.twirling.player.util.NetUtil;
+import com.twirling.www.libgvr.util.FileUtil;
+import com.twirling.www.libgvr.util.NetUtil;
 
 import java.io.DataInputStream;
 import java.io.File;

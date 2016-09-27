@@ -1,4 +1,4 @@
-package com.twirling.player.fragment;
+package com.twirling.www.libgvr.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -1,4 +1,4 @@
-package com.twirling.player.config;
+package com.twirling.player.client;
 
 /**
  * <p>Created by Melle Dijkstra on 17-4-2016</p>

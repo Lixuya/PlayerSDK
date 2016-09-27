@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 
 import com.twirling.player.Constants;
 import com.twirling.player.R;
-import com.twirling.player.activity.SimpleVrVideoActivity;
+import com.twirling.www.libgvr.activity.SimpleVrVideoActivity;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;

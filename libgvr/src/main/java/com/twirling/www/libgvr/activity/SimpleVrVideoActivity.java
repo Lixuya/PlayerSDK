@@ -1,4 +1,4 @@
-package com.twirling.player.activity;
+package com.twirling.www.libgvr.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import com.google.vr.sdk.widgets.video.VrVideoEventListener;
 import com.google.vr.sdk.widgets.video.VrVideoView;
-import com.twirling.player.R;
-import com.twirling.player.WidgetMediaController;
+import com.twirling.www.libgvr.R;
+import com.twirling.www.libgvr.widget.WidgetMediaController;
 
 import java.io.IOException;
 
