@@ -1,1 +1,3 @@
 include ':demo', ':libgvr'
+
+rootProject.name = 'libgvr'
