@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-// Your Group
 group = 'com.github.xieqiupeng'
 
 Properties properties = new Properties()
@@ -35,6 +34,10 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+}
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
 
 repositories {
