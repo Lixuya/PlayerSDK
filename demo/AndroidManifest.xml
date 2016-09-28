@@ -4,7 +4,6 @@
     package="com.twirling.player">
 
     <!-- The app has largeHeap enabled which is required for loading large files. -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -32,14 +31,6 @@
             tools:ignore="NewApi">
             <category android:name="com.google.intent.category.CARDBOARD" />
         </activity>
-
-        <!-- 监听充电状态 -->
-        <receiver android:name=".PowerConnectionReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-            </intent-filter>
-        </receiver>
     </application>
 
     <!-- These permissions are used by Google VR SDK to get the best Google VR headset profiles. !-->
@@ -49,4 +40,5 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
 </manifest>

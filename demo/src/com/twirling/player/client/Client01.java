@@ -26,6 +26,7 @@ public class Client01 {
         DatagramSocket socket = null;
         try {
             socket = new DatagramSocket(port);
+            socket.setSoTimeout(5000);
             DatagramPacket packet = new DatagramPacket(data, data.length);
             //receive()是阻塞方法，会等待客户端发送过来的信息
             socket.receive(packet);
