@@ -1,3 +1,2 @@
-include ':demo', ':libgvr'
-
-rootProject.name = 'libgvr'
+include ':libgvr'
+rootProject.name = 'TwirlingPlayerSDK'
