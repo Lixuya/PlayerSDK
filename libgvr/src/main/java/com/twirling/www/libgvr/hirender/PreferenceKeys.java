@@ -8,7 +8,8 @@ package com.twirling.www.libgvr.hirender;
 public class PreferenceKeys {
 
     // Private constructor because its a static class
-    private PreferenceKeys() {}
+    private PreferenceKeys() {
+    }
 
     /**
      * The remote ip connection to be used for socket connection
