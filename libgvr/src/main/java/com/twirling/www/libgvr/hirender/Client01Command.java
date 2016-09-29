@@ -21,16 +21,18 @@ public class Client01Command {
         this.port = port;
     }
 
+    private Listener listener = null;
+
     // Interface
     public interface Listener {
         public void setMessage(String sp1);
     }
 
-    private Listener listener = null;
-
     public void setListener(Listener listener) {
+        //
         this.listener = listener;
     }
+
     public String listen() {
         String message = "";
         DatagramSocket socket = null;
@@ -56,7 +58,7 @@ public class Client01Command {
         } finally {
             socket.disconnect();
             socket.close();
-            Log.d(Client01.class.getSimpleName(), message);
+            Log.d(Client01Command.class.getSimpleName(), message);
             return message;
         }
     }
