@@ -50,6 +50,10 @@ public class FileUtil {
 
     /**
      * 转换 path路径
+     *
+     * @param c
+     * @param uri
+     * @return
      */
     public static String getFilePathFromUri(Context c, Uri uri) {
         String filePath = null;

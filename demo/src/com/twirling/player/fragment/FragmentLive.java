@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.twirling.player.activity.HLSActivity;
+import com.twirling.www.libgvr.activity.HLSActivity;
 import com.twirling.player.R;
 
 import butterknife.BindView;
