@@ -8,22 +8,22 @@
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true">
-        <activity
-            android:name=".activity.SimpleVrVideoActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen"
-            tools:ignore="NewApi">
-            <category android:name="com.google.intent.category.CARDBOARD" />
-        </activity>
+        <!--<activity-->
+            <!--android:name=".activity.SimpleVrVideoActivity"-->
+            <!--android:launchMode="singleTask"-->
+            <!--android:screenOrientation="landscape"-->
+            <!--android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen"-->
+            <!--tools:ignore="NewApi">-->
+            <!--<category android:name="com.google.intent.category.CARDBOARD" />-->
+        <!--</activity>-->
 
 
-        <!-- 监听充电状态 -->
-        <receiver android:name=".PowerConnectionReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-            </intent-filter>
-        </receiver>
+        <!--&lt;!&ndash; 监听充电状态 &ndash;&gt;-->
+        <!--<receiver android:name=".PowerConnectionReceiver">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.ACTION_POWER_CONNECTED" />-->
+                <!--<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
     </application>
 </manifest>
