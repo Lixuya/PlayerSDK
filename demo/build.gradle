@@ -65,11 +65,6 @@ dependencies {
     //
     compile project(':libgvr');
     //
-    compile(name: 'videowidget', ext: 'aar')
-    compile(name: 'common', ext: 'aar')
-    compile(name: 'commonwidget', ext: 'aar')
-//    compile(name: 'base', ext: 'aar')
-    //
     compile 'com.jakewharton:butterknife:8.1.0'
     apt "com.jakewharton:butterknife-compiler:8.1.0"
     //

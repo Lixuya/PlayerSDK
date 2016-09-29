@@ -35,7 +35,7 @@ public class FragmentDownload extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_download, container, false);
         ButterKnife.bind(this, rootView);
         //
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 1);
+        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 1);
 //        mRecyclerView.addItemDecoration(new DividerGridItemDecoration(getBaseContext()));
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);

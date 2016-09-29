@@ -16,7 +16,14 @@
             tools:ignore="NewApi">
             <category android:name="com.google.intent.category.CARDBOARD" />
         </activity>
-
+        <activity
+            android:name=".activity.HLSActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen"
+            tools:ignore="NewApi">
+            <category android:name="com.google.intent.category.CARDBOARD" />
+        </activity>
 
         <!-- 监听充电状态 -->
         <receiver android:name=".PowerConnectionReceiver">
