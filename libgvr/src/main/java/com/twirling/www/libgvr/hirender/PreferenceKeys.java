@@ -1,4 +1,4 @@
-package com.twirling.player.client;
+package com.twirling.www.libgvr.hirender;
 
 /**
  * <p>Created by Melle Dijkstra on 17-4-2016</p>

@@ -1,4 +1,4 @@
-package com.twirling.player.client;
+package com.twirling.www.libgvr.hirender;
 
 import java.io.*;
 import java.net.*;
