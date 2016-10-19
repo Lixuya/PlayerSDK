@@ -76,8 +76,9 @@ public class SimpleVrVideoActivity extends Activity {
     public void initData() {
         loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
         Bundle bundle = getIntent().getExtras();
-        if (bundle != null) {
-            fileUri = Uri.parse(bundle.getString("uri"));
+        String uri = bundle.getString("uri");
+        if (uri != null) {
+            fileUri = Uri.parse(uri);
         }
     }
 
@@ -107,7 +108,7 @@ public class SimpleVrVideoActivity extends Activity {
             options.inputFormat = VrVideoView.Options.FORMAT_DEFAULT;
             if (fileUri == null) {
                 options.inputType = VrVideoView.Options.TYPE_STEREO_OVER_UNDER;
-                videoWidgetView.loadVideoFromAsset("congo.mp4", options);
+                videoWidgetView.loadVideoFromAsset("testRoom1_1080Stereo.mp4", options);
             } else {
                 options.inputType = VrVideoView.Options.TYPE_MONO;
                 videoWidgetView.loadVideo(fileUri, options);

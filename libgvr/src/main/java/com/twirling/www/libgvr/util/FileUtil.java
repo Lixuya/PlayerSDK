@@ -81,13 +81,30 @@ public class FileUtil {
             for (File file : f.listFiles()) {
                 if (file.getName().endsWith("mp4")) {
                     String name = file.getName().substring(0, file.getName().length() - 4);
-                    Log.e("www", file.getName());
                     list.add(name);
                 }
             }
-        } else {
-            Log.w("www", "not a firectory");
         }
+        Log.e("getFileList", list.size() + "");
+        return list;
+    }
+
+    public static List<String> getAssetList(Context context) {
+        String[] str = new String[0];
+        try {
+            str = context.getAssets().list("");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        List<String> list = new ArrayList<String>();
+        for (String name : str) {
+            if (name.endsWith("mp4")) {
+                name = name.substring(0, name.length() - 4);
+                name += "assets";
+                list.add(name);
+            }
+        }
+        Log.e("getAssetList", list.size() + "");
         return list;
     }
 

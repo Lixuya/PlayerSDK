@@ -62,6 +62,7 @@ public class FragmentDownload extends Fragment {
     private void loadData() {
         datas.clear();
         datas.addAll(FileUtil.getFileList());
+        datas.addAll(FileUtil.getAssetList(getActivity()));
         mAdapter.notifyDataSetChanged();
     }
 

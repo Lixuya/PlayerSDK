@@ -54,18 +54,13 @@ public class OffineAdapter extends RecyclerView.Adapter<OffineAdapter.ViewHolder
         holder.cv_card.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.putExtra("uri", PAPH_OCULUS + datas.get(position));
+                String uri = PAPH_OCULUS + datas.get(position);
+                if (datas.get(position).endsWith("assets")) {
+                    uri = null;
+                }
+                intent.putExtra("uri", uri);
                 intent.setClass(holder.itemView.getContext(), SimpleVrVideoActivity.class);
                 holder.itemView.getContext().startActivity(intent);
-                //
-//                Intent intent = new Intent(Intent.ACTION_MAIN);
-//                intent.addCategory(Intent.CATEGORY_LAUNCHER);
-//                String pkg = "com.oculus.oculus360videossdk";
-//                String cls = "com.oculus.oculus360videossdk.MainActivity";
-//                ComponentName cn = new ComponentName(pkg, cls);
-//                intent.setComponent(cn);
-//                intent.setData(Uri.parse(Constants.PAPH_DOWNLOAD + datas.get(position)));
-//                holder.itemView.getContext().startActivity(intent);
             }
         });
     }
