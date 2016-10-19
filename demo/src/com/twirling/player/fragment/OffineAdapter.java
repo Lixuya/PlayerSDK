@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.twirling.player.Constants;
 import com.twirling.player.R;
 import com.twirling.www.libgvr.activity.SimpleVrVideoActivity;
 
@@ -19,6 +18,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.twirling.player.Constants.deleteFile;
+import static com.twirling.www.libgvr.Constants.PAPH_OCULUS;
 
 /**
  * Created by 谢秋鹏 on 2016/5/26.
@@ -45,14 +47,14 @@ public class OffineAdapter extends RecyclerView.Adapter<OffineAdapter.ViewHolder
         holder.iv_delete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 holder.cv_card.setVisibility(View.GONE);
-                Constants.deleteFile();
+                deleteFile();
             }
         });
         //
         holder.cv_card.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.putExtra("uri", Constants.PAPH_OCULUS + datas.get(position));
+                intent.putExtra("uri", PAPH_OCULUS + datas.get(position));
                 intent.setClass(holder.itemView.getContext(), SimpleVrVideoActivity.class);
                 holder.itemView.getContext().startActivity(intent);
                 //

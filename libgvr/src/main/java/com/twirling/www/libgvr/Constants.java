@@ -13,4 +13,6 @@ public class Constants {
     public static final String DEFAULT_IP = "255.255.255.255";
     public static final int DEFAULT_PORT = 10001;
     public static final int DEFAULT_TIMEOUT = 5000;
+    //
+    public static final String APP_TAG = "TwirlingVR";
 }

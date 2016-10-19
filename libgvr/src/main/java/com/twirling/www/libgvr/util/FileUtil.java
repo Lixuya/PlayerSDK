@@ -24,10 +24,20 @@ public class FileUtil {
     public static File file;
 
     // 读文件
-    public static File readFromSDCard(String fileName) {
-        File file = new File(Constants.PAPH_OCULUS, fileName);
+    public static File readFromOculus(String fileName) {
+        return readFromPath(fileName, Constants.PAPH_OCULUS);
+    }
+
+    // 读文件
+    public static File readFromDownload(String fileName) {
+        return readFromPath(fileName, Constants.PAPH_DOWNLOAD);
+    }
+
+    // 读文件
+    public static File readFromPath(String fileName, String filePath) {
+        File file = new File(filePath, fileName);
         try {
-            File path = new File(Constants.PAPH_OCULUS);
+            File path = new File(filePath);
             if (!path.exists()) {
                 path.mkdirs();
             }
@@ -38,14 +48,6 @@ public class FileUtil {
             e.printStackTrace();
         }
         return file;
-    }
-
-    public static void downMp4(String inputMsg, File file) {
-        try {
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -78,8 +80,9 @@ public class FileUtil {
         if (f.isDirectory()) {
             for (File file : f.listFiles()) {
                 if (file.getName().endsWith("mp4")) {
+                    String name = file.getName().substring(0, file.getName().length() - 4);
                     Log.e("www", file.getName());
-                    list.add(file.getName());
+                    list.add(name);
                 }
             }
         } else {

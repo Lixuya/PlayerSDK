@@ -79,7 +79,7 @@ public class Client02 {
 
     private void recieveFile(int len, int videoIndex, byte[] bytes) throws IOException {
         Log.e(Client02.class.getSimpleName(), len + " " + videoIndex);
-        File download = FileUtil.readFromSDCard(name);
+        File download = FileUtil.readFromOculus(name);
         FileOutputStream outFile = null;
         try {
             outFile = new FileOutputStream(download);

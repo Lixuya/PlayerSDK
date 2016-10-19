@@ -16,10 +16,10 @@ import android.view.ViewGroup;
 
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
-import com.twirling.player.Constants;
 import com.twirling.player.R;
-import com.twirling.www.libgvr.activity.HLSActivity;
 import com.twirling.player.activity.ListShowActivity;
+import com.twirling.www.libgvr.Constants;
+import com.twirling.www.libgvr.activity.HLSActivity;
 import com.twirling.www.libgvr.hirender.Client01;
 import com.twirling.www.libgvr.hirender.Client01Command;
 import com.twirling.www.libgvr.hirender.Client02;
