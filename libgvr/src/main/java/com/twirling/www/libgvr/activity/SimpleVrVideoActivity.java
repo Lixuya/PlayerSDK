@@ -76,10 +76,14 @@ public class SimpleVrVideoActivity extends Activity {
     public void initData() {
         loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
         Bundle bundle = getIntent().getExtras();
-        String uri = bundle.getString("uri");
-        if (uri != null) {
-            fileUri = Uri.parse(uri);
+        if (bundle == null) {
+            return;
         }
+        String uri = bundle.getString("uri");
+        if (uri == null) {
+            return;
+        }
+        fileUri = Uri.parse(uri);
     }
 
     @Override
