@@ -80,7 +80,7 @@ public class FileUtil {
         if (f.isDirectory()) {
             for (File file : f.listFiles()) {
                 if (file.getName().endsWith("mp4")) {
-                    String name = file.getName().substring(0, file.getName().length() - 4);
+                    String name = file.getName().substring(0, file.getName().length());
                     list.add(name);
                 }
             }

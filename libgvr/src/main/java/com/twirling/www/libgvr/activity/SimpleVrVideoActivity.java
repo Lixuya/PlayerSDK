@@ -114,7 +114,7 @@ public class SimpleVrVideoActivity extends Activity {
                 options.inputType = VrVideoView.Options.TYPE_STEREO_OVER_UNDER;
                 videoWidgetView.loadVideoFromAsset("testRoom1_1080Stereo.mp4", options);
             } else {
-                options.inputType = VrVideoView.Options.TYPE_MONO;
+                options.inputType = VrVideoView.Options.TYPE_STEREO_OVER_UNDER;
                 videoWidgetView.loadVideo(fileUri, options);
             }
         } catch (IOException e) {
