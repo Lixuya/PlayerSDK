@@ -7,8 +7,8 @@ buildscript {
                  buildTools: "24.0.3",
                  minSdk    : 19,
                  targetSdk : 24,
-                 vcode     : 6,
-                 vname     : "1.5.6"]
+                 vcode     : 8,
+                 vname     : "1.5.8"]
         //
         versions = [supportLib: "24.2.1"]
     }
@@ -17,7 +17,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0'
+        classpath 'com.android.tools.build:gradle:2.2.2'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
