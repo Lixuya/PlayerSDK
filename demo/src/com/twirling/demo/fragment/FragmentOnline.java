@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
-import com.twirling.demo.Constants;
 import com.twirling.demo.R;
 import com.twirling.player.activity.SimpleVrVideoActivity;
 
@@ -21,6 +20,10 @@ import java.net.URLConnection;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.twirling.demo.Constants.FILE_PATH;
+import static com.twirling.demo.Constants.getFile;
+import static com.twirling.player.Constants.is3D;
 
 /**
  * Created by 谢秋鹏 on 2016/5/27.
@@ -55,6 +58,7 @@ public class FragmentOnline extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.putExtra("uri", playuri);
+                is3D = false;
                 //设置跳转新的activity，参数（当前对象，跳转到的class）
                 intent.setClass(getActivity(), SimpleVrVideoActivity.class);
                 //启动Activity 没有返回
@@ -67,7 +71,7 @@ public class FragmentOnline extends Fragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         if (isVisibleToUser) {
-            if (Constants.getFile() == null) {
+            if (getFile() == null) {
                 mPbLoading.setProgress(0);
             }
         }
@@ -92,12 +96,12 @@ public class FragmentOnline extends Fragment {
             int len;
 
             // 输出的文件流
-            FileOutputStream os = new FileOutputStream(Constants.FILE_PATH);
+            FileOutputStream os = new FileOutputStream(FILE_PATH);
 
             // 开始读取
             while ((len = is.read(bs)) != -1) {
                 os.write(bs, 0, len);
-                mPbLoading.setProgress((int) Constants.getFile().length());
+                mPbLoading.setProgress((int) getFile().length());
             }
             // 完毕，关闭所有链接
             os.close();

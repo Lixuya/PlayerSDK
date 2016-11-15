@@ -12,8 +12,6 @@ public class Constants {
     public static final String FILE_NAME = "jiaoyu.mp4";
     public static final String FILE_PATH = PAPH_DOWNLOAD + FILE_NAME;
 
-    public static boolean is3D = false;
-
     private static File file = null;
 
     public static File getFile() {
