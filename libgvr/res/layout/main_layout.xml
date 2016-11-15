@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.twirling.www.libgvr.widget.WidgetMediaController
+    <com.twirling.player.widget.WidgetMediaController
         android:id="@+id/wmc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
