@@ -57,11 +57,9 @@ public class SimpleVrVideoActivity extends Activity {
     }
 
     public void initView() {
+        iv_play = (ImageView) findViewById(R.id.iv_play);
+        iv_play.setVisibility(View.GONE);
         //
-        seekBar = (SeekBar) findViewById(R.id.sb);
-        seekBar.setOnSeekBarChangeListener(new SeekBarListener());
-        statusText = (TextView) findViewById(R.id.tv_load);
-
         videoWidgetView = (VrVideoView) findViewById(R.id.video_view);
         videoWidgetView.setFullscreenButtonEnabled(false);
         videoWidgetView.setInfoButtonEnabled(false);
@@ -70,9 +68,9 @@ public class SimpleVrVideoActivity extends Activity {
         wmc = (WidgetMediaController) findViewById(R.id.wmc);
         wmc.setVisibility(View.GONE);
         //
-        iv_play = (ImageView) findViewById(R.id.iv_play);
-        iv_play.setVisibility(View.GONE);
-        //
+        seekBar = (SeekBar) wmc.findViewById(R.id.sb);
+        seekBar.setOnSeekBarChangeListener(new SeekBarListener());
+        statusText = (TextView) wmc.findViewById(R.id.tv_load);
     }
 
     public void initData() {
