@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.xieqiupeng'
+group = 'com/github/xieqiupeng'
 version = setup.vname
 //
 Properties properties = new Properties()
