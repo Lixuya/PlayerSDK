@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.twirling.demo.R;
+import com.twirling.player.Constants;
 import com.twirling.player.activity.SimpleVrVideoActivity;
 
 import java.io.FileOutputStream;
@@ -23,7 +24,6 @@ import butterknife.ButterKnife;
 
 import static com.twirling.demo.Constants.FILE_PATH;
 import static com.twirling.demo.Constants.getFile;
-import static com.twirling.player.Constants.is3D;
 
 /**
  * Created by 谢秋鹏 on 2016/5/27.
@@ -58,7 +58,7 @@ public class FragmentOnline extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.putExtra("VideoItem", playuri);
-                is3D = false;
+                Constants.is3D = false;
                 //设置跳转新的activity，参数（当前对象，跳转到的class）
                 intent.setClass(getActivity(), SimpleVrVideoActivity.class);
                 //启动Activity 没有返回

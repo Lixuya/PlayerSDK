@@ -38,7 +38,6 @@ public class SimpleVrVideoActivity extends Activity {
     private boolean isPaused = false;
     private WidgetMediaController wmc;
     private ImageView iv_play;
-    private boolean is3D = false;
 
     //
     @Override
@@ -80,7 +79,7 @@ public class SimpleVrVideoActivity extends Activity {
             return;
         }
         String uri = bundle.getString("VideoItem");
-        this.is3D = bundle.getBoolean("Is3D", false);
+        Constants.is3D = bundle.getBoolean("Is3D", false);
         if (uri == null) {
             return;
         }
