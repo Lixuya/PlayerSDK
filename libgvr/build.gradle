@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group = 'com/github/xieqiupeng'
+group = 'com.github.xieqiupeng'
 version = setup.vname
 //
 Properties properties = new Properties()
@@ -69,7 +69,6 @@ dependencies {
     compile(name: 'videowidget', ext: 'aar')
     compile(name: 'common', ext: 'aar')
     compile(name: 'commonwidget', ext: 'aar')
-//    compile(name: 'base', ext: 'aar')
     //
     compile "com.android.support:appcompat-v7:${versions.supportLib}"
     compile "com.android.support:cardview-v7:${versions.supportLib}"
@@ -85,7 +84,5 @@ dependencies {
     compile "com.jakewharton.rxbinding:rxbinding-design:$Rxbinding_Version"
     //
     compile 'com.orhanobut:logger:1.15'
-    //
 }
-
 //apply from: "https://raw.githubusercontent.com/xiaopansky/android-library-publish-to-jcenter/master/bintrayUpload.gradle"
