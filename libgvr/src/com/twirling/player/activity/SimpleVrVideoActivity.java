@@ -79,7 +79,8 @@ public class SimpleVrVideoActivity extends Activity {
         if (bundle == null) {
             return;
         }
-        String uri = bundle.getString("uri");
+        String uri = bundle.getString("VideoItem");
+        this.is3D = bundle.getBoolean("Is3D", false);
         if (uri == null) {
             return;
         }
@@ -103,10 +104,6 @@ public class SimpleVrVideoActivity extends Activity {
             fileUri = null;
         }
         loadUrl(videoWidgetView);
-    }
-
-    public void setIs3D() {
-        this.is3D = is3D;
     }
 
     //

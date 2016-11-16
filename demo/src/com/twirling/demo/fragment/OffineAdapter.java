@@ -58,7 +58,8 @@ public class OffineAdapter extends RecyclerView.Adapter<OffineAdapter.ViewHolder
                 if (datas.get(position).endsWith("assets")) {
                     uri = null;
                 }
-                intent.putExtra("uri", uri);
+                intent.putExtra("VideoItem", uri);
+                intent.putExtra("Is3D", true);
                 intent.setClass(holder.itemView.getContext(), SimpleVrVideoActivity.class);
                 holder.itemView.getContext().startActivity(intent);
             }

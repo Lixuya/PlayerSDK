@@ -57,7 +57,7 @@ public class FragmentOnline extends Fragment {
         play.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.putExtra("uri", playuri);
+                intent.putExtra("VideoItem", playuri);
                 is3D = false;
                 //设置跳转新的activity，参数（当前对象，跳转到的class）
                 intent.setClass(getActivity(), SimpleVrVideoActivity.class);
