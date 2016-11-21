@@ -39,6 +39,19 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    productFlavors {
+        armv7 {
+            ndk {
+                abiFilter "armeabi-v7a"
+            }
+        }
+        armv8 {
+            ndk {
+                abiFilter "armeabi-v7a"
+            }
+        }
+        fat
+    }
 }
 
 configurations.all {
