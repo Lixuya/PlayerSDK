@@ -3,14 +3,14 @@
 buildscript {
     ext {
         //
-        setup = [compileSdk: 24,
-                 buildTools: "24.0.3",
+        setup = [compileSdk: 25,
+                 buildTools: "25.0.0",
                  minSdk    : 19,
-                 targetSdk : 24,
-                 vcode     : 11,
-                 vname     : "1.5.11"]
+                 targetSdk : 25,
+                 vcode     : 12,
+                 vname     : "1.6.0"]
         //
-        versions = [supportLib: "24.2.1"]
+        versions = [supportLib: "25.0.1"]
     }
     repositories {
         jcenter()
@@ -18,9 +18,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.2'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -30,8 +29,9 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        maven { url "https://jitpack.io" }
+        maven {
+            url "https://jitpack.io"
+        }
     }
 }
 
