@@ -35,7 +35,7 @@ android {
             aidl.srcDirs = ['aidl']
             renderscript.srcDirs = ['rs']
             assets.srcDirs = ['assets']
-            jni.srcDirs = ['libs'];
+            jni.srcDirs = [];
             jniLibs.srcDirs = ['libs']
         }
     }

@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.twirling.demo.R;
-import com.twirling.player.activity.SimpleVrVideoActivity;
+import com.twirling.player.activity.TwirlingPlayerActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +60,7 @@ public class OffineAdapter extends RecyclerView.Adapter<OffineAdapter.ViewHolder
                 }
                 intent.putExtra("VideoItem", uri);
                 intent.putExtra("Is3D", true);
-                intent.setClass(holder.itemView.getContext(), SimpleVrVideoActivity.class);
+                intent.setClass(holder.itemView.getContext(), TwirlingPlayerActivity.class);
                 holder.itemView.getContext().startActivity(intent);
             }
         });

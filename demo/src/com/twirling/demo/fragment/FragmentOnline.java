@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 
 import com.twirling.demo.R;
 import com.twirling.player.Constants;
-import com.twirling.player.activity.SimpleVrVideoActivity;
+import com.twirling.player.activity.TwirlingPlayerActivity;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -60,7 +60,7 @@ public class FragmentOnline extends Fragment {
                 intent.putExtra("VideoItem", playuri);
                 Constants.is3D = false;
                 //设置跳转新的activity，参数（当前对象，跳转到的class）
-                intent.setClass(getActivity(), SimpleVrVideoActivity.class);
+                intent.setClass(getActivity(), TwirlingPlayerActivity.class);
                 //启动Activity 没有返回
                 startActivity(intent);
             }

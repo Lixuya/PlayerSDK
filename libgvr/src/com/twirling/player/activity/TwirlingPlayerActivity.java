@@ -20,8 +20,8 @@ import com.twirling.player.widget.WidgetMediaController;
 
 import java.io.IOException;
 
-public class SimpleVrVideoActivity extends Activity {
-    private static final String TAG = SimpleVrVideoActivity.class.getSimpleName();
+public class TwirlingPlayerActivity extends Activity {
+    private static final String TAG = TwirlingPlayerActivity.class.getSimpleName();
     private static final String STATE_IS_PAUSED = "isPaused";
     private static final String STATE_PROGRESS_TIME = "progressTime";
     private static final String STATE_VIDEO_DURATION = "videoDuration";
@@ -127,7 +127,7 @@ public class SimpleVrVideoActivity extends Activity {
             videoWidgetView.post(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(SimpleVrVideoActivity.this, "Error opening file. ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(TwirlingPlayerActivity.this, "Error opening file. ", Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -228,7 +228,7 @@ public class SimpleVrVideoActivity extends Activity {
         @Override
         public void onLoadError(String errorMessage) {
             loadVideoStatus = LOAD_VIDEO_STATUS_ERROR;
-            Toast.makeText(SimpleVrVideoActivity.this, "Error loading video: " + errorMessage, Toast.LENGTH_LONG).show();
+            Toast.makeText(TwirlingPlayerActivity.this, "Error loading video: " + errorMessage, Toast.LENGTH_LONG).show();
             Log.e(TAG, "Error loading video: " + errorMessage);
         }
 
@@ -241,6 +241,10 @@ public class SimpleVrVideoActivity extends Activity {
         public void onNewFrame() {
             updateStatusText();
             seekBar.setProgress((int) videoWidgetView.getCurrentPosition());
+            //
+            float[] yawAndPitch = new float[2];
+            videoWidgetView.getHeadRotation(yawAndPitch);
+            Log.w("rotation", yawAndPitch[0] * Math.PI / 180 + " " + yawAndPitch[1] * Math.PI / 180);
         }
 
         @Override
