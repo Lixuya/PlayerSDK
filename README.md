@@ -7,13 +7,13 @@
 	Android Studio 2.2
 	NDK r13b
 	Gradle Plugin 2.2.2
-# 最新版本 version-1.5.11
+# 最新版本 version-1.6.0
 	1）隐藏时间电量等显示界面。
 	2）全屏模式下拖拽功能。
 	3）增加广播组。
 ##1. 目录介绍
-	1) SDK：SDK所需的文件。
-	如果开发者重新建立工程或将播放器集成到自己工程，请将该目录下aar包拷贝到工程对应目录下。
+	1) 使用SDK所需文件：	
+如果开发者重新建立工程或集成播放器，请将libs目录下aar包拷贝到工程对应目录下。
 	2) Demo：播放器sourcecode：
 	SimpleVrVideoActivity.java:播放器各种功能的实现。
 	HLSActivity.java:直播播放器功能的实现。
