@@ -7,7 +7,7 @@ import com.google.vr.sdk.widgets.video.VrVideoView;
 
 import java.io.IOException;
 
-public class HLSActivity extends TwirlingPlayerActivity {
+public class HLSActivity extends PlayerActivity {
     //
     private static final String TAG = HLSActivity.class.getSimpleName();
 

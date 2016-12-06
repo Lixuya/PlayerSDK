@@ -20,8 +20,8 @@ import com.twirling.player.widget.WidgetMediaController;
 
 import java.io.IOException;
 
-public class TwirlingPlayerActivity extends Activity {
-    private static final String TAG = TwirlingPlayerActivity.class.getSimpleName();
+public class PlayerActivity extends Activity {
+    private static final String TAG = PlayerActivity.class.getSimpleName();
     private static final String STATE_IS_PAUSED = "isPaused";
     private static final String STATE_PROGRESS_TIME = "progressTime";
     private static final String STATE_VIDEO_DURATION = "videoDuration";
@@ -127,7 +127,7 @@ public class TwirlingPlayerActivity extends Activity {
             videoWidgetView.post(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(TwirlingPlayerActivity.this, "Error opening file. ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(PlayerActivity.this, "Error opening file. ", Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -228,7 +228,7 @@ public class TwirlingPlayerActivity extends Activity {
         @Override
         public void onLoadError(String errorMessage) {
             loadVideoStatus = LOAD_VIDEO_STATUS_ERROR;
-            Toast.makeText(TwirlingPlayerActivity.this, "Error loading video: " + errorMessage, Toast.LENGTH_LONG).show();
+            Toast.makeText(PlayerActivity.this, "Error loading video: " + errorMessage, Toast.LENGTH_LONG).show();
             Log.e(TAG, "Error loading video: " + errorMessage);
         }
 
