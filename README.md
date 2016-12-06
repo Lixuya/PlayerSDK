@@ -1,9 +1,12 @@
 # TwirlingPlayerSDK
 ==========
 这是时代拓灵全景视频播放器AndroidSDK的文档及使用方法。<br/>
-
-	运行环境：Android 4.4（API level 19）及其以上版本。
-	开发工具：推荐Android Studio 2.1版本及以上
+	
+	Target API level 24
+	Min API level 19 
+	Android Studio 2.2
+	NDK r13b
+	Gradle Plugin 2.2.2
 # 最新版本 version-1.5.11
 	1）隐藏时间电量等显示界面。
 	2）全屏模式下拖拽功能。
