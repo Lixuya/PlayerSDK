@@ -61,11 +61,6 @@ repositories {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     //
-//    compile(name: 'videowidget', ext: 'aar')
-//    compile(name: 'common', ext: 'aar')
-//    compile(name: 'commonwidget', ext: 'aar')
-//    compile(name: 'libgvr-1.5.10', ext: 'aar')
-    //
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     //
@@ -79,5 +74,6 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.1.6'
     //
+    //compile 'com.github.xieqiupeng:TwirlingPlayerSDK:1.6.0'
     compile project(':libgvr')
 }
