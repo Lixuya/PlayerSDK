@@ -15,7 +15,7 @@ public class Constants {
     public static final int DEFAULT_TIMEOUT = 5000;
     //
     public static final String APP_TAG = "TwirlingVR";
-    public static boolean is3D = false;
+    public static boolean is3D = true;
     // 0 play 1 pause 2 Stop 3 replay
     public static int state = 2;
 }

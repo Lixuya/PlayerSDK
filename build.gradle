@@ -7,8 +7,8 @@ buildscript {
                  buildTools: "25.0.0",
                  minSdk    : 19,
                  targetSdk : 25,
-                 vcode     : 12,
-                 vname     : "1.6.0"]
+                 vcode     : 14,
+                 vname     : "1.6.2"]
         //
         versions = [supportLib: "25.0.1"]
     }

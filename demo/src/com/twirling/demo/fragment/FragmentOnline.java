@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 
 import com.twirling.demo.R;
@@ -33,16 +35,18 @@ public class FragmentOnline extends Fragment {
     Button load;
     @BindView(R.id.button2)
     Button play;
+    @BindView(R.id.cb_3d)
+    CheckBox cb_3d;
     @BindView(R.id.pb_loading)
     ProgressBar mPbLoading;
     //
-    private String playuri = "http://www.twirlingvr.com/App_Media/videos/_tianjin_jiaoyu_1920x1080_5mb_a.mp4";
+    private String playuri = "http://yun-twirlingvr.oss-cn-hangzhou.aliyuncs.com/App_Movies/guzheng/video/guzhen_2k.mp4";
     public int contentLength;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.play_load, null);
+        View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_online, null);
         ButterKnife.bind(this, view);
         load.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -63,6 +67,16 @@ public class FragmentOnline extends Fragment {
                 intent.setClass(getActivity(), PlayerActivity.class);
                 //启动Activity 没有返回
                 startActivity(intent);
+            }
+        });
+        cb_3d.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    Constants.is3D = true;
+                } else {
+                    Constants.is3D = false;
+                }
             }
         });
         return view;

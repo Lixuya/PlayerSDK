@@ -16,7 +16,7 @@ import rx.schedulers.Schedulers;
  * Created by xieqi on 2016/11/2.
  */
 
-public class ServerConnection {
+public class Broadcast {
     private String ip = "";
 
     // getIp
@@ -65,47 +65,49 @@ public class ServerConnection {
                             @Override
                             public void setMessage(String str) {
 //                                MainActivity activity = (MainActivity) App.getInst().getCurrentShowActivity();
-//                                switch (str) {
-//                                    case "COMMAND_PAUSE":
+                                switch (str) {
+                                    case "COMMAND_PAUSE":
 //                                        activity.pauseMovie();
 //                                        Constants.state = 1;
-//                                        break;
-//                                    case "COMMAND_STOP":
-//                                        Constants.state = 2;
+                                        break;
+                                    case "COMMAND_STOP":
+                                        Constants.state = 2;
 //                                        activity.stopMovie();
 //                                        activity.stop();
-//                                        break;
-//                                    case "COMMAND_REPLAY":
-//                                        Constants.state = 3;
+                                        break;
+                                    case "COMMAND_REPLAY":
+                                        Constants.state = 3;
 //                                        activity.stopMovie();
 //                                        activity.start(Constants.PAPH_OCULUS + Constants.FILE_NAME);
 //                                        activity.startMovieFromNative(Constants.PAPH_OCULUS + Constants.FILE_NAME);
-//                                        break;
-//                                    case "VR_3D":
+                                        break;
+                                    case "VR_3D":
+                                        Constants.is3D = true;
 //                                        activity.set3D(true);
-//                                        break;
-//                                    case "VR_N3D":
+                                        break;
+                                    case "VR_N3D":
+                                        Constants.is3D = false;
 //                                        activity.set3D(false);
-//                                        break;
-//                                }
-//                                String seek = "COMMAND_SEEK_";
-//                                if (str.startsWith(seek)) {
-//                                    int miliseconds = Integer.valueOf(str.substring(seek.length(), str.length()));
+                                        break;
+                                }
+                                String seek = "COMMAND_SEEK_";
+                                if (str.startsWith(seek)) {
+                                    int miliseconds = Integer.valueOf(str.substring(seek.length(), str.length()));
 //                                    activity.seekToFromNative(miliseconds);
-//                                    Constants.state = miliseconds;
-//                                } else if (str.startsWith("COMMAND_PLAY_")) {
-//                                    String string = "COMMAND_PLAY_";
-//                                    String name = str.substring(string.length(), str.length());
-//                                    String path = Constants.PAPH_OCULUS + name;
-//                                    Log.w(Client01Command.class.getSimpleName(), path);
-//                                    if (Constants.state == 1) {
+                                    Constants.state = miliseconds;
+                                } else if (str.startsWith("COMMAND_PLAY_")) {
+                                    String string = "COMMAND_PLAY_";
+                                    String name = str.substring(string.length(), str.length());
+                                    String path = Constants.PAPH_OCULUS + name;
+                                    Log.w(Client01Command.class.getSimpleName(), path);
+                                    if (Constants.state == 1) {
 //                                        activity.resumeMovie();
-//                                    } else {
+                                    } else {
 //                                        activity.start(path);
 //                                        activity.startMovieFromNative(path);
-//                                    }
-//                                    Constants.state = 0;
-//                                }
+                                    }
+                                    Constants.state = 0;
+                                }
                             }
                         });
                         String message = client.listen();

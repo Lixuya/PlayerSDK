@@ -77,6 +77,9 @@ public class FileUtil {
         //new的一个File对象
         List<String> list = new ArrayList<String>();
         File f = new File(Constants.PAPH_OCULUS);
+        if (!f.exists()) {
+            f.mkdirs();
+        }
         if (f.isDirectory()) {
             for (File file : f.listFiles()) {
                 if (file.getName().endsWith("mp4")) {

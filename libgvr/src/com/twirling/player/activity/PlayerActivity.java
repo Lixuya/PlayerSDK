@@ -62,6 +62,7 @@ public class PlayerActivity extends Activity {
         videoWidgetView = (VrVideoView) findViewById(R.id.video_view);
         videoWidgetView.setFullscreenButtonEnabled(false);
         videoWidgetView.setInfoButtonEnabled(false);
+        videoWidgetView.setStereoModeButtonEnabled(true);
         videoWidgetView.setEventListener(new ActivityEventListener());
         //
         wmc = (WidgetMediaController) findViewById(R.id.wmc);
