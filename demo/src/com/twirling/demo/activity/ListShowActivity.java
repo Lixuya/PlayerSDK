@@ -30,9 +30,9 @@ public class ListShowActivity extends AppCompatActivity {
         FragmentManager manager = this.getSupportFragmentManager();
         ViewPagerAdapter adapter = new ViewPagerAdapter(manager);
         adapter.addFragment(new FragmentOnline(), "在线");
+        adapter.addFragment(new FragmentDownload(), "本地");
         adapter.addFragment(new FragmentLive(), "直播");
         adapter.addFragment(new FragmentSocket(), "广播组");
-        adapter.addFragment(new FragmentDownload(), "本地");
         viewPager.setOffscreenPageLimit(2);
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
