@@ -182,11 +182,11 @@ public class PlayerActivity extends Activity {
 		if (isPaused) {
 			wmc.setVisibility(View.GONE);
 			iv_play.setVisibility(View.GONE);
-			videoWidgetView.playVideo();
+//			videoWidgetView.playVideo();
 		} else {
 			wmc.setVisibility(View.VISIBLE);
 			iv_play.setVisibility(View.VISIBLE);
-			videoWidgetView.pauseVideo();
+//			videoWidgetView.pauseVideo();
 		}
 		isPaused = !isPaused;
 		updateStatusText();

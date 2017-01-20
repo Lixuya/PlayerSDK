@@ -14,7 +14,7 @@ import com.twirling.demo.fragment.FragmentLive;
 import com.twirling.demo.fragment.FragmentOnline;
 import com.twirling.player.adapter.ViewPagerAdapter;
 
-public class ListShowActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 	private ViewPager viewPager;
 
 	public void onCreate(Bundle savedInstanceState) {

@@ -13,7 +13,7 @@
         tools:replace="android:label">
         <!-- This demo is singleTask since it makes launching via custom adb intents easier. -->
         <activity
-            android:name=".activity.ListShowActivity"
+            android:name=".activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.AppCompat">

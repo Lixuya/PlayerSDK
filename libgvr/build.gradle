@@ -53,14 +53,14 @@ tasks.withType(JavaCompile) {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     //
-//    compile 'com.google.protobuf.nano:protobuf-javanano:3.1.0'
-//    compile(name: 'common', ext: 'aar')
-//    compile(name: 'commonwidget', ext: 'aar')
-//    compile(name: 'videowidget', ext: 'aar')
-    //
-    compile 'com.google.vr:sdk-common:1.10.0'
-    compile 'com.google.vr:sdk-commonwidget:1.10.0'
+    compile 'com.google.protobuf.nano:protobuf-javanano:3.1.0'
+    compile(name: 'common', ext: 'aar')
+    compile(name: 'commonwidget', ext: 'aar')
     compile(name: 'videowidget', ext: 'aar')
+    //
+//    compile 'com.google.vr:sdk-common:1.10.0'
+//    compile 'com.google.vr:sdk-commonwidget:1.10.0'
+//    compile(name: 'videowidget', ext: 'aar')
 //    compile 'com.google.android.exoplayer:exoplayer:r1.5.10'
     compile project(':library')
     //
