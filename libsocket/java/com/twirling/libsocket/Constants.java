@@ -1,4 +1,4 @@
-package com.twirling.www.libsocket.hirender;
+package com.twirling.libsocket;
 
 import android.os.Environment;
 

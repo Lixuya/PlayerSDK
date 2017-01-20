@@ -1,9 +1,9 @@
-package com.twirling.www.libsocket.hirender;
+package com.twirling.libsocket;
 
 import android.util.Log;
 
-import com.twirling.player.util.FileUtil;
-import com.twirling.player.util.NetUtil;
+import com.twirling.libsocket.util.FileUtil;
+import com.twirling.libsocket.util.NetUtil;
 
 import java.io.DataInputStream;
 import java.io.File;

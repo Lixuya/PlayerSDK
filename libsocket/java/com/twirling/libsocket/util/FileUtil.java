@@ -1,4 +1,4 @@
-package com.twirling.player.util;
+package com.twirling.libsocket.util;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
 
-import com.twirling.player.Constants;
+import com.twirling.libsocket.Constants;
 
 import java.io.File;
 import java.io.IOException;

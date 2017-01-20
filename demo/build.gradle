@@ -30,7 +30,7 @@ android {
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src']
+            java.srcDirs = ['java']
             aidl.srcDirs = ['aidl']
             renderscript.srcDirs = ['rs']
             res.srcDirs = ['res']

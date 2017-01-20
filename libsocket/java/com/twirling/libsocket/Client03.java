@@ -1,10 +1,7 @@
-package com.twirling.www.libsocket.hirender;
+package com.twirling.libsocket;
 
 import android.content.Context;
 import android.util.Log;
-
-import com.twirling.player.Constants;
-import com.twirling.player.util.NetUtil;
 
 import java.io.IOException;
 import java.io.InputStream;

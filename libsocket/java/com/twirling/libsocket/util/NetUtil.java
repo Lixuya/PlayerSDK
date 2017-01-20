@@ -1,4 +1,4 @@
-package com.twirling.player.util;
+package com.twirling.libsocket.util;
 
 import android.content.Context;
 import android.content.Intent;

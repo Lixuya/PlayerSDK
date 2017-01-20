@@ -12,8 +12,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 
+import com.twirling.demo.Constants;
 import com.twirling.demo.R;
-import com.twirling.player.Constants;
 import com.twirling.player.activity.PlayerActivity;
 
 import java.io.FileOutputStream;
@@ -30,7 +30,6 @@ import io.reactivex.schedulers.Schedulers;
 import zlc.season.rxdownload2.RxDownload;
 import zlc.season.rxdownload2.entity.DownloadStatus;
 
-import static com.twirling.demo.Constants.FILE_PATH;
 import static com.twirling.demo.Constants.getFile;
 
 /**
@@ -116,36 +115,5 @@ public class FragmentOnline extends Fragment {
 			}
 		}
 		super.setUserVisibleHint(isVisibleToUser);
-	}
-
-	public void download(String _urlStr) {
-		try {
-			// 构造URL
-			URL url = new URL(_urlStr);
-			// 打开连接
-			URLConnection con = url.openConnection();
-			//获得文件的长度
-			contentLength = con.getContentLength();
-
-			System.out.println("长度 :" + contentLength);
-			// 输入流
-			InputStream is = con.getInputStream();
-			// 5m的数据缓冲
-			byte[] bs = new byte[5 * 1024 * 1024];
-			// 读取到的数据长度
-			int len;
-			// 输出的文件流
-			FileOutputStream os = new FileOutputStream(FILE_PATH);
-			// 开始读取
-			while ((len = is.read(bs)) != -1) {
-				os.write(bs, 0, len);
-				pb_loading.setProgress((int) getFile().length());
-			}
-			// 完毕，关闭所有链接
-			os.close();
-			is.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 }

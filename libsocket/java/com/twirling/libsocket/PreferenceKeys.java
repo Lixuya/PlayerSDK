@@ -1,4 +1,4 @@
-package com.twirling.www.libsocket.hirender;
+package com.twirling.libsocket;
 
 /**
  * <p>Created by Melle Dijkstra on 17-4-2016</p>

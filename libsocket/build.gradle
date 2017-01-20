@@ -11,7 +11,18 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['java']
+            aidl.srcDirs = ['aidl']
+            renderscript.srcDirs = ['rs']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jni.srcDirs = [];
+            jniLibs.srcDirs = ['libs', 'jni']
+        }
     }
     buildTypes {
         release {

@@ -1,10 +1,7 @@
-package com.twirling.www.libsocket.hirender;
+package com.twirling.libsocket;
 
 import android.text.TextUtils;
 import android.util.Log;
-
-import com.twirling.player.App;
-import com.twirling.player.Constants;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -185,7 +182,7 @@ public class Broadcast {
                     public void call(String ip) {
                         Client03 client = new Client03();
                         client.setIp(ip);
-                        client.sendMessage(App.getInst().getApplicationContext());
+                        client.sendMessage(null);
                     }
                 }, new Action1<Throwable>() {
                     @Override
