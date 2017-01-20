@@ -76,7 +76,7 @@ public class FileUtil {
     public static List<String> getFileList() {
         //new的一个File对象
         List<String> list = new ArrayList<String>();
-        File f = new File(Constants.PAPH_OCULUS);
+        File f = new File(Constants.PAPH_DOWNLOAD);
         if (!f.exists()) {
             f.mkdirs();
         }

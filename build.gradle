@@ -4,7 +4,7 @@ buildscript {
     ext {
         //
         setup = [compileSdk: 25,
-                 buildTools: "25.0.0",
+                 buildTools: "25.0.2",
                  minSdk    : 19,
                  targetSdk : 25,
                  vcode     : 16,
@@ -17,9 +17,11 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.novoda:bintray-release:0.3.4'
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath 'com.android.tools.build:gradle-experimental:0.8.3'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -31,6 +33,9 @@ allprojects {
         mavenCentral()
         maven {
             url "https://jitpack.io"
+        }
+        maven {
+            url "http://google.bintray.com/googlevr"
         }
     }
 }

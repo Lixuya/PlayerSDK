@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.twirling.demo.Constants;
 import com.twirling.demo.R;
-import com.twirling.player.Constants;
 import com.twirling.player.activity.PlayerActivity;
 
 import java.util.ArrayList;
@@ -19,9 +19,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static com.twirling.demo.Constants.deleteFile;
-import static com.twirling.player.Constants.PAPH_OCULUS;
 
 /**
  * Created by 谢秋鹏 on 2016/5/26.
@@ -48,14 +45,14 @@ public class OffineAdapter extends RecyclerView.Adapter<OffineAdapter.ViewHolder
         holder.iv_delete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 holder.cv_card.setVisibility(View.GONE);
-                deleteFile();
+                Constants.deleteFile();
             }
         });
         //
         holder.cv_card.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent();
-                String uri = PAPH_OCULUS + datas.get(position);
+                String uri = Constants.PAPH_DOWNLOAD + datas.get(position);
                 if (datas.get(position).endsWith("assets")) {
                     uri = null;
                 }

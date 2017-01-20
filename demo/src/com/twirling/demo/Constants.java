@@ -2,14 +2,12 @@ package com.twirling.demo;
 
 import java.io.File;
 
-import static com.twirling.player.Constants.PAPH_DOWNLOAD;
-
 /**
  * Created by xieqi on 2016/8/11.
  */
-public class Constants {
+public class Constants extends com.twirling.player.Constants{
 
-    public static final String FILE_NAME = "jiaoyu.mp4";
+    public static final String FILE_NAME = "TwirlingVideo.mp4";
     public static final String FILE_PATH = PAPH_DOWNLOAD + FILE_NAME;
 
     private static File file = null;
