@@ -1,4 +1,4 @@
-include ':demo';
+include ':demo', ':libsocket';
 include ':libgvr';
 include ':library';
 rootProject.name = 'TwirlingPlayerSDK'

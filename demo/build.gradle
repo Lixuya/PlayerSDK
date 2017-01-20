@@ -86,4 +86,5 @@ dependencies {
     compile 'zlc.season:rxdownload2:1.1.1'
     //compile 'com.github.xieqiupeng:TwirlingPlayerSDK:1.6.0'
     compile project(':libgvr')
+//    compile project(':libsocket')
 }

@@ -56,7 +56,6 @@ public class FragmentOnline extends Fragment {
 		ButterKnife.bind(this, view);
 		load.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-
 				RxDownload.getInstance()
 						.download(url, com.twirling.demo.Constants.FILE_NAME, null)
 						.subscribeOn(Schedulers.io())

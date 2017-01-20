@@ -28,7 +28,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         INS = this;
-        Logger.init(Constants.APP_TAG)                 // default PRETTYLOGGER or use just init()
+        Logger.init(BuildConfig.APPLICATION_ID)                 // default PRETTYLOGGER or use just init()
                 .methodCount(3)                 // default 2
                 .hideThreadInfo()               // default shown
                 .logLevel(BuildConfig.DEBUG ? LogLevel.FULL : LogLevel.NONE)        // default LogLevel.FULL
