@@ -15,6 +15,7 @@ public class HLSActivity extends PlayerActivity {
 	protected void loadUrl(VrVideoView videoWidgetView) {
 		String uri = "http://yahooios2-i.akamaihd.net/hls/live/224964/iosstream/adinsert_test/master.m3u8";
 		uri = "http://2997.liveplay.myqcloud.com/2997_9e53593fde2c11e691eae435c87f075e.m3u8";
+		uri = "http://2997.liveplay.myqcloud.com/2997_94e96d2ede2c11e691eae435c87f075e.m3u8";
 		Uri fileUri = Uri.parse(uri);
 		try {
 			videoWidgetView.setInfoButtonEnabled(false);

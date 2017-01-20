@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.twirling.demo.Constants;
@@ -35,13 +36,14 @@ public class FragmentOnline extends Fragment {
 	Button load;
 	@BindView(R.id.button2)
 	Button play;
+	@BindView(R.id.iv_play)
+	ImageView iv_play;
 	@BindView(R.id.cb_3d)
 	CheckBox cb_3d;
 	@BindView(R.id.pb_loading)
 	ProgressBar pb_loading;
 	//
-	private String url = "http://yun-twirlingvr.oss-cn-hangzhou.aliyuncs.com/App_Movies/guzheng/video/guzhen_2k.mp4";
-	public int contentLength;
+	private String url = Constants.REMOTE_URL;
 
 	@Nullable
 	@Override
@@ -76,6 +78,17 @@ public class FragmentOnline extends Fragment {
 								//下载完成
 							}
 						});
+			}
+		});
+		iv_play.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.putExtra("VideoItem", url);
+				Constants.IS3D = false;
+				//设置跳转新的activity，参数（当前对象，跳转到的class）
+				intent.setClass(getActivity(), PlayerActivity.class);
+				//启动Activity 没有返回
+				startActivity(intent);
 			}
 		});
 		play.setOnClickListener(new View.OnClickListener() {
