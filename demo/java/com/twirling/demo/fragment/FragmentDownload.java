@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.twirling.demo.R;
-import com.twirling.libsocket.util.FileUtil;
+import com.twirling.demo.util.FileUtil;
 
 import java.util.ArrayList;
 import java.util.List;

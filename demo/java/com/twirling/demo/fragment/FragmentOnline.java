@@ -16,11 +16,6 @@ import com.twirling.demo.Constants;
 import com.twirling.demo.R;
 import com.twirling.player.activity.PlayerActivity;
 
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Observer;
@@ -87,7 +82,7 @@ public class FragmentOnline extends Fragment {
 			public void onClick(View v) {
 				Intent intent = new Intent();
 				intent.putExtra("VideoItem", url);
-				Constants.is3D = false;
+				Constants.IS3D = false;
 				//设置跳转新的activity，参数（当前对象，跳转到的class）
 				intent.setClass(getActivity(), PlayerActivity.class);
 				//启动Activity 没有返回
@@ -98,9 +93,9 @@ public class FragmentOnline extends Fragment {
 			@Override
 			public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
 				if (isChecked) {
-					Constants.is3D = true;
+					Constants.IS3D = true;
 				} else {
-					Constants.is3D = false;
+					Constants.IS3D = false;
 				}
 			}
 		});

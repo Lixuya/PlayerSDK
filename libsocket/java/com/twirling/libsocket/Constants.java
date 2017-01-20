@@ -13,7 +13,8 @@ public class Constants {
 	public static final String DEFAULT_IP = "255.255.255.255";
 	public static final int DEFAULT_PORT = 10001;
 	public static final int DEFAULT_TIMEOUT = 5000;
-	public static boolean is3D = true;
+	//
+	public static boolean is3D = false;
 	// 0 play 1 pause 2 Stop 3 replay
 	public static int state = 2;
 }

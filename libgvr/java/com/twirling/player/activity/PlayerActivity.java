@@ -83,7 +83,7 @@ public class PlayerActivity extends Activity {
 			return;
 		}
 		String uri = bundle.getString("VideoItem");
-		Constants.is3D = bundle.getBoolean("Is3D", false);
+		Constants.IS3D = bundle.getBoolean("Is3D", false);
 		if (uri == null) {
 			return;
 		}
@@ -114,7 +114,7 @@ public class PlayerActivity extends Activity {
 		try {
 			VrVideoView.Options options = new VrVideoView.Options();
 			options.inputFormat = VrVideoView.Options.FORMAT_DEFAULT;
-			if (Constants.is3D) {
+			if (Constants.IS3D) {
 				options.inputType = VrVideoView.Options.TYPE_STEREO_OVER_UNDER;
 			} else {
 				options.inputType = VrVideoView.Options.TYPE_MONO;

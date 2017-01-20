@@ -9,5 +9,6 @@ public class Constants {
     //
     public static final String PAPH_DOWNLOAD = Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS + "/";
     public static final String PAPH_OCULUS = Environment.getExternalStorageDirectory() + "/" + "Oculus/360Videos/";
-    public static boolean is3D = true;
+    //
+    public static boolean IS3D = false;
 }
