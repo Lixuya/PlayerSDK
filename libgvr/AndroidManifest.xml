@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true">
         <activity
-            android:name=".activity.PlayerActivity"
+            android:name=".activity.VRPlayerActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen"

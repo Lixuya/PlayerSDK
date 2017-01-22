@@ -23,8 +23,8 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.io.IOException;
 
-public class PlayerActivity extends Activity {
-	private static final String TAG = PlayerActivity.class.getSimpleName();
+public class VRPlayerActivity extends Activity {
+	private static final String TAG = VRPlayerActivity.class.getSimpleName();
 	private static final String STATE_IS_PAUSED = "isPaused";
 	private static final String STATE_PROGRESS_TIME = "progressTime";
 	private static final String STATE_VIDEO_DURATION = "videoDuration";
@@ -34,13 +34,13 @@ public class PlayerActivity extends Activity {
 	public static final int LOAD_VIDEO_STATUS_ERROR = 2;
 	//
 	private int loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
-	private Uri fileUri;
-	private VrVideoView videoWidgetView;
-	private SeekBar seekBar;
-	private TextView statusText;
+	private Uri fileUri = null;
+	private VrVideoView videoWidgetView = null;
+	private SeekBar seekBar = null;
+	private TextView statusText = null;
 	private boolean isPaused = false;
-	private WidgetMediaController wmc;
-	private ImageView iv_play;
+	private WidgetMediaController wmc = null;
+	private ImageView iv_play = null;
 
 	//
 	@Override
@@ -131,7 +131,7 @@ public class PlayerActivity extends Activity {
 			videoWidgetView.post(new Runnable() {
 				@Override
 				public void run() {
-					Toast.makeText(PlayerActivity.this, "Error opening file. ", Toast.LENGTH_LONG).show();
+					Toast.makeText(VRPlayerActivity.this, "Error opening file. ", Toast.LENGTH_LONG).show();
 				}
 			});
 		}
@@ -232,7 +232,7 @@ public class PlayerActivity extends Activity {
 		@Override
 		public void onLoadError(String errorMessage) {
 			loadVideoStatus = LOAD_VIDEO_STATUS_ERROR;
-			Toast.makeText(PlayerActivity.this, "Error loading video: " + errorMessage, Toast.LENGTH_LONG).show();
+			Toast.makeText(VRPlayerActivity.this, "Error loading video: " + errorMessage, Toast.LENGTH_LONG).show();
 			Log.e(TAG, "Error loading video: " + errorMessage);
 		}
 

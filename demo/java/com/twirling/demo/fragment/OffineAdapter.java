@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.twirling.demo.Constants;
 import com.twirling.demo.R;
-import com.twirling.player.activity.PlayerActivity;
+import com.twirling.player.activity.VRPlayerActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +58,7 @@ public class OffineAdapter extends RecyclerView.Adapter<OffineAdapter.ViewHolder
                 }
                 intent.putExtra("VideoItem", uri);
                 intent.putExtra("Is3D", Constants.IS3D);
-                intent.setClass(holder.itemView.getContext(), PlayerActivity.class);
+                intent.setClass(holder.itemView.getContext(), VRPlayerActivity.class);
                 holder.itemView.getContext().startActivity(intent);
             }
         });

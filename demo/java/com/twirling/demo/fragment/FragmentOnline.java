@@ -15,7 +15,7 @@ import android.widget.ProgressBar;
 
 import com.twirling.demo.Constants;
 import com.twirling.demo.R;
-import com.twirling.player.activity.PlayerActivity;
+import com.twirling.player.activity.VRPlayerActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -86,7 +86,7 @@ public class FragmentOnline extends Fragment {
 				intent.putExtra("VideoItem", url);
 				Constants.IS3D = false;
 				//设置跳转新的activity，参数（当前对象，跳转到的class）
-				intent.setClass(getActivity(), PlayerActivity.class);
+				intent.setClass(getActivity(), VRPlayerActivity.class);
 				//启动Activity 没有返回
 				startActivity(intent);
 			}
@@ -97,7 +97,7 @@ public class FragmentOnline extends Fragment {
 				intent.putExtra("VideoItem", url);
 				Constants.IS3D = false;
 				//设置跳转新的activity，参数（当前对象，跳转到的class）
-				intent.setClass(getActivity(), PlayerActivity.class);
+				intent.setClass(getActivity(), VRPlayerActivity.class);
 				//启动Activity 没有返回
 				startActivity(intent);
 			}

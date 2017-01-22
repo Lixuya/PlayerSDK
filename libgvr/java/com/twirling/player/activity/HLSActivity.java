@@ -7,7 +7,7 @@ import com.google.vr.sdk.widgets.video.VrVideoView;
 
 import java.io.IOException;
 
-public class HLSActivity extends PlayerActivity {
+public class HLSActivity extends VRPlayerActivity {
 	//
 	private static final String TAG = HLSActivity.class.getSimpleName();
 
