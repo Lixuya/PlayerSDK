@@ -64,7 +64,7 @@ public class FragmentDownload extends Fragment {
 		datas.clear();
 		try {
 			datas.addAll(FileUtil.getFileList());
-			datas.addAll(FileUtil.getAssetList(getActivity()));
+//			datas.addAll(FileUtil.getAssetList(getActivity()));
 		} catch (Exception e) {
 			Toast.makeText(recyclerView.getContext(), "请到设置中心打开应用存储权限", Toast.LENGTH_LONG).show();
 		}

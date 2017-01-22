@@ -52,7 +52,7 @@ public class OffineAdapter extends RecyclerView.Adapter<OffineAdapter.ViewHolder
         holder.cv_card.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent();
-                String uri = Constants.PAPH_DOWNLOAD + datas.get(position);
+                String uri = Constants.PAPH_MOVIES + datas.get(position);
                 if (datas.get(position).endsWith("assets")) {
                     uri = null;
                 }
