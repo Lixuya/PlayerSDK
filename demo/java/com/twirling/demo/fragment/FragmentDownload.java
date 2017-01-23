@@ -21,7 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by 谢秋鹏 on 2016/5/27.
+ * Target: 下载界面
  */
 public class FragmentDownload extends Fragment {
 	@BindView(R.id.rv)

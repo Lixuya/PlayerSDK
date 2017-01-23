@@ -13,6 +13,14 @@
         android:layout_marginTop="10dp">
 
         <ImageView
+            android:id="@+id/iv_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#C0C0C0"
+            android:scaleType="centerCrop"
+            android:src="@drawable/gz"/>
+
+        <ImageView
             android:id="@+id/iv_play"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,43 +29,26 @@
             android:src="@drawable/gz"/>
     </android.support.v7.widget.CardView>
 
-    <ProgressBar
-        android:id="@+id/pb_loading"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="290dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="170dp"
-        android:visibility="gone"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
+        android:layout_marginTop="170dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:visibility="gone">
 
-        <Button
-            android:id="@+id/button2"
+        <ImageView
+            android:id="@+id/iv_download"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_margin="30dp"
-            android:background="@drawable/play"/>
+            android:layout_margin="30dp"/>
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="30dp"
-            android:background="@drawable/dwonload"/>
-
-        <CheckBox
-            android:id="@+id/cb_3d"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="30dp"
-            android:checked="false"
-            android:text="is3D"/>
+        <ProgressBar
+            android:id="@+id/pb_download"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
     </LinearLayout>
 </LinearLayout>

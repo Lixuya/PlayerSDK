@@ -8,13 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.twirling.demo.Constants;
 import com.twirling.demo.R;
+import com.twirling.demo.util.FileUtil;
 import com.twirling.player.activity.VRPlayerActivity;
 
 import butterknife.BindView;
@@ -26,22 +25,18 @@ import io.reactivex.schedulers.Schedulers;
 import zlc.season.rxdownload2.RxDownload;
 import zlc.season.rxdownload2.entity.DownloadStatus;
 
-import static com.twirling.demo.Constants.getFile;
-
 /**
  * Created by 谢秋鹏 on 2016/5/27.
  */
 public class FragmentOnline extends Fragment {
 	@BindView(R.id.button)
 	Button load;
-	@BindView(R.id.button2)
-	Button play;
 	@BindView(R.id.iv_play)
-	ImageView iv_play;
-	@BindView(R.id.cb_3d)
-	CheckBox cb_3d;
-	@BindView(R.id.pb_loading)
-	ProgressBar pb_loading;
+	Button iv_play;
+	@BindView(R.id.iv_video)
+	ImageView iv_video;
+	@BindView(R.id.pb_download)
+	ProgressBar pb_download;
 	//
 	private String url = Constants.REMOTE_URL;
 
@@ -64,8 +59,8 @@ public class FragmentOnline extends Fragment {
 							@Override
 							public void onNext(DownloadStatus value) {
 								//获得下载状态
-								pb_loading.setMax((int) value.getTotalSize());
-								pb_loading.setProgress((int) value.getDownloadSize());
+								pb_download.setMax((int) value.getTotalSize());
+								pb_download.setProgress((int) value.getDownloadSize());
 							}
 
 							@Override
@@ -80,36 +75,20 @@ public class FragmentOnline extends Fragment {
 						});
 			}
 		});
+		iv_video.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.putExtra("VideoItem", url);
+				intent.setClass(getActivity(), VRPlayerActivity.class);
+				startActivity(intent);
+			}
+		});
 		iv_play.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent();
 				intent.putExtra("VideoItem", url);
-				Constants.IS3D = false;
-				//设置跳转新的activity，参数（当前对象，跳转到的class）
 				intent.setClass(getActivity(), VRPlayerActivity.class);
-				//启动Activity 没有返回
 				startActivity(intent);
-			}
-		});
-		play.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				Intent intent = new Intent();
-				intent.putExtra("VideoItem", url);
-				Constants.IS3D = false;
-				//设置跳转新的activity，参数（当前对象，跳转到的class）
-				intent.setClass(getActivity(), VRPlayerActivity.class);
-				//启动Activity 没有返回
-				startActivity(intent);
-			}
-		});
-		cb_3d.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-				if (isChecked) {
-					Constants.IS3D = true;
-				} else {
-					Constants.IS3D = false;
-				}
 			}
 		});
 		return view;
@@ -118,8 +97,8 @@ public class FragmentOnline extends Fragment {
 	@Override
 	public void setUserVisibleHint(boolean isVisibleToUser) {
 		if (isVisibleToUser) {
-			if (getFile() == null) {
-				pb_loading.setProgress(0);
+			if (FileUtil.getFileList() == null) {
+				pb_download.setProgress(0);
 			}
 		}
 		super.setUserVisibleHint(isVisibleToUser);

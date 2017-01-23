@@ -9,7 +9,7 @@
         android:id="@+id/action_edit"
         android:checkable="false"
         android:orderInCategory="1"
-        android:title="3D"
+        android:title="2D"
         app:showAsAction="ifRoom" />
     <!--
      <item android:id="@+id/action_share"
