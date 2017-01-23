@@ -41,7 +41,7 @@ public class FragmentOnline extends Fragment {
 	@BindView(R.id.pb_download)
 	ProgressBar pb_download;
 	//
-	private String url = Constants.REMOTE_URL;
+	private static final String URL = Constants.REMOTE_URL;
 
 	@Nullable
 	@Override
@@ -57,7 +57,7 @@ public class FragmentOnline extends Fragment {
 		iv_download.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				RxDownload.getInstance()
-						.download(url, Constants.FILE_NAME, Constants.PAPH_MOVIES)
+						.download(URL, Constants.FILE_NAME, Constants.PAPH_MOVIES)
 						.subscribeOn(Schedulers.io())
 						.observeOn(AndroidSchedulers.mainThread())
 						.subscribe(new Observer<DownloadStatus>() {
@@ -88,7 +88,7 @@ public class FragmentOnline extends Fragment {
 		iv_video.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent();
-				intent.putExtra("VideoItem", url);
+				intent.putExtra("VideoItem", URL);
 				intent.setClass(getActivity(), VRPlayerActivity.class);
 				startActivity(intent);
 			}
@@ -96,7 +96,7 @@ public class FragmentOnline extends Fragment {
 		iv_play.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent();
-				intent.putExtra("VideoItem", url);
+				intent.putExtra("VideoItem", URL);
 				intent.setClass(getActivity(), VRPlayerActivity.class);
 				startActivity(intent);
 			}

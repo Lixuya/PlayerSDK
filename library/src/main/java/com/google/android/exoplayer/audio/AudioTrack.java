@@ -1432,7 +1432,7 @@ public final class AudioTrack {
 		float pitch = -yawAndPitch[1];
 		m_yaw = (float) (yaw / 180.0f * Math.PI);
 		m_pitch = (float) (pitch / 180.0f * Math.PI);
-		Log.w("yawAndPitch", yaw + " " + pitch);
+//		Log.w("yawAndPitch", yaw + " " + pitch);
 	}
 
 
