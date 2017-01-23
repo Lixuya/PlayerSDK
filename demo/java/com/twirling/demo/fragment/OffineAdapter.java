@@ -52,6 +52,7 @@ public class OffineAdapter extends RecyclerView.Adapter<OffineAdapter.ViewHolder
             public void onClick(View v) {
                 holder.cv_card.setVisibility(View.GONE);
                 FileUtil.delete(new File(Constants.FILE_PATH));
+                notifyDataSetChanged();
             }
         });
         //
