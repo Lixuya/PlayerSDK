@@ -52,7 +52,7 @@ public class FragmentOnline extends Fragment {
 		Drawable icon = new IconicsDrawable(getActivity())
 				.icon(FontAwesome.Icon.faw_cloud_download)
 				.color(Color.parseColor("#DDFFFF"))
-				.sizeDp(22);
+				.sizeDp(40);
 		iv_download.setImageDrawable(icon);
 		iv_download.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
