@@ -1,16 +1,19 @@
 package com.twirling.demo.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.mikepenz.fontawesome_typeface_library.FontAwesome;
+import com.mikepenz.iconics.IconicsDrawable;
 import com.twirling.demo.Constants;
 import com.twirling.demo.R;
 import com.twirling.demo.util.FileUtil;
@@ -26,13 +29,13 @@ import zlc.season.rxdownload2.RxDownload;
 import zlc.season.rxdownload2.entity.DownloadStatus;
 
 /**
- * Created by 谢秋鹏 on 2016/5/27.
+ * Target: 在线播放页
  */
 public class FragmentOnline extends Fragment {
-	@BindView(R.id.button)
-	Button load;
+	@BindView(R.id.iv_download)
+	ImageView iv_download;
 	@BindView(R.id.iv_play)
-	Button iv_play;
+	ImageView iv_play;
 	@BindView(R.id.iv_video)
 	ImageView iv_video;
 	@BindView(R.id.pb_download)
@@ -45,7 +48,13 @@ public class FragmentOnline extends Fragment {
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_online, null);
 		ButterKnife.bind(this, view);
-		load.setOnClickListener(new View.OnClickListener() {
+		//
+		Drawable icon = new IconicsDrawable(getActivity())
+				.icon(FontAwesome.Icon.faw_cloud_download)
+				.color(Color.parseColor("#DDFFFF"))
+				.sizeDp(22);
+		iv_download.setImageDrawable(icon);
+		iv_download.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				RxDownload.getInstance()
 						.download(url, com.twirling.demo.Constants.FILE_NAME, null)

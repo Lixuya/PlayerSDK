@@ -86,5 +86,10 @@ dependencies {
     compile 'zlc.season:rxdownload2:1.1.1'
     //compile 'com.github.xieqiupeng:TwirlingPlayerSDK:1.6.0'
     compile project(':libgvr')
+    //
+    compile "com.mikepenz:iconics-core:2.8.1@aar"
+    compile 'com.mikepenz:google-material-typeface:2.2.0.3.original@aar'
+    compile 'com.mikepenz:material-design-iconic-typeface:2.2.0.2@aar'
+    compile 'com.mikepenz:fontawesome-typeface:4.7.0.0@aar'
 //    compile project(':libsocket')
 }
