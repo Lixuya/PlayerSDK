@@ -57,7 +57,7 @@ public class FragmentOnline extends Fragment {
 		iv_download.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				RxDownload.getInstance()
-						.download(url, com.twirling.demo.Constants.FILE_NAME, null)
+						.download(url, Constants.FILE_NAME, Constants.PAPH_MOVIES)
 						.subscribeOn(Schedulers.io())
 						.observeOn(AndroidSchedulers.mainThread())
 						.subscribe(new Observer<DownloadStatus>() {
@@ -67,19 +67,20 @@ public class FragmentOnline extends Fragment {
 
 							@Override
 							public void onNext(DownloadStatus value) {
-								//获得下载状态
+								// 获得下载状态
 								pb_download.setMax((int) value.getTotalSize());
 								pb_download.setProgress((int) value.getDownloadSize());
+//								Log.w("Online", value.getTotalSize() + " " + value.getDownloadSize());
 							}
 
 							@Override
 							public void onError(Throwable e) {
-								//下载出错
+								// 下载出错
 							}
 
 							@Override
 							public void onComplete() {
-								//下载完成
+								// 下载完成
 							}
 						});
 			}

@@ -1,6 +1,8 @@
 package com.twirling.demo.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,10 +12,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mikepenz.fontawesome_typeface_library.FontAwesome;
+import com.mikepenz.iconics.IconicsDrawable;
 import com.twirling.demo.Constants;
 import com.twirling.demo.R;
+import com.twirling.demo.util.FileUtil;
 import com.twirling.player.activity.VRPlayerActivity;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +51,7 @@ public class OffineAdapter extends RecyclerView.Adapter<OffineAdapter.ViewHolder
         holder.iv_delete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 holder.cv_card.setVisibility(View.GONE);
-                Constants.deleteFile();
+                FileUtil.delete(new File(Constants.FILE_PATH));
             }
         });
         //
@@ -80,6 +86,11 @@ public class OffineAdapter extends RecyclerView.Adapter<OffineAdapter.ViewHolder
         public ViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
+            Drawable icon = new IconicsDrawable(view.getContext())
+                    .icon(FontAwesome.Icon.faw_trash_o)
+                    .color(Color.parseColor("#FFFFFF"))
+                    .sizeDp(30);
+            iv_delete.setImageDrawable(icon);
         }
     }
 }
