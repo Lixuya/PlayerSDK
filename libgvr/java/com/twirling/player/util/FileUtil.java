@@ -1,9 +1,9 @@
-package com.twirling.demo.util;
+package com.twirling.player.util;
 
 import android.content.Context;
 import android.util.Log;
 
-import com.twirling.demo.Constants;
+import com.twirling.player.Constants;
 
 import java.io.File;
 import java.io.IOException;

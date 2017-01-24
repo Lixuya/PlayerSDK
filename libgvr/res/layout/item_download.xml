@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.twirling.player.model.OfflineModel"/>
+
+        <import type="com.twirling.player.adapter.OffineAdapter"/>
+
+        <variable
+            name="item"
+            type="OfflineModel"/>
+
+        <variable
+            name="presenter"
+            type="OffineAdapter.Presenter"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_card"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_margin="10dp"
+        android:background="#E5E5E5"
+        android:foreground="?attr/selectableItemBackground"
+        android:onClick="@{(v)->presenter.onCvCardClick(v,item.name)}"
+        card_view:cardPreventCornerOverlap="true"
+        card_view:cardUseCompatPadding="true"
+        card_view:contentPadding="0dp">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{item.name}"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"/>
+
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_margin="10dp"
+            android:onClick="@{(v)->presenter.onIvDeleteClick(v)}"
+            android:src="@{item.icon}"/>
+
+    </android.support.v7.widget.CardView>
+</layout>

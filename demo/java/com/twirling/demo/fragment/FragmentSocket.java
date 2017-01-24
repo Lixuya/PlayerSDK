@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.twirling.demo.R;
+import com.twirling.player.adapter.OffineAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

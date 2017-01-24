@@ -8,7 +8,7 @@ buildscript {
                  minSdk    : 21,
                  targetSdk : 25,
                  vcode     : 18,
-                 vname     : "1.7"]
+                 vname     : "1.7.0"]
         //
         versions = [supportLib: "25.0.1"]
     }
@@ -38,8 +38,4 @@ allprojects {
             url "http://google.bintray.com/googlevr"
         }
     }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }

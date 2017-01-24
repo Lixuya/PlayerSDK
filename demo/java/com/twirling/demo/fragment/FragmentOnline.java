@@ -16,7 +16,7 @@ import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.twirling.demo.Constants;
 import com.twirling.demo.R;
-import com.twirling.demo.util.FileUtil;
+import com.twirling.player.util.FileUtil;
 import com.twirling.player.activity.VRPlayerActivity;
 
 import butterknife.BindView;

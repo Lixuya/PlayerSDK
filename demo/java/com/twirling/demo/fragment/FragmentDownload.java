@@ -1,5 +1,6 @@
 package com.twirling.demo.fragment;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,14 +12,19 @@ import android.widget.Toast;
 
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.twirling.demo.R;
-import com.twirling.demo.util.FileUtil;
+import com.twirling.player.adapter.OffineAdapter;
+import com.twirling.player.model.OfflineModel;
+import com.twirling.player.util.FileUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
 
 /**
  * Target: 下载界面
@@ -28,7 +34,8 @@ public class FragmentDownload extends Fragment {
 	XRecyclerView recyclerView;
 
 	private OffineAdapter mAdapter = null;
-	private List<String> datas = new ArrayList<String>();
+	private List<String> strings = new ArrayList<String>();
+	private List<OfflineModel> models = new ArrayList<OfflineModel>();
 
 	@Nullable
 	@Override
@@ -55,19 +62,39 @@ public class FragmentDownload extends Fragment {
 				recyclerView.loadMoreComplete();
 			}
 		});
-		mAdapter = new OffineAdapter(datas);
+		mAdapter = new OffineAdapter(models);
 		recyclerView.setAdapter(mAdapter);
 		return rootView;
 	}
 
 	private void loadData() {
-		datas.clear();
-		try {
-			datas.addAll(FileUtil.getFileList());
-			datas.addAll(FileUtil.getAssetList(getActivity()));
-		} catch (Exception e) {
-			Toast.makeText(recyclerView.getContext(), "请到设置中心打开应用存储权限", Toast.LENGTH_LONG).show();
-		}
+		strings.clear();
+		models.clear();
+		new RxPermissions(getActivity())
+				.request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+				.subscribeOn(AndroidSchedulers.mainThread())
+				.observeOn(AndroidSchedulers.mainThread())
+				.doOnNext(new Consumer<Boolean>() {
+					@Override
+					public void accept(Boolean granted) throws Exception {
+						if (!granted) {
+							Toast.makeText(recyclerView.getContext(), "请到设置中心打开应用存储权限", Toast.LENGTH_LONG).show();
+							throw new RuntimeException("no permission");
+						}
+					}
+				})
+				.subscribe(new Consumer<Boolean>() {
+					@Override
+					public void accept(Boolean aBoolean) throws Exception {
+						strings.addAll(FileUtil.getFileList());
+						strings.addAll(FileUtil.getAssetList(getActivity()));
+						for (String string : strings) {
+							OfflineModel model = new OfflineModel(getActivity());
+							model.setName(string);
+							models.add(model);
+						}
+					}
+				});
 		mAdapter.notifyDataSetChanged();
 	}
 
