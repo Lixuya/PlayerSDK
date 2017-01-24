@@ -69,12 +69,8 @@ public class FragmentDownload extends Fragment {
 	}
 
 	private void loadData() {
-		strings.clear();
-		models.clear();
 		new RxPermissions(getActivity())
 				.request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-				.subscribeOn(AndroidSchedulers.mainThread())
-				.observeOn(AndroidSchedulers.mainThread())
 				.doOnNext(new Consumer<Boolean>() {
 					@Override
 					public void accept(Boolean granted) throws Exception {
@@ -83,9 +79,13 @@ public class FragmentDownload extends Fragment {
 						}
 					}
 				})
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribeOn(AndroidSchedulers.mainThread())
 				.subscribe(new Consumer<Boolean>() {
 					@Override
 					public void accept(Boolean aBoolean) throws Exception {
+						strings.clear();
+						models.clear();
 						strings.addAll(FileUtil.getFileList());
 						strings.addAll(FileUtil.getAssetList(getActivity()));
 						//

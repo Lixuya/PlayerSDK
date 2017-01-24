@@ -85,5 +85,7 @@ dependencies {
     compile 'com.mikepenz:google-material-typeface:2.2.0.3.original@aar'
     compile 'com.mikepenz:material-design-iconic-typeface:2.2.0.2@aar'
     compile 'com.mikepenz:fontawesome-typeface:4.7.0.0@aar'
+    //
+    compile 'zlc.season:rxdownload2:1.1.1'
 }
 //apply from: "https://raw.githubusercontent.com/xiaopansky/android-library-publish-to-jcenter/master/bintrayUpload.gradle"

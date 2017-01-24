@@ -2,7 +2,6 @@ package com.twirling.player.model;
 
 import android.content.Context;
 import android.databinding.BaseObservable;
-import android.databinding.Bindable;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 
@@ -25,7 +24,6 @@ public class OfflineModel extends BaseObservable {
 				.sizeDp(30);
 	}
 
-	@Bindable
 	public int getPosition() {
 		return position;
 	}
@@ -40,7 +38,6 @@ public class OfflineModel extends BaseObservable {
 
 	public void setPosition(int position) {
 		this.position = position;
-		notifyChange();
 	}
 
 	public void setName(String name) {
@@ -53,6 +50,4 @@ public class OfflineModel extends BaseObservable {
 	public void setIcon(Drawable icon) {
 		this.icon = icon;
 	}
-
-
 }

@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 			item.setTitle(null);
 			item.setIcon(icon);
 		} else {
-			item.setTitle("2D");
+			item.setTitle(R.string.menu_item);
 			item.setIcon(null);
 		}
 		return super.onOptionsItemSelected(item);

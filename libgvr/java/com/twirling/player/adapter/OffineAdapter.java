@@ -32,10 +32,6 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 		this.models = models;
 	}
 
-	public void setModels(List<OfflineModel> models) {
-		this.models = models;
-	}
-
 	@Override
 	public BindingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 		LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -63,6 +59,7 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 //			DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffCallBack<>(oldModels, models), true);
 //			result.dispatchUpdatesTo(OffineAdapter.this);
 //			setModels(models);
+//			notifyItemRemoved(position);
 			notifyDataSetChanged();
 		}
 
