@@ -64,6 +64,7 @@ public class FragmentDownload extends Fragment {
 		});
 		mAdapter = new OffineAdapter(models);
 		recyclerView.setAdapter(mAdapter);
+		loadData();
 		return rootView;
 	}
 
@@ -97,12 +98,12 @@ public class FragmentDownload extends Fragment {
 				});
 		mAdapter.notifyDataSetChanged();
 	}
-
-	@Override
-	public void setUserVisibleHint(boolean isVisibleToUser) {
-		if (isVisibleToUser) {
-			loadData();
-		}
-		super.setUserVisibleHint(isVisibleToUser);
-	}
+//
+//	@Override
+//	public void setUserVisibleHint(boolean isVisibleToUser) {
+//		if (isVisibleToUser) {
+//			loadData();
+//		}
+//		super.setUserVisibleHint(isVisibleToUser);
+//	}
 }

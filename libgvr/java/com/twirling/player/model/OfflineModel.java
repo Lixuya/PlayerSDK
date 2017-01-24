@@ -18,7 +18,7 @@ public class OfflineModel extends BaseObservable {
 	private Drawable icon = null;
 
 	public OfflineModel(Context context) {
-		 icon = new IconicsDrawable(context)
+		icon = new IconicsDrawable(context)
 				.icon(FontAwesome.Icon.faw_trash_o)
 				.color(Color.parseColor("#FFFFFF"))
 				.sizeDp(30);
@@ -35,6 +35,9 @@ public class OfflineModel extends BaseObservable {
 
 	public void setName(String name) {
 		this.name = name;
+		if (name.endsWith("assets")) {
+			icon = null;
+		}
 		notifyChange();
 	}
 

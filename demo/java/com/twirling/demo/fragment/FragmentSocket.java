@@ -60,7 +60,7 @@ public class FragmentSocket extends Fragment {
 				recyclerView.loadMoreComplete();
 			}
 		});
-		mAdapter = new OffineAdapter(datas);
+//		mAdapter = new OffineAdapter(datas);
 		recyclerView.setAdapter(mAdapter);
 		//
 //		broadcast = new Broadcast();
