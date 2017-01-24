@@ -79,7 +79,7 @@ public class FragmentDownload extends Fragment {
 					@Override
 					public void accept(Boolean granted) throws Exception {
 						if (!granted) {
-							Toast.makeText(recyclerView.getContext(), "请到设置中心打开应用存储权限", Toast.LENGTH_LONG).show();
+							Toast.makeText(getActivity(), "请到设置中心打开应用存储权限", Toast.LENGTH_LONG).show();
 						}
 					}
 				})
@@ -99,6 +99,11 @@ public class FragmentDownload extends Fragment {
 //						result.dispatchUpdatesTo(adapter);
 //						adapter.setModels(models);
 						adapter.notifyDataSetChanged();
+					}
+				}, new Consumer<Throwable>() {
+					@Override
+					public void accept(Throwable throwable) throws Exception {
+						Toast.makeText(recyclerView.getContext(), "刷新失败", Toast.LENGTH_LONG).show();
 					}
 				});
 	}
