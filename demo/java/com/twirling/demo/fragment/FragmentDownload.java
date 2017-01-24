@@ -33,7 +33,7 @@ public class FragmentDownload extends Fragment {
 	@BindView(R.id.rv)
 	XRecyclerView recyclerView;
 
-	private OffineAdapter mAdapter = null;
+	private OffineAdapter adapter = null;
 	private List<String> strings = new ArrayList<String>();
 	private List<OfflineModel> models = new ArrayList<OfflineModel>();
 
@@ -62,14 +62,15 @@ public class FragmentDownload extends Fragment {
 				recyclerView.loadMoreComplete();
 			}
 		});
-		mAdapter = new OffineAdapter(models);
-		recyclerView.setAdapter(mAdapter);
+		adapter = new OffineAdapter(models);
+		recyclerView.setAdapter(adapter);
 		loadData();
 		return rootView;
 	}
 
 	private void loadData() {
 		strings.clear();
+		final List<OfflineModel> oldModels = models;
 		models.clear();
 		new RxPermissions(getActivity())
 				.request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -95,7 +96,10 @@ public class FragmentDownload extends Fragment {
 							model.setPosition(i);
 							models.add(model);
 						}
-						mAdapter.notifyDataSetChanged();
+//						DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffCallBack<>(oldModels, models), true);
+//						result.dispatchUpdatesTo(adapter);
+//						adapter.setModels(models);
+						adapter.notifyDataSetChanged();
 					}
 				});
 	}
