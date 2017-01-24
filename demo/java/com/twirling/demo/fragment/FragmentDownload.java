@@ -27,7 +27,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 
 /**
- * Target: 下载界面
+ * Target: 本地视频页
  */
 public class FragmentDownload extends Fragment {
 	@BindView(R.id.rv)
@@ -80,7 +80,6 @@ public class FragmentDownload extends Fragment {
 					public void accept(Boolean granted) throws Exception {
 						if (!granted) {
 							Toast.makeText(recyclerView.getContext(), "请到设置中心打开应用存储权限", Toast.LENGTH_LONG).show();
-							throw new RuntimeException("no permission");
 						}
 					}
 				})
@@ -89,21 +88,15 @@ public class FragmentDownload extends Fragment {
 					public void accept(Boolean aBoolean) throws Exception {
 						strings.addAll(FileUtil.getFileList());
 						strings.addAll(FileUtil.getAssetList(getActivity()));
-						for (String string : strings) {
+						//
+						for (int i = 0; i < strings.size(); i++) {
 							OfflineModel model = new OfflineModel(getActivity());
-							model.setName(string);
+							model.setName(strings.get(i));
+							model.setPosition(i);
 							models.add(model);
 						}
+						mAdapter.notifyDataSetChanged();
 					}
 				});
-		mAdapter.notifyDataSetChanged();
 	}
-//
-//	@Override
-//	public void setUserVisibleHint(boolean isVisibleToUser) {
-//		if (isVisibleToUser) {
-//			loadData();
-//		}
-//		super.setUserVisibleHint(isVisibleToUser);
-//	}
 }

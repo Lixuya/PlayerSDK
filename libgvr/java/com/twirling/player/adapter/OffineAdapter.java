@@ -53,9 +53,10 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 	}
 
 	public class Presenter {
-		public void onIvDeleteClick(View view) {
+		public void onIvDeleteClick(View view, int position) {
 			FileUtil.delete(new File(Constants.FILE_PATH));
-			notifyDataSetChanged();
+			models.remove(position);
+			notifyItemRemoved(position);
 		}
 
 		public void onCvCardClick(View view, String name) {

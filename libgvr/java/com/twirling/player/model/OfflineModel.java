@@ -14,6 +14,7 @@ import com.mikepenz.iconics.IconicsDrawable;
  */
 
 public class OfflineModel extends BaseObservable {
+	private int position = -1;
 	private String name = "";
 	private Drawable icon = null;
 
@@ -25,6 +26,10 @@ public class OfflineModel extends BaseObservable {
 	}
 
 	@Bindable
+	public int getPosition() {
+		return position;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -33,12 +38,16 @@ public class OfflineModel extends BaseObservable {
 		return icon;
 	}
 
+	public void setPosition(int position) {
+		this.position = position;
+		notifyChange();
+	}
+
 	public void setName(String name) {
 		this.name = name;
 		if (name.endsWith("assets")) {
 			icon = null;
 		}
-		notifyChange();
 	}
 
 	public void setIcon(Drawable icon) {

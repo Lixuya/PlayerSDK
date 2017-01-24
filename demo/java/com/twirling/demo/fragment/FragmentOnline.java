@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.iconics.IconicsDrawable;
@@ -76,11 +77,13 @@ public class FragmentOnline extends Fragment {
 							@Override
 							public void onError(Throwable e) {
 								// 下载出错
+								Toast.makeText(getActivity(), "下载出错", Toast.LENGTH_LONG).show();
 							}
 
 							@Override
 							public void onComplete() {
 								// 下载完成
+								Toast.makeText(getActivity(), "下载完成", Toast.LENGTH_LONG).show();
 							}
 						});
 			}
