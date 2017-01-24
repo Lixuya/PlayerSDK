@@ -1,5 +1,7 @@
 package com.twirling.demo.activity;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.mikepenz.iconics.IconicsDrawable;
+import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
 import com.twirling.demo.Constants;
 import com.twirling.demo.R;
 import com.twirling.demo.fragment.FragmentDownload;
@@ -54,10 +58,16 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		Constants.IS3D = !Constants.IS3D;
+		Drawable icon = new IconicsDrawable(this)
+				.icon(MaterialDesignIconic.Icon.gmi_3d_rotation)
+				.color(Color.parseColor("#DDFFFF"))
+				.sizeDp(33);
 		if (Constants.IS3D) {
-			item.setTitle("3D");
+			item.setTitle(null);
+			item.setIcon(icon);
 		} else {
 			item.setTitle("2D");
+			item.setIcon(null);
 		}
 		return super.onOptionsItemSelected(item);
 	}

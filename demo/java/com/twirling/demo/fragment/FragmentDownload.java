@@ -70,7 +70,6 @@ public class FragmentDownload extends Fragment {
 
 	private void loadData() {
 		strings.clear();
-		final List<OfflineModel> oldModels = models;
 		models.clear();
 		new RxPermissions(getActivity())
 				.request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
