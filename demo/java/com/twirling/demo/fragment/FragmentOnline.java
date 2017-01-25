@@ -60,8 +60,6 @@ public class FragmentOnline extends Fragment {
 							// 获得下载状态
 							onlineModel.setMax((int) value.getTotalSize());
 							onlineModel.setProgress((int) value.getDownloadSize());
-//							pb_download.setMax((int) value.getTotalSize());
-//							pb_download.setProgress((int) value.getDownloadSize());
 						}
 
 						@Override
@@ -88,13 +86,9 @@ public class FragmentOnline extends Fragment {
 
 	@Override
 	public void setUserVisibleHint(boolean isVisibleToUser) {
-//		if (isVisibleToUser && pb_download != null) {
-//			if (new File(Constants.FILE_PATH).exists()) {
-//				pb_download.setProgress(100);
-//			} else {
-//				pb_download.setProgress(0);
-//			}
-//		}
+		if (isVisibleToUser) {
+//
+		}
 		super.setUserVisibleHint(isVisibleToUser);
 	}
 }
