@@ -21,7 +21,7 @@
 ##2. 接口介绍：
 [![](https://jitpack.io/v/xieqiupeng/TwirlingPlayerSDK.svg)](https://jitpack.io/#xieqiupeng/TwirlingPlayerSDK)
 ##3. 项目展示：
-![image](https://github.com/xieqiupeng/TwirlingPlayerSDK/blob/master/images/0.png)
-![image](https://github.com/xieqiupeng/TwirlingPlayerSDK/blob/master/images/1.png)
+![url](https://github.com/xieqiupeng/TwirlingPlayerSDK/blob/master/images/0.png)
+![url](https://github.com/xieqiupeng/TwirlingPlayerSDK/blob/master/images/1.png)
 ##3. issue<br/>
 如果有bug反馈或者建议，欢迎在issues里讨论。<br/>

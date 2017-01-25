@@ -8,6 +8,8 @@ import android.graphics.drawable.Drawable;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.iconics.IconicsDrawable;
 
+import java.io.File;
+
 /**
  * Created by xieqi on 2017/1/23.
  */
@@ -16,7 +18,7 @@ public class OfflineModel extends BaseObservable {
 	private int position = -1;
 	private String name = "";
 	private Drawable icon = null;
-	private Drawable stagePhoto = null;
+	private File stagePhoto = null;
 
 	public OfflineModel(Context context) {
 		icon = new IconicsDrawable(context)
@@ -37,7 +39,7 @@ public class OfflineModel extends BaseObservable {
 		return icon;
 	}
 
-	public Drawable getStagePhoto() {
+	public File getStagePhoto() {
 		return stagePhoto;
 	}
 
@@ -56,7 +58,7 @@ public class OfflineModel extends BaseObservable {
 		this.icon = icon;
 	}
 
-	public void setStagePhoto(Drawable stagePhoto) {
+	public void setStagePhoto(File stagePhoto) {
 		this.stagePhoto = stagePhoto;
 	}
 }

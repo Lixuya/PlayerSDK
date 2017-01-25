@@ -8,35 +8,47 @@ import android.graphics.drawable.Drawable;
 
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.iconics.IconicsDrawable;
-import com.twirling.demo.Constants;
 
 /**
  * Created by xieqi on 2017/1/24.
  */
 public class OnlineModel extends BaseObservable {
-	private Drawable icon = null;
+	private Drawable iconDownload = null;
+	private Drawable iconPlay = null;
 	private int progress = 0;
 	private int max = 100;
-	private String image = null;
+	private String url = null;
 
 	public OnlineModel(Context context) {
-		icon = new IconicsDrawable(context)
+		iconDownload = new IconicsDrawable(context)
 				.icon(FontAwesome.Icon.faw_cloud_download)
-				.color(Color.parseColor("#DDFFFF"))
+				.color(Color.parseColor("#F0DDFFFF"))
 				.sizeDp(40);
+		iconPlay = new IconicsDrawable(context)
+				.icon(FontAwesome.Icon.faw_play_circle)
+				.color(Color.parseColor("#80FFFFFF"))
+				.sizeDp(36);
 	}
 
-	public Drawable getIcon() {
-		return icon;
+	public Drawable getIconDownload() {
+		return iconDownload;
 	}
 
-	public void setIcon(Drawable icon) {
-		this.icon = icon;
+	public void setIconDownload(Drawable iconDownload) {
+		this.iconDownload = iconDownload;
+	}
+
+	public Drawable getIconPlay() {
+		return iconPlay;
+	}
+
+	public void setIconPlay(Drawable iconPlay) {
+		this.iconPlay = iconPlay;
 	}
 
 	@Bindable
-	public String getImage() {
-		return image;
+	public String getUrl() {
+		return url;
 	}
 
 	@Bindable
@@ -59,8 +71,8 @@ public class OnlineModel extends BaseObservable {
 		notifyPropertyChanged(com.twirling.demo.BR.max);
 	}
 
-	public void setImage(String image) {
-		this.image = image;
-		notifyPropertyChanged(com.twirling.demo.BR.image);
+	public void setUrl(String url) {
+		this.url = url;
+		notifyPropertyChanged(com.twirling.demo.BR.url);
 	}
 }

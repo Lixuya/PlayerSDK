@@ -3,7 +3,6 @@ package com.twirling.player.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +11,7 @@ import android.view.ViewGroup;
 import com.twirling.player.Constants;
 import com.twirling.player.R;
 import com.twirling.player.activity.VRPlayerActivity;
+import com.twirling.player.databinding.ItemDownloadBinding;
 import com.twirling.player.model.OfflineModel;
 import com.twirling.player.util.FileUtil;
 import com.twirling.player.widget.BindingViewHolder;
@@ -19,8 +19,6 @@ import com.twirling.player.widget.BindingViewHolder;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.databinding.tool.util.GenerationalClassUtil.ExtensionFilter.BR;
 
 /**
  * Target: 适配本地列表单项
@@ -36,10 +34,9 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 	@Override
 	public BindingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 		LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		ViewDataBinding binding = DataBindingUtil.inflate(inflater, R.layout.item_download, parent, false);
-		return new BindingViewHolder(binding);
+		ItemDownloadBinding binding = DataBindingUtil.inflate(inflater, R.layout.item_download, parent, false);
+		return new BindingViewHolder<>(binding);
 	}
-
 
 	@Override
 	public void onBindViewHolder(BindingViewHolder holder, int position) {
@@ -57,7 +54,6 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 		public void onIvDeleteClick(View view, int position) {
 			FileUtil.delete(new File(Constants.FILE_PATH));
 			models.remove(position);
-
 //			DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffCallBack<>(oldModels, models), true);
 //			result.dispatchUpdatesTo(OffineAdapter.this);
 //			setModels(models);
@@ -68,7 +64,7 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 		public void onCvCardClick(View view, String name) {
 			Intent intent = new Intent();
 			String uri = Constants.PAPH_MOVIES + name;
-			if (name.endsWith("assets")) {
+			if (name.endsWith("asset")) {
 				uri = null;
 			}
 			intent.putExtra("VideoItem", uri);

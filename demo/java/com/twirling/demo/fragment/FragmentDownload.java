@@ -14,10 +14,12 @@ import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.twirling.demo.R;
+import com.twirling.player.Constants;
 import com.twirling.player.adapter.OffineAdapter;
 import com.twirling.player.model.OfflineModel;
 import com.twirling.player.util.FileUtil;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,8 +93,14 @@ public class FragmentDownload extends Fragment {
 						//
 						for (int i = 0; i < strings.size(); i++) {
 							OfflineModel model = new OfflineModel(getActivity());
-							model.setName(strings.get(i));
+							String name = strings.get(i);
+							model.setName(name);
 							model.setPosition(i);
+							if (name.endsWith("asset")) {
+								model.setStagePhoto(new File(Constants.PAPH_MOVIES + name.substring(0, name.length() - 5)));
+							} else {
+								model.setStagePhoto(new File(Constants.PAPH_MOVIES +name));
+							}
 							models.add(model);
 						}
 //						DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffCallBack<>(oldModels, models), true);

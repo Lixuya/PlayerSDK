@@ -15,7 +15,7 @@
      <item android:id="@+id/action_share"
        android:title="@string/action_edit"
        android:orderInCategory="90"
-       android:icon="@drawable/ab_share"
+       android:iconDownload="@drawable/ab_share"
        app:showAsAction="ifRoom" />
 
      <item android:id="@+id/action_settings"

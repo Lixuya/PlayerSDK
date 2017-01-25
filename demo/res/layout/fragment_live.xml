@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_margin="10dp"
-        android:background="@drawable/gz"
         android:foreground="?attr/selectableItemBackground"
         card_view:cardPreventCornerOverlap="true"
         card_view:cardUseCompatPadding="true"
