@@ -11,8 +11,6 @@ import com.bumptech.glide.Glide;
  * Target: 为databinding补充绑定方法
  */
 public class DataBindingAdapter {
-	private static final boolean IS_TESTING = true;
-
 	@BindingAdapter({"imageUrl", "placeholder"})
 	public static void loadImageFromUrl(ImageView view,
 	                                    String url,

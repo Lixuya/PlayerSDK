@@ -3,12 +3,10 @@ package com.twirling.demo.component;
 /**
  * Target：component
  */
-public class WidgetComponent {
-
+public class WidgetComponent implements android.databinding.DataBindingComponent{
 	private DataBindingAdapter dbAdapter = new DataBindingAdapter();
 
-//	@Override
-//	public DataBindingAdapter getMyBindingAdapter() {
-//		return dbAdapter;
-//	}
+	public DataBindingAdapter getDbAdapter() {
+		return dbAdapter;
+	}
 }
