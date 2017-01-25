@@ -49,7 +49,7 @@ public class OfflineModel extends BaseObservable {
 
 	public void setName(String name) {
 		this.name = name;
-		if (name.endsWith("assets")) {
+		if (name.endsWith("asset")) {
 			icon = null;
 		}
 	}
