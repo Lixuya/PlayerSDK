@@ -16,6 +16,7 @@ import com.twirling.demo.R;
 import com.twirling.demo.databinding.FragmentOnlineBinding;
 import com.twirling.demo.model.OnlineModel;
 import com.twirling.player.activity.VRPlayerActivity;
+import com.twirling.player.databinding.component.WidgetComponent;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -29,15 +30,17 @@ import zlc.season.rxdownload2.entity.DownloadStatus;
  */
 public class FragmentOnline extends Fragment {
 	//
-	private static final String URL = Constants.REMOTE_URL;
+	private static final String URL = Constants.REMOTE_VIDEO;
+	private static final String IMAGE = Constants.REMOTE_IMAGE;
 	private OnlineModel onlineModel = null;
 
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		FragmentOnlineBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_online, container, false);
-//		DataBindingUtil.setDefaultComponent(new WidgetComponent());
+		DataBindingUtil.setDefaultComponent(new WidgetComponent());
 		onlineModel = new OnlineModel(getActivity());
+		onlineModel.setImage(IMAGE);
 		binding.setVariable(BR.item, onlineModel);
 		binding.setVariable(BR.presenter, new Presenter());
 		binding.executePendingBindings();

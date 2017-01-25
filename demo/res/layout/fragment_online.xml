@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:background="#C0C0C0"
                 android:scaleType="centerCrop"
-                android:src="@drawable/gz"/>
+                app:imageUrl="@{item.image}"/>
 
             <ImageView
                 android:id="@+id/iv_play"
@@ -62,8 +62,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
-                android:src="@{item.icon}"
-                android:onClick="@{(v)-> presenter.onIvDownloadClick(v)}"/>
+                android:onClick="@{(v)-> presenter.onIvDownloadClick(v)}"
+                android:src="@{item.icon}"/>
 
             <ProgressBar
                 android:id="@+id/pb_download"

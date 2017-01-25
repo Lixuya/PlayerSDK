@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
 		viewPager = (ViewPager) findViewById(R.id.vp);
 		FragmentManager manager = this.getSupportFragmentManager();
 		ViewPagerAdapter adapter = new ViewPagerAdapter(manager);
-		adapter.addFragment(new FragmentOnline(), "在线");
-		adapter.addFragment(new FragmentDownload(), "本地");
-		adapter.addFragment(new FragmentLive(), "直播");
+		adapter.addFragment(new FragmentOnline(), getString(R.string.online));
+		adapter.addFragment(new FragmentDownload(), getString(R.string.offline));
+		adapter.addFragment(new FragmentLive(), getString(R.string.live));
 //        adapter.addFragment(new FragmentSocket(), "远程");
 		viewPager.setOffscreenPageLimit(2);
 		viewPager.setAdapter(adapter);

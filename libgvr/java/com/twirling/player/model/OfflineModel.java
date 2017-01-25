@@ -16,6 +16,7 @@ public class OfflineModel extends BaseObservable {
 	private int position = -1;
 	private String name = "";
 	private Drawable icon = null;
+	private Drawable stagePhoto = null;
 
 	public OfflineModel(Context context) {
 		icon = new IconicsDrawable(context)
@@ -36,6 +37,10 @@ public class OfflineModel extends BaseObservable {
 		return icon;
 	}
 
+	public Drawable getStagePhoto() {
+		return stagePhoto;
+	}
+
 	public void setPosition(int position) {
 		this.position = position;
 	}
@@ -49,5 +54,9 @@ public class OfflineModel extends BaseObservable {
 
 	public void setIcon(Drawable icon) {
 		this.icon = icon;
+	}
+
+	public void setStagePhoto(Drawable stagePhoto) {
+		this.stagePhoto = stagePhoto;
 	}
 }

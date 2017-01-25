@@ -12,11 +12,12 @@ import com.bumptech.glide.Glide;
  */
 public class DataBindingAdapter {
 	@BindingAdapter({"imageUrl", "placeholder"})
-	public static void loadImageFromUrl(ImageView view,
-	                                    String url,
-	                                    Drawable drawable) {
+	public static void setImageFromUrl(ImageView view,
+	                                   String url,
+	                                   Drawable drawable) {
 		Glide.with(view.getContext())
 				.load(url)
+				.thumbnail(0.1f)
 				.placeholder(drawable)
 				.into(view);
 	}

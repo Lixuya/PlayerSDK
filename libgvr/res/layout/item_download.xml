@@ -30,6 +30,14 @@
         card_view:cardUseCompatPadding="true"
         card_view:contentPadding="0dp">
 
+        <ImageView
+            android:id="@+id/iv_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#C0C0C0"
+            android:scaleType="centerCrop"
+            android:src="@{item.stagePhoto}"/>
+
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
