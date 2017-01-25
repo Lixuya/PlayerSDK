@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.twirling.demo.BR;
 import com.twirling.demo.Constants;
 import com.twirling.demo.R;
 import com.twirling.demo.databinding.FragmentOnlineBinding;
@@ -41,8 +40,8 @@ public class FragmentOnline extends Fragment {
 		DataBindingUtil.setDefaultComponent(new WidgetComponent());
 		onlineModel = new OnlineModel(getActivity());
 		onlineModel.setImage(IMAGE);
-		binding.setVariable(BR.item, onlineModel);
-		binding.setVariable(BR.presenter, new Presenter());
+		binding.setVariable(com.twirling.demo.BR.item, onlineModel);
+		binding.setVariable(com.twirling.demo.BR.presenter, new Presenter());
 		binding.executePendingBindings();
 		return binding.getRoot();
 	}

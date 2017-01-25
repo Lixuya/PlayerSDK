@@ -21,8 +21,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.databinding.tool.util.GenerationalClassUtil.ExtensionFilter.BR;
-
 /**
  * Target: 适配本地列表单项
  */
