@@ -1,4 +1,4 @@
-package com.twirling.demo.component;
+package com.twirling.player.databinding.component;
 
 /**
  * Target：component

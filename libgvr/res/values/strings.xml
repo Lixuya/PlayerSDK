@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">libgvr</string>
-    <string name="loading_video">加载视频...</string>
+    <string name="loading_video">加载视频&#8230;</string>
     <string name="menu_item">2D&#160;&#160;</string>
 </resources>

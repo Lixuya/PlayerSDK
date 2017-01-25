@@ -1,4 +1,4 @@
-package com.twirling.demo.component;
+package com.twirling.player.databinding.component;
 
 import android.databinding.BindingAdapter;
 import android.graphics.drawable.Drawable;
