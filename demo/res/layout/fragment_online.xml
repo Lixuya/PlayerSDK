@@ -1,54 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp">
+    <data>
 
-        <ImageView
-            android:id="@+id/iv_video"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#C0C0C0"
-            android:scaleType="centerCrop"
-            android:src="@drawable/gz"/>
+        <import type="com.twirling.demo.fragment.FragmentOnline"/>
 
-        <ImageView
-            android:id="@+id/iv_play"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#C0C0C0"
-            android:scaleType="centerCrop"
-            android:src="@drawable/gz"/>
-    </android.support.v7.widget.CardView>
+        <import type="com.twirling.demo.model.OnlineModel"/>
 
-    <!-- 可隐藏 -->
+        <variable
+            name="presenter"
+            type="FragmentOnline.Presenter"/>
+
+        <variable
+            name="item"
+            type="OnlineModel"/>
+    </data>
+
     <LinearLayout
+
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="visible">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/iv_download"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="30dp"/>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:onClick="@{(v)-> presenter.onCvCardClick(v)}">
 
-        <ProgressBar
-            android:id="@+id/pb_download"
-            style="@android:style/Widget.Material.ProgressBar.Horizontal"
-            android:layout_width="290dp"
-            android:layout_height="wrap_content"/>
+            <ImageView
+                android:id="@+id/iv_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#C0C0C0"
+                android:scaleType="centerCrop"
+                android:src="@drawable/gz"/>
+
+            <ImageView
+                android:id="@+id/iv_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@null"/>
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:src="@{item.icon}"
+                android:onClick="@{(v)-> presenter.onIvDownloadClick(v)}"/>
+
+            <ProgressBar
+                android:id="@+id/pb_download"
+                style="@android:style/Widget.Material.ProgressBar.Horizontal"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:max="@{item.max}"
+                android:progress="@{item.progress}"/>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</layout>

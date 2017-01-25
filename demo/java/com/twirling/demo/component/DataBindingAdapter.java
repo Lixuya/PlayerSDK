@@ -21,14 +21,14 @@ public class DataBindingAdapter {
 				.into(view);
 	}
 
-	@BindingAdapter("android:max")
+	@BindingAdapter({"max"})
 	public static void setMax(WidgetComponent component,
 	                          ProgressBar view,
 	                          int max) {
 		view.setMax(max);
 	}
 
-	@BindingAdapter("android:progress")
+	@BindingAdapter({"progress"})
 	public static void setProgess(WidgetComponent component,
 	                              ProgressBar view,
 	                              int progress) {
