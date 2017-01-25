@@ -56,6 +56,7 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 		public void onIvDeleteClick(View view, int position) {
 			FileUtil.delete(new File(Constants.FILE_PATH));
 			models.remove(position);
+
 //			DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffCallBack<>(oldModels, models), true);
 //			result.dispatchUpdatesTo(OffineAdapter.this);
 //			setModels(models);

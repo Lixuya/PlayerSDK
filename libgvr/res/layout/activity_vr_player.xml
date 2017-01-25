@@ -21,6 +21,5 @@
         android:id="@+id/iv_play"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:src="@drawable/play" />
+        android:layout_gravity="center"/>
 </FrameLayout>

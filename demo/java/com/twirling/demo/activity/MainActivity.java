@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.video_list);
+		setContentView(R.layout.activity_vr_player);
 		// 侧边栏
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
