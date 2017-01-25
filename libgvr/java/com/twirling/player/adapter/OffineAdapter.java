@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.twirling.player.BR;
 import com.twirling.player.Constants;
 import com.twirling.player.R;
 import com.twirling.player.activity.VRPlayerActivity;
@@ -20,6 +19,8 @@ import com.twirling.player.widget.BindingViewHolder;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.databinding.tool.util.GenerationalClassUtil.ExtensionFilter.BR;
 
 /**
  * Target: 适配本地列表单项
@@ -42,8 +43,8 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 
 	@Override
 	public void onBindViewHolder(BindingViewHolder holder, int position) {
-		holder.getBinding().setVariable(BR.presenter, new Presenter());
-		holder.getBinding().setVariable(BR.item, models.get(position));
+		holder.getBinding().setVariable(com.twirling.player.BR.presenter, new Presenter());
+		holder.getBinding().setVariable(com.twirling.player.BR.item, models.get(position));
 		holder.getBinding().executePendingBindings();
 	}
 
