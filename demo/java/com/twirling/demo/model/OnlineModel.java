@@ -26,7 +26,7 @@ public class OnlineModel extends BaseObservable {
 				.sizeDp(40);
 		iconPlay = new IconicsDrawable(context)
 				.icon(FontAwesome.Icon.faw_play_circle)
-				.color(Color.parseColor("#80FFFFFF"))
+				.color(Color.parseColor("#B0FFFFFF"))
 				.sizeDp(36);
 	}
 

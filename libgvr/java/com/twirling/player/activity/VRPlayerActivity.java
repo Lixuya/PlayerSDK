@@ -2,9 +2,12 @@ package com.twirling.player.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -15,8 +18,11 @@ import android.widget.Toast;
 import com.google.android.exoplayer.HeadAnglesEvent;
 import com.google.vr.sdk.widgets.video.VrVideoEventListener;
 import com.google.vr.sdk.widgets.video.VrVideoView;
+import com.mikepenz.fontawesome_typeface_library.FontAwesome;
+import com.mikepenz.iconics.IconicsDrawable;
 import com.twirling.player.Constants;
 import com.twirling.player.R;
+import com.twirling.player.util.TimeUtil;
 import com.twirling.player.widget.WidgetMediaController;
 
 import org.greenrobot.eventbus.EventBus;
@@ -60,6 +66,11 @@ public class VRPlayerActivity extends Activity {
 
 	public void initView() {
 		iv_play = (ImageView) findViewById(R.id.iv_play);
+		Drawable iconPlay = new IconicsDrawable(this)
+				.icon(FontAwesome.Icon.faw_play_circle)
+				.color(Color.parseColor("#B0FFFFFF"))
+				.sizeDp(36);
+		iv_play.setImageDrawable(iconPlay);
 		iv_play.setVisibility(View.GONE);
 		//
 		videoWidgetView = (VrVideoView) findViewById(R.id.video_view);
@@ -70,6 +81,13 @@ public class VRPlayerActivity extends Activity {
 		//
 		wmc = (WidgetMediaController) findViewById(R.id.wmc);
 		wmc.setVisibility(View.GONE);
+		wmc.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				togglePause();
+				return true;
+			}
+		});
 		//
 		seekBar = (SeekBar) wmc.findViewById(R.id.sb);
 		seekBar.setOnSeekBarChangeListener(new SeekBarListener());
@@ -182,11 +200,11 @@ public class VRPlayerActivity extends Activity {
 		if (isPaused) {
 			wmc.setVisibility(View.GONE);
 			iv_play.setVisibility(View.GONE);
-//			videoWidgetView.playVideo();
+			videoWidgetView.playVideo();
 		} else {
 			wmc.setVisibility(View.VISIBLE);
 			iv_play.setVisibility(View.VISIBLE);
-//			videoWidgetView.pauseVideo();
+			videoWidgetView.pauseVideo();
 		}
 		isPaused = !isPaused;
 		updateStatusText();
@@ -195,10 +213,11 @@ public class VRPlayerActivity extends Activity {
 	private void updateStatusText() {
 		StringBuilder status = new StringBuilder();
 		status.append(isPaused ? "暂停: " : "播放: ");
-		status.append(String.format("%.2f", videoWidgetView.getCurrentPosition() / 1000f));
+		String currentTime = TimeUtil.float2time(videoWidgetView.getCurrentPosition() / 1000f);
+		status.append(currentTime);
 		status.append(" / ");
-		status.append(videoWidgetView.getDuration() / 1000f);
-		status.append(" 秒.");
+		String wholeTime = TimeUtil.float2time(videoWidgetView.getDuration() / 1000f);
+		status.append(wholeTime);
 		statusText.setText(status.toString());
 	}
 
