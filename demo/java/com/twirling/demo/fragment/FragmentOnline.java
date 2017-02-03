@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.twirling.demo.Constants;
 import com.twirling.demo.R;
 import com.twirling.demo.databinding.FragmentOnlineBinding;
-import com.twirling.demo.model.OnlineModel;
+import com.twirling.player.model.OnlineModel;
 import com.twirling.player.activity.VRPlayerActivity;
 
 import io.reactivex.Observer;
@@ -37,7 +37,7 @@ public class FragmentOnline extends Fragment {
 		FragmentOnlineBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_online, container, false);
 		onlineModel = new OnlineModel(getActivity());
 		onlineModel.setUrl(Constants.REMOTE_IMAGE);
-		binding.setVariable(com.twirling.demo.BR.item, onlineModel);
+		binding.setVariable(com.twirling.player.BR.item, onlineModel);
 		binding.setVariable(com.twirling.demo.BR.presenter, new Presenter());
 		binding.executePendingBindings();
 		return binding.getRoot();

@@ -1,4 +1,4 @@
-package com.twirling.demo.model;
+package com.twirling.player.model;
 
 import android.content.Context;
 import android.databinding.BaseObservable;
@@ -58,7 +58,7 @@ public class OnlineModel extends BaseObservable {
 
 	public void setProgress(int progress) {
 		this.progress = progress;
-		notifyPropertyChanged(com.twirling.demo.BR.progress);
+		notifyPropertyChanged(com.twirling.player.BR.progress);
 	}
 
 	@Bindable
@@ -68,11 +68,11 @@ public class OnlineModel extends BaseObservable {
 
 	public void setMax(int max) {
 		this.max = max;
-		notifyPropertyChanged(com.twirling.demo.BR.max);
+		notifyPropertyChanged(com.twirling.player.BR.max);
 	}
 
 	public void setUrl(String url) {
 		this.url = url;
-		notifyPropertyChanged(com.twirling.demo.BR.url);
+		notifyPropertyChanged(com.twirling.player.BR.url);
 	}
 }
