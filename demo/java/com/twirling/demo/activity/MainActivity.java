@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
@@ -18,6 +19,7 @@ import com.twirling.demo.fragment.FragmentDownload;
 import com.twirling.demo.fragment.FragmentLive;
 import com.twirling.demo.fragment.FragmentOnline;
 import com.twirling.player.adapter.ViewPagerAdapter;
+import com.twirling.player.util.DisplayUtil;
 
 public class MainActivity extends AppCompatActivity {
 	private ViewPager viewPager = null;
@@ -31,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
 		//
 		viewPager = (ViewPager) findViewById(R.id.vp);
+		//
+		ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
+		layoutParams.width = DisplayUtil.getScreenWidth(this) - DisplayUtil.dip2px(this, 0);
+		viewPager.setLayoutParams(layoutParams);
+//		viewPager.setPageMargin(DisplayUtil.dip2px(this, 40));
+		//
 		FragmentManager manager = this.getSupportFragmentManager();
 		ViewPagerAdapter adapter = new ViewPagerAdapter(manager);
 		adapter.addFragment(new FragmentOnline(), getString(R.string.online));
