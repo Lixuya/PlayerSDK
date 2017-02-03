@@ -205,6 +205,7 @@ public class VRPlayerActivity extends Activity {
 			wmc.setVisibility(View.VISIBLE);
 			iv_play.setVisibility(View.VISIBLE);
 			videoWidgetView.pauseVideo();
+			videoWidgetView.seekTo(videoWidgetView.getCurrentPosition());
 		}
 		isPaused = !isPaused;
 		updateStatusText();

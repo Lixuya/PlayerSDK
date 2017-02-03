@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
+import com.tencent.bugly.crashreport.CrashReport;
 import com.twirling.demo.Constants;
 import com.twirling.demo.R;
 import com.twirling.demo.fragment.FragmentDownload;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		//
+		CrashReport.initCrashReport(getApplicationContext(), "8a09d6d42a", false);
 		// 侧边栏
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
