@@ -20,21 +20,21 @@ import butterknife.ButterKnife;
  * Created by 谢秋鹏 on 2016/5/27.
  */
 public class FragmentLive extends Fragment {
-    @BindView(R.id.iv_jiaodu)
-    CardView iv_jiaodu;
+	@BindView(R.id.cv)
+	CardView cv;
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_live, null);
-        ButterKnife.bind(this, view);
-        iv_jiaodu.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), HLSActivity.class);
-                startActivity(intent);
-            }
-        });
-        return view;
-    }
+	@Nullable
+	@Override
+	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+		View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_live, null);
+		ButterKnife.bind(this, view);
+		cv.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(getActivity(), HLSActivity.class);
+				startActivity(intent);
+			}
+		});
+		return view;
+	}
 }

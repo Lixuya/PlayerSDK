@@ -49,7 +49,7 @@ public class FragmentDownload extends Fragment {
 //        mRecyclerView.addItemDecoration(new DividerGridItemDecoration(getBaseContext()));
 		recyclerView.setLayoutManager(layoutManager);
 		recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
-		recyclerView.setLaodingMoreProgressStyle(ProgressStyle.Pacman);
+		recyclerView.setLoadingMoreProgressStyle(ProgressStyle.Pacman);
 //        mRecyclerView.setArrowImageView(R.mipmap.iconfont_downgrey);
 //        mRecyclerView.setHasFixedSize(true);
 		recyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
@@ -99,7 +99,7 @@ public class FragmentDownload extends Fragment {
 							if (name.endsWith("asset")) {
 								model.setStagePhoto(new File(Constants.PAPH_MOVIES + name.substring(0, name.length() - 5)));
 							} else {
-								model.setStagePhoto(new File(Constants.PAPH_MOVIES +name));
+								model.setStagePhoto(new File(Constants.PAPH_MOVIES + name));
 							}
 							models.add(model);
 						}
