@@ -258,9 +258,9 @@ public final class AudioTrack {
 	 * @param streamType        The type of audio stream for the underlying {@link android.media.AudioTrack}.
 	 */
 	public AudioTrack(AudioCapabilities audioCapabilities, int streamType) {
-		if (!EventBus.getDefault().hasSubscriberForEvent(HeadAnglesEvent.class)) {
+//		if (!EventBus.getDefault().hasSubscriberForEvent(HeadAnglesEvent.class)) {
 			EventBus.getDefault().register(this);
-		}
+//		}
 
 		this.audioCapabilities = audioCapabilities;
 		this.streamType = streamType;
