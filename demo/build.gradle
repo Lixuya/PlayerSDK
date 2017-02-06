@@ -106,6 +106,6 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.8'
     //
     compile project(':libgvr')
-//  compile 'com.github.xieqiupeng:PlayerSDK:-SNAPSHOT'
+//    compile 'com.github.xieqiupeng:PlayerSDK:master-SNAPSHOT'
 //  compile project(':libsocket')
 }
