@@ -94,7 +94,7 @@ dependencies {
     compile 'com.jcodecraeer:xrecyclerview:1.3.2'
     //
     compile 'zlc.season:rxdownload2:1.1.1'
-    //    compile "$PlayerLib"
+//    compile "com.github.xieqiupeng:TwirlingPlayerSDK:1.7.2"
     compile project(':libgvr')
     //
     compile 'com.mikepenz:iconics-core:2.8.1@aar'
