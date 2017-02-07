@@ -81,6 +81,7 @@ dependencies {
     compile 'com.mikepenz:fontawesome-typeface:4.7.0.0@aar'
     //
     compile 'zlc.season:rxdownload2:1.1.1'
+//    compile 'com.github.xieqiupeng:lib-gvr-exo:master-SNAPSHOT'
     compile project(':lib-gvr-exo')
 }
 //apply from: "https://raw.githubusercontent.com/xiaopansky/android-library-publish-to-jcenter/master/bintrayUpload.gradle"
