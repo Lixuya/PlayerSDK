@@ -10,7 +10,7 @@ buildscript {
                  vcode     : 21,
                  vname     : "1.7.3"]
         //
-        versions = [supportLib: "25.0.1"]
+        versions = [supportLib: "25.1.0"]
     }
     repositories {
         jcenter()
