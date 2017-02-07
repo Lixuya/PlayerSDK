@@ -106,6 +106,7 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.8'
     //
     compile project(':lib-gvr')
+    compile project(':lib-gvr-exo')
 //    compile 'com.github.xieqiupeng:lib-gvr:master-SNAPSHOT'
 //  compile project(':libsocket')
 }
