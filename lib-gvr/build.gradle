@@ -57,14 +57,11 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     //
     compile 'com.google.protobuf.nano:protobuf-javanano:3.1.0'
-//    compile(name: 'common', ext: 'aar')
-//    compile(name: 'commonwidget', ext: 'aar')
-//    compile(name: 'videowidget', ext: 'aar')
     //
     compile 'com.google.vr:sdk-common:1.10.0@aar'
     compile 'com.google.vr:sdk-commonwidget:1.10.0@aar'
     compile 'com.google.vr:sdk-videowidget:1.10.0@aar'
-    compile 'com.google.android.exoplayer:exoplayer:r1.5.10'
+//    compile 'com.google.android.exoplayer:exoplayer:r1.5.10'
     //
     compile "com.android.support:appcompat-v7:${versions.supportLib}"
     compile "com.android.support:cardview-v7:${versions.supportLib}"
@@ -84,6 +81,6 @@ dependencies {
     compile 'com.mikepenz:fontawesome-typeface:4.7.0.0@aar'
     //
     compile 'zlc.season:rxdownload2:1.1.1'
-//    compile project(':library')
+    compile project(':lib-gvr-exo')
 }
 //apply from: "https://raw.githubusercontent.com/xiaopansky/android-library-publish-to-jcenter/master/bintrayUpload.gradle"

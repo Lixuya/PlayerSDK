@@ -1,21 +1,18 @@
 *.iml
 *.apk
 *.png
+*.mp4
 
+.idea
+build
+*/.idea
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
 .DS_Store
 /captures
-/build
-.idea/
+*/build
 
 .gradle/
 license.jks
-libgvr/gradlew
-libgvr/gradlew.bat
-libgvr/local.properties
-demo/assets/testRoom1_1080Stereo.mp4
-
-
-library/build/
+*/gradlew
+*/gradlew.bat
+*/local.properties
