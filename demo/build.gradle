@@ -3,7 +3,7 @@ apply plugin: 'com.jakewharton.butterknife'
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
-def PlayerLib = properties.getProperty("PlayerLib");
+def LibGvr = properties.getProperty("LibGvr");
 //
 android {
     compileSdkVersion setup.compileSdk
@@ -107,6 +107,6 @@ dependencies {
     //
     compile project(':lib-gvr')
     compile project(':lib-gvr-exo')
-//    compile 'com.github.xieqiupeng:lib-gvr:master-SNAPSHOT'
+//  compile "$LibGvr"
 //  compile project(':libsocket')
 }
