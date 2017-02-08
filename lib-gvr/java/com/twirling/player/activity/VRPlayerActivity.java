@@ -15,6 +15,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.exoplayer.HeadAnglesEvent;
 import com.google.vr.sdk.widgets.video.VrVideoEventListener;
 import com.google.vr.sdk.widgets.video.VrVideoView;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
@@ -23,6 +24,8 @@ import com.twirling.player.Constants;
 import com.twirling.player.R;
 import com.twirling.player.util.TimeUtil;
 import com.twirling.player.widget.WidgetMediaController;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.IOException;
 
@@ -66,7 +69,7 @@ public class VRPlayerActivity extends Activity {
 		Drawable iconPlay = new IconicsDrawable(this)
 				.icon(FontAwesome.Icon.faw_play_circle)
 				.color(Color.parseColor("#B0FFFFFF"))
-				.sizeDp(36);
+				.sizeDp(64);
 		iv_play.setImageDrawable(iconPlay);
 		iv_play.setVisibility(View.GONE);
 		//
@@ -265,7 +268,7 @@ public class VRPlayerActivity extends Activity {
 			// TODO
 			float[] yawAndPitch = new float[2];
 			videoWidgetView.getHeadRotation(yawAndPitch);
-//			EventBus.getDefault().post(new HeadAnglesEvent(yawAndPitch));
+			EventBus.getDefault().post(new HeadAnglesEvent(yawAndPitch));
 		}
 
 		@Override
