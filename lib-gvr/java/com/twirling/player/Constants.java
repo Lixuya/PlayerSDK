@@ -5,7 +5,7 @@ import android.os.Environment;
 /**
  * Target: 基本常量
  */
-public class Constants {
+public class Constants{
 	//
 	public static final String PATH_DOWNLOAD = Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS + "/";
 	public static final String PATH_MOVIES = Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_MOVIES + "/";

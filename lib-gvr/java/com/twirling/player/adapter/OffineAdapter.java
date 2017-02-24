@@ -8,13 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.twirling.lib_cobb.util.FileUtil;
 import com.twirling.player.Constants;
 import com.twirling.player.R;
 import com.twirling.player.activity.VRPlayerActivity;
 import com.twirling.player.databinding.ItemDownloadBinding;
 import com.twirling.player.model.OfflineModel;
 import com.twirling.player.widget.BindingViewHolder;
-import com.twirling.www.lib_cobb.util.FileUtil;
 
 import java.io.File;
 import java.util.ArrayList;
