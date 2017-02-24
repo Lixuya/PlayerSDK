@@ -1,4 +1,4 @@
-package com.twirling.player.helper;
+package com.twirling.lib_cobb.util;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -14,17 +14,17 @@ import java.util.zip.ZipInputStream;
 /**
  * @author xieqiupeng
  */
-public abstract class UnZipHelper {
+public abstract class ZipUtil {
     private String _zipFile;
     private String _location;
     private InputStream fin;
 
-    public UnZipHelper(String zipFile) {
+    public ZipUtil(String zipFile) {
         _zipFile = zipFile;
         _dirChecker("");
     }
 
-    public UnZipHelper(InputStream stream) {
+    public ZipUtil(InputStream stream) {
         fin = stream;
         _dirChecker("");
     }
