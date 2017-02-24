@@ -38,7 +38,7 @@
             android:background="#C0C0C0"
             android:contentDescription="@null"
             android:scaleType="centerCrop"
-            app:videoPath="@{item.videoPath}"/>
+            app:stagePhoto="@{item.videoPath}"/>
 
         <TextView
             android:id="@+id/tv_name"

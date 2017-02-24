@@ -14,12 +14,11 @@ import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.twirling.demo.R;
+import com.twirling.lib_cobb.util.FileUtil;
 import com.twirling.player.Constants;
 import com.twirling.player.adapter.OffineAdapter;
 import com.twirling.player.model.OfflineModel;
-import com.twirling.player.util.FileUtil;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,8 +87,8 @@ public class FragmentDownload extends Fragment {
 					public void accept(Boolean aBoolean) throws Exception {
 						strings.clear();
 						models.clear();
-						strings.addAll(FileUtil.getFileList());
-						strings.addAll(FileUtil.getAssetList(getActivity()));
+						strings.addAll(FileUtil.Get.getFileList());
+						strings.addAll(FileUtil.Get.getAssetList(getActivity()));
 						//
 						for (int i = 0; i < strings.size(); i++) {
 							OfflineModel model = new OfflineModel(getActivity());
@@ -97,9 +96,9 @@ public class FragmentDownload extends Fragment {
 							model.setName(name);
 							model.setPosition(i);
 							if (name.endsWith("asset")) {
-								model.setVideoPath(new File(Constants.PATH_MOVIES + name.substring(0, name.length() - 5)));
+								model.setVideoPath(Constants.PATH_MOVIES + name.substring(0, name.length() - 5));
 							} else {
-								model.setVideoPath(new File(Constants.PATH_MOVIES + name));
+								model.setVideoPath(Constants.PATH_MOVIES + name);
 							}
 							models.add(model);
 						}

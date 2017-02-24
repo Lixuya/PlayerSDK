@@ -3,7 +3,7 @@ package com.twirling.lib_cobb.util;
 import android.content.Context;
 import android.util.Log;
 
-import com.twirling.player.Constants;
+import com.twirling.lib_cobb.Constants;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.twirling.player.Constants.PATH_DOWNLOAD;
+import static com.twirling.lib_cobb.Constants.PATH_DOWNLOAD;
 
 /**
  * Created by xieqi on 2017/1/20.
