@@ -22,7 +22,6 @@ import static com.twirling.player.Constants.PATH_DOWNLOAD;
  * Created by xieqi on 2017/1/20.
  */
 public class FileUtil {
-
 	public static class Create {
 		public static boolean createByPath(String path) {
 			return createByFile(new File(path));
@@ -46,7 +45,6 @@ public class FileUtil {
 			}
 			return file.mkdir();
 		}
-
 	}
 
 	public static class Get {
@@ -158,6 +156,10 @@ public class FileUtil {
 	}
 
 	public static class Delete {
+		public static void deleteByPath(String path) {
+			deleteByFile(new File(path));
+		}
+
 		public static void deleteByFile(File file) {
 			if (file.isFile()) {
 				file.delete();

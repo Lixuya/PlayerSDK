@@ -16,7 +16,6 @@ import com.twirling.player.databinding.ItemDownloadBinding;
 import com.twirling.player.model.OfflineModel;
 import com.twirling.player.widget.BindingViewHolder;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +51,7 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 
 	public class Presenter {
 		public void onIvDeleteClick(View view, OfflineModel item) {
-			FileUtil.delete(new File(Constants.PATH_DOWNLOAD + item.getName()));
+			FileUtil.Delete.deleteByPath(Constants.PATH_DOWNLOAD + item.getName());
 			models.remove(item.getPosition());
 //			DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffCallBack<>(oldModels, models), true);
 //			result.dispatchUpdatesTo(OffineAdapter.this);
