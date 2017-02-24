@@ -36,8 +36,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#C0C0C0"
+            android:contentDescription="@null"
             android:scaleType="centerCrop"
-            app:stagePhoto="@{item.stagePhoto}"/>
+            app:videoPath="@{item.videoPath}"/>
 
         <TextView
             android:id="@+id/tv_name"
@@ -54,7 +55,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top|end"
             android:layout_margin="10dp"
+            android:contentDescription="@null"
             android:onClick="@{(v)->presenter.onIvDeleteClick(v,item)}"
-            android:src="@{item.icon}"/>
+            android:src="@{item.iconTrash}"/>
     </android.support.v7.widget.CardView>
 </layout>

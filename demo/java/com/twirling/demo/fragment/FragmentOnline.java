@@ -46,7 +46,7 @@ public class FragmentOnline extends Fragment {
 	public class Presenter {
 		public void onIvDownloadClick(View view) {
 			RxDownload.getInstance()
-					.download(URL, Constants.FILE_NAME, Constants.PAPH_MOVIES)
+					.download(URL, Constants.FILE_NAME, Constants.PATH_MOVIES)
 					.subscribeOn(Schedulers.io())
 					.observeOn(AndroidSchedulers.mainThread())
 					.subscribe(new Observer<DownloadStatus>() {

@@ -13,8 +13,8 @@ import com.twirling.player.R;
 import com.twirling.player.activity.VRPlayerActivity;
 import com.twirling.player.databinding.ItemDownloadBinding;
 import com.twirling.player.model.OfflineModel;
-import com.twirling.player.util.FileUtil;
 import com.twirling.player.widget.BindingViewHolder;
+import com.twirling.www.lib_cobb.util.FileUtil;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -52,7 +52,7 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 
 	public class Presenter {
 		public void onIvDeleteClick(View view, OfflineModel item) {
-			FileUtil.delete(new File(Constants.PAPH_MOVIES + item.getName()));
+			FileUtil.delete(new File(Constants.PATH_DOWNLOAD + item.getName()));
 			models.remove(item.getPosition());
 //			DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffCallBack<>(oldModels, models), true);
 //			result.dispatchUpdatesTo(OffineAdapter.this);
@@ -63,7 +63,7 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 
 		public void onCvCardClick(View view, String name) {
 			Intent intent = new Intent();
-			String uri = Constants.PAPH_MOVIES + name;
+			String uri = Constants.PATH_DOWNLOAD + name;
 			if (name.endsWith("asset")) {
 				uri = null;
 			}

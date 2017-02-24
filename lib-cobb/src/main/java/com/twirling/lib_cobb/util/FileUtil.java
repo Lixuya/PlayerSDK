@@ -1,4 +1,4 @@
-package com.twirling.player.util;
+package com.twirling.lib_cobb.util;
 
 import android.content.Context;
 import android.util.Log;
@@ -18,7 +18,7 @@ public class FileUtil {
 	public static List<String> getFileList() {
 		//new的一个File对象
 		List<String> list = new ArrayList<String>();
-		File f = new File(Constants.PAPH_MOVIES);
+		File f = new File(Constants.PATH_MOVIES);
 		if (!f.exists()) {
 			f.mkdirs();
 		}

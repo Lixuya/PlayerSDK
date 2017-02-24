@@ -1,4 +1,4 @@
-package com.twirling.player.util;
+package com.twirling.lib_cobb.util;
 
 import android.content.Context;
 import android.util.DisplayMetrics;

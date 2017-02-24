@@ -97,9 +97,9 @@ public class FragmentDownload extends Fragment {
 							model.setName(name);
 							model.setPosition(i);
 							if (name.endsWith("asset")) {
-								model.setStagePhoto(new File(Constants.PAPH_MOVIES + name.substring(0, name.length() - 5)));
+								model.setVideoPath(new File(Constants.PATH_MOVIES + name.substring(0, name.length() - 5)));
 							} else {
-								model.setStagePhoto(new File(Constants.PAPH_MOVIES + name));
+								model.setVideoPath(new File(Constants.PATH_MOVIES + name));
 							}
 							models.add(model);
 						}
