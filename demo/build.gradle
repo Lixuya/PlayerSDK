@@ -1,10 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-def LibGvr = properties.getProperty("LibGvr");
-//
 android {
     compileSdkVersion rootProject.setup.compileSdk
     buildToolsVersion rootProject.setup.buildTools
