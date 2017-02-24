@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 /**
  * Created by xieqi on 2017/2/3.
  */
-
 public class TimeUtil {
 	public static String float2time(float timeNumber) {
 		SimpleDateFormat formatter = (SimpleDateFormat) SimpleDateFormat.getTimeInstance();

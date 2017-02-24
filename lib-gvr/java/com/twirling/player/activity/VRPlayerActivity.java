@@ -20,9 +20,9 @@ import com.google.vr.sdk.widgets.video.VrVideoEventListener;
 import com.google.vr.sdk.widgets.video.VrVideoView;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.iconics.IconicsDrawable;
+import com.twirling.lib_cobb.util.TimeUtil;
 import com.twirling.player.Constants;
 import com.twirling.player.R;
-import com.twirling.player.util.TimeUtil;
 import com.twirling.player.widget.WidgetMediaController;
 
 import org.greenrobot.eventbus.EventBus;
