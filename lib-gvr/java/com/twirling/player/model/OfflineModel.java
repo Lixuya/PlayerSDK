@@ -42,11 +42,6 @@ public class OfflineModel extends BaseObservable {
 		return iconTrash;
 	}
 
-	@Bindable
-	public String getVideoPath() {
-		return videoPath;
-	}
-
 	public void setPosition(int position) {
 		this.position = position;
 	}
@@ -63,10 +58,16 @@ public class OfflineModel extends BaseObservable {
 		this.iconTrash = iconTrash;
 	}
 
+	@Bindable
+	public String getVideoPath() {
+		return videoPath;
+	}
+
 	public void setVideoPath(String videoPath) {
 		this.videoPath = videoPath;
 	}
 
+	@Bindable
 	public boolean isAsset() {
 		return asset;
 	}

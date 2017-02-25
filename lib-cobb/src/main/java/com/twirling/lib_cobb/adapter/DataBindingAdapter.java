@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide;
 public class DataBindingAdapter {
 	@BindingAdapter("stagePhoto")
 	public static void setStagePhotoByPath(ImageView view,
-	                                 String videoPath) {
+	                                       String videoPath) {
 		Glide.with(view.getContext())
 				.load(videoPath)
 				.asBitmap()
