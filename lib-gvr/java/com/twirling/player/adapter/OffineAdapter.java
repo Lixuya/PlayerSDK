@@ -99,8 +99,6 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 							Log.e(getClass() + "", throwable.toString());
 						}
 					});
-
-
 			notifyDataSetChanged();
 		}
 
