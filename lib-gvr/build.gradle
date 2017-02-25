@@ -69,13 +69,10 @@ dependencies {
     //
     compile 'io.reactivex.rxjava2:rxjava:2.0.2'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile "com.github.JakeWharton.RxBinding:rxbinding:master-SNAPSHOT"
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.1@aar'
     //
     compile 'com.orhanobut:logger:1.15'
-    //
-    compile "com.mikepenz:iconics-core:2.8.1@aar"
-    compile 'com.mikepenz:google-material-typeface:2.2.0.3.original@aar'
-    compile 'com.mikepenz:material-design-iconic-typeface:2.2.0.2@aar'
-    compile 'com.mikepenz:fontawesome-typeface:4.7.0.0@aar'
     //
     compile 'zlc.season:rxdownload2:1.1.1'
     compile project(':lib-cobb')
@@ -85,5 +82,7 @@ dependencies {
     compile 'com.daimajia.easing:library:1.0.0@aar'
     compile 'com.daimajia.androidanimations:library:1.1.2@aar'
     compile 'com.daimajia.androidviewhover:library:1.0.4@aar'
+    //
+    compile 'com.afollestad.material-dialogs:core:0.9.3.0'
 }
 //apply from: "https://raw.githubusercontent.com/xiaopansky/android-library-publish-to-jcenter/master/bintrayUpload.gradle"
