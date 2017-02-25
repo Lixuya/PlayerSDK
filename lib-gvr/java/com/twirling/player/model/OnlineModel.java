@@ -3,11 +3,9 @@ package com.twirling.player.model;
 import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 
-import com.mikepenz.fontawesome_typeface_library.FontAwesome;
-import com.mikepenz.iconics.IconicsDrawable;
+import com.twirling.lib_cobb.widget.WidgetIcon;
 
 /**
  * Created by xieqi on 2017/1/24.
@@ -20,14 +18,8 @@ public class OnlineModel extends BaseObservable {
 	private String url = null;
 
 	public OnlineModel(Context context) {
-		iconDownload = new IconicsDrawable(context)
-				.icon(FontAwesome.Icon.faw_cloud_download)
-				.color(Color.parseColor("#F0DDFFFF"))
-				.sizeDp(40);
-		iconPlay = new IconicsDrawable(context)
-				.icon(FontAwesome.Icon.faw_play_circle)
-				.color(Color.parseColor("#B0FFFFFF"))
-				.sizeDp(36);
+		iconDownload = WidgetIcon.getDownloadIcon(context);
+		iconPlay = WidgetIcon.getPlayIcon(context);
 	}
 
 	public Drawable getIconDownload() {

@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.Theme;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.twirling.lib_cobb.util.FileUtil;
-import com.twirling.lib_cobb.widget.WidgetIcon;
 import com.twirling.player.Constants;
 import com.twirling.player.R;
 import com.twirling.player.activity.VRPlayerActivity;
@@ -84,8 +84,13 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 											notifyDataSetChanged();
 										}
 									})
-									.content("确定删除 " + item.getName() + " 吗")
-									.icon(WidgetIcon.getTrashIcon(view.getContext()))
+									.theme(Theme.LIGHT)
+									.title(R.string.title)
+									.content("确定离开App吗")
+									.positiveText(R.string.agree)
+									.negativeText(R.string.disagree)
+									.content(String.format(view.getContext().getResources().getString(R.string.delete), item.getName()))
+//									.icon(WidgetIcon.getTrashIcon(view.getContext()))
 									.show();
 						}
 					}, new Consumer<Throwable>() {
@@ -106,6 +111,7 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 				uri = null;
 			}
 			intent.putExtra("VideoItem", uri);
+			intent.putExtra("stereo", Constants.stereo);
 			intent.putExtra("stereo", Constants.stereo);
 			intent.setClass(view.getContext(), VRPlayerActivity.class);
 			view.getContext().startActivity(intent);

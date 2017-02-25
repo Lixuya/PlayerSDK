@@ -88,18 +88,21 @@ public class FragmentDownload extends Fragment {
 						strings.clear();
 						models.clear();
 						strings.addAll(FileUtil.Get.getFileList());
-						strings.addAll(FileUtil.Get.getAssetList(getActivity()));
-						//
-						for (int i = 0; i < strings.size(); i++) {
-							OfflineModel model = new OfflineModel(getActivity());
-							String name = strings.get(i);
-							model.setName(name);
+						int i;
+						OfflineModel model = new OfflineModel(getActivity());
+						for (i = 0; i < strings.size(); i++) {
+							model.setName(strings.get(i));
 							model.setPosition(i);
-							if (name.endsWith("asset")) {
-								model.setVideoPath(Constants.PATH_MOVIES + name.substring(0, name.length() - 5));
-							} else {
-								model.setVideoPath(Constants.PATH_MOVIES + name);
-							}
+							model.setAssets(false);
+							model.setVideoPath(Constants.PATH_MOVIES + strings.get(i));
+							models.add(model);
+						}
+						strings.addAll(FileUtil.Get.getAssetList(getActivity()));
+						for (int j = i; j < strings.size() + i; j++) {
+							model.setName(strings.get(i));
+							model.setPosition(i);
+							model.setAssets(true);
+							model.setVideoPath(Constants.PATH_MOVIES + strings.get(i));
 							models.add(model);
 						}
 //						DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffCallBack<>(oldModels, models), true);

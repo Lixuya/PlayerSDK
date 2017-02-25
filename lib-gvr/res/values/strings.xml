@@ -2,4 +2,10 @@
     <string name="app_name">libgvr</string>
     <string name="loading_video">加载视频&#8230;</string>
     <string name="menu_item">2D&#160;&#160;</string>
+
+    <!-- dialog -->
+    <string name="agree">确定</string>
+    <string name="disagree">取消</string>
+    <string name="title">提示</string>
+    <string name="delete">确定删除&#160;%1$s&#160;吗"</string>
 </resources>

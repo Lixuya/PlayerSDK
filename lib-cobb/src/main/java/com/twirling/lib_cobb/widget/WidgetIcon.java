@@ -22,7 +22,7 @@ public class WidgetIcon {
 	public static Drawable getDownloadIcon(Context context) {
 		Drawable icon = new IconicsDrawable(context)
 				.icon(FontAwesome.Icon.faw_cloud_download)
-				.color(Color.parseColor("#DDFFFF"))
+				.color(Color.parseColor("#F0DDFFFF"))
 				.sizeDp(30);
 		return icon;
 	}
@@ -39,9 +39,16 @@ public class WidgetIcon {
 		Drawable icon = new IconicsDrawable(context)
 				.icon(FontAwesome.Icon.faw_trash_o)
 				.color(Color.parseColor("#FFFFFF"))
-				.sizeDp(25);
+				.sizeDp(30);
 		return icon;
 	}
 
+	public static Drawable getPlayIcon(Context context) {
+		Drawable icon = new IconicsDrawable(context)
+				.icon(FontAwesome.Icon.faw_play_circle)
+				.color(Color.parseColor("#B0FFFFFF"))
+				.sizeDp(36);
+		return icon;
+	}
 
 }

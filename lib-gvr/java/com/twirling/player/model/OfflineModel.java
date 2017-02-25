@@ -3,11 +3,9 @@ package com.twirling.player.model;
 import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 
-import com.mikepenz.fontawesome_typeface_library.FontAwesome;
-import com.mikepenz.iconics.IconicsDrawable;
+import com.twirling.lib_cobb.widget.WidgetIcon;
 
 /**
  * Created by xieqi on 2017/1/23.
@@ -22,12 +20,11 @@ public class OfflineModel extends BaseObservable {
 	private Drawable iconTrash = null;
 	// 视频路径
 	private String videoPath = "";
+	// assets文件
+	private boolean assets = false;
 
 	public OfflineModel(Context context) {
-		iconTrash = new IconicsDrawable(context)
-				.icon(FontAwesome.Icon.faw_trash_o)
-				.color(Color.parseColor("#FFFFFF"))
-				.sizeDp(30);
+		iconTrash = WidgetIcon.getTrashIcon(context);
 	}
 
 	@Bindable
@@ -68,5 +65,13 @@ public class OfflineModel extends BaseObservable {
 
 	public void setVideoPath(String videoPath) {
 		this.videoPath = videoPath;
+	}
+
+	public boolean isAssets() {
+		return assets;
+	}
+
+	public void setAssets(boolean assets) {
+		this.assets = assets;
 	}
 }
