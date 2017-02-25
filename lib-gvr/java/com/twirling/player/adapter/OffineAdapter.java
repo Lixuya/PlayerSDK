@@ -104,15 +104,12 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 			notifyDataSetChanged();
 		}
 
-		public void onCvCardClick(View view, String name) {
+		public void onCvCardClick(View view, final OfflineModel item) {
 			Intent intent = new Intent();
-			String uri = Constants.PATH_MOVIES + name;
-			if (name.endsWith("asset")) {
-				uri = null;
-			}
+			String uri = Constants.PATH_MOVIES + item.getName();
 			intent.putExtra("VideoItem", uri);
 			intent.putExtra("stereo", Constants.stereo);
-			intent.putExtra("stereo", Constants.stereo);
+			intent.putExtra("asset", item.isAsset());
 			intent.setClass(view.getContext(), VRPlayerActivity.class);
 			view.getContext().startActivity(intent);
 		}

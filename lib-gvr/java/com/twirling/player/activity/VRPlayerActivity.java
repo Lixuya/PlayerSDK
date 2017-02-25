@@ -46,7 +46,7 @@ public class VRPlayerActivity extends Activity {
 	private boolean isPaused = false;
 	private WidgetMediaController wmc = null;
 	private ImageView iv_play = null;
-	private boolean assets = false;
+	private boolean asset = false;
 	private boolean stereo = false;
 
 	//
@@ -103,7 +103,7 @@ public class VRPlayerActivity extends Activity {
 		}
 		String uri = bundle.getString("VideoItem");
 		stereo = bundle.getBoolean("stereo", false);
-		assets = bundle.getBoolean("assets", false);
+		asset = bundle.getBoolean("asset", false);
 		if (uri == null) {
 			return;
 		}
@@ -139,7 +139,7 @@ public class VRPlayerActivity extends Activity {
 			} else {
 				options.inputType = VrVideoView.Options.TYPE_MONO;
 			}
-			if (assets) {
+			if (asset) {
 				videoWidgetView.loadVideoFromAsset("testRoom1_1080Stereo.mp4", options);
 			} else {
 				videoWidgetView.loadVideo(fileUri, options);

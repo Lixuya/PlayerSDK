@@ -81,8 +81,6 @@ public class FileUtil {
 			List<String> list = new ArrayList<String>();
 			for (String name : str) {
 				if (name.endsWith("mp4")) {
-					name = name.substring(0, name.length() - 4);
-					name += "asset";
 					list.add(name);
 				}
 			}

@@ -21,7 +21,7 @@ public class OfflineModel extends BaseObservable {
 	// 视频路径
 	private String videoPath = "";
 	// assets文件
-	private boolean assets = false;
+	private boolean asset = false;
 
 	public OfflineModel(Context context) {
 		iconTrash = WidgetIcon.getTrashIcon(context);
@@ -67,11 +67,11 @@ public class OfflineModel extends BaseObservable {
 		this.videoPath = videoPath;
 	}
 
-	public boolean isAssets() {
-		return assets;
+	public boolean isAsset() {
+		return asset;
 	}
 
-	public void setAssets(boolean assets) {
-		this.assets = assets;
+	public void setAsset(boolean asset) {
+		this.asset = asset;
 	}
 }
