@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide;
 /**
  * Target: 为databinding补充绑定方法
  */
-public class DataBindingAdapter extends com.twirling.player.databinding.component.DataBindingAdapter {
+public class DataBindingAdapter extends com.twirling.lib_cobb.adapter.DataBindingAdapter {
 	@BindingAdapter({"stagePhotoByUrl"})
 	public static void setStagePhotoByUrl(ImageView view,
 	                                      String url) {

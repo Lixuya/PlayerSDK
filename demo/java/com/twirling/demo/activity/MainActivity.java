@@ -20,7 +20,6 @@ import com.twirling.demo.fragment.FragmentDownload;
 import com.twirling.demo.fragment.FragmentLive;
 import com.twirling.demo.fragment.FragmentOnline;
 import com.twirling.lib_cobb.util.DisplayUtil;
-import com.twirling.player.adapter.ViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 	private ViewPager viewPager = null;

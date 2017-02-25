@@ -80,5 +80,10 @@ dependencies {
     compile 'zlc.season:rxdownload2:1.1.1'
     compile project(':lib-cobb')
     compile project(':lib-gvr-exo')
+    //
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.daimajia.easing:library:1.0.0@aar'
+    compile 'com.daimajia.androidanimations:library:1.1.2@aar'
+    compile 'com.daimajia.androidviewhover:library:1.0.4@aar'
 }
 //apply from: "https://raw.githubusercontent.com/xiaopansky/android-library-publish-to-jcenter/master/bintrayUpload.gradle"

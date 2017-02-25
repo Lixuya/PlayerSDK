@@ -1,4 +1,4 @@
-package com.twirling.player.adapter;
+package com.twirling.lib_cobb.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
