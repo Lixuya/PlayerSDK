@@ -14,6 +14,4 @@ public class Constants {
 	//
 	public static final String FILE_NAME = "GuZheng_2K.mp4";
 	public static final String FILE_PATH = PATH_MOVIES + FILE_NAME;
-	//
-	public static boolean IS3D = false;
 }

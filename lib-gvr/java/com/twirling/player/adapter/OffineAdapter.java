@@ -51,7 +51,7 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 
 	public class Presenter {
 		public void onIvDeleteClick(View view, OfflineModel item) {
-			FileUtil.Delete.deleteByPath(Constants.PATH_DOWNLOAD + item.getName());
+			FileUtil.Delete.deleteByPath(Constants.PATH_MOVIES + item.getName());
 			models.remove(item.getPosition());
 //			DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffCallBack<>(oldModels, models), true);
 //			result.dispatchUpdatesTo(OffineAdapter.this);
@@ -62,12 +62,12 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 
 		public void onCvCardClick(View view, String name) {
 			Intent intent = new Intent();
-			String uri = Constants.PATH_DOWNLOAD + name;
+			String uri = Constants.PATH_MOVIES + name;
 			if (name.endsWith("asset")) {
 				uri = null;
 			}
 			intent.putExtra("VideoItem", uri);
-			intent.putExtra("Is3D", Constants.IS3D);
+			intent.putExtra("stereo", Constants.stereo);
 			intent.setClass(view.getContext(), VRPlayerActivity.class);
 			view.getContext().startActivity(intent);
 		}

@@ -68,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		Constants.IS3D = !Constants.IS3D;
+		Constants.stereo = !Constants.stereo;
 		Drawable icon = new IconicsDrawable(this)
 				.icon(MaterialDesignIconic.Icon.gmi_3d_rotation)
 				.color(Color.parseColor("#DDFFFF"))
 				.sizeDp(33);
-		if (Constants.IS3D) {
+		if (Constants.stereo) {
 			item.setTitle(null);
 			item.setIcon(icon);
 		} else {

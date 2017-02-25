@@ -21,7 +21,6 @@ import com.google.vr.sdk.widgets.video.VrVideoView;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.twirling.lib_cobb.util.TimeUtil;
-import com.twirling.player.Constants;
 import com.twirling.player.R;
 import com.twirling.player.widget.WidgetMediaController;
 
@@ -47,6 +46,8 @@ public class VRPlayerActivity extends Activity {
 	private boolean isPaused = false;
 	private WidgetMediaController wmc = null;
 	private ImageView iv_play = null;
+	private boolean assets = false;
+	private boolean stereo = false;
 
 	//
 	@Override
@@ -101,7 +102,8 @@ public class VRPlayerActivity extends Activity {
 			return;
 		}
 		String uri = bundle.getString("VideoItem");
-		Constants.IS3D = bundle.getBoolean("Is3D", false);
+		stereo = bundle.getBoolean("stereo", false);
+		assets = bundle.getBoolean("assets", false);
 		if (uri == null) {
 			return;
 		}
@@ -132,12 +134,12 @@ public class VRPlayerActivity extends Activity {
 		try {
 			VrVideoView.Options options = new VrVideoView.Options();
 			options.inputFormat = VrVideoView.Options.FORMAT_DEFAULT;
-			if (Constants.IS3D) {
+			if (stereo) {
 				options.inputType = VrVideoView.Options.TYPE_STEREO_OVER_UNDER;
 			} else {
 				options.inputType = VrVideoView.Options.TYPE_MONO;
 			}
-			if (fileUri == null) {
+			if (assets) {
 				videoWidgetView.loadVideoFromAsset("testRoom1_1080Stereo.mp4", options);
 			} else {
 				videoWidgetView.loadVideo(fileUri, options);
@@ -265,7 +267,6 @@ public class VRPlayerActivity extends Activity {
 		public void onNewFrame() {
 			updateStatusText();
 			seekBar.setProgress((int) videoWidgetView.getCurrentPosition());
-			// TODO
 			float[] yawAndPitch = new float[2];
 			videoWidgetView.getHeadRotation(yawAndPitch);
 			EventBus.getDefault().post(new HeadAnglesEvent(yawAndPitch));
