@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.twirling.demo.R;
+import com.twirling.player.R;
 import com.twirling.player.activity.HLSActivity;
 
 /**
