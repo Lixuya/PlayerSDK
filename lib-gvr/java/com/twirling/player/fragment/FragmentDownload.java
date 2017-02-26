@@ -1,4 +1,4 @@
-package com.twirling.demo.fragment;
+package com.twirling.player.fragment;
 
 import android.Manifest;
 import android.os.Bundle;
@@ -13,17 +13,15 @@ import android.widget.Toast;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.twirling.demo.R;
 import com.twirling.lib_cobb.util.FileUtil;
 import com.twirling.player.Constants;
+import com.twirling.player.R;
 import com.twirling.player.adapter.OffineAdapter;
 import com.twirling.player.model.OfflineModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 
@@ -31,21 +29,19 @@ import io.reactivex.functions.Consumer;
  * Target: 本地视频页
  */
 public class FragmentDownload extends Fragment {
-	@BindView(R.id.rv)
-	XRecyclerView recyclerView;
-
+	private View rootView = null;
+	private XRecyclerView recyclerView;
 	private OffineAdapter adapter = null;
-	private List<String> strings = new ArrayList<String>();
 	private List<OfflineModel> models = new ArrayList<OfflineModel>();
 
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_download, container, false);
-		ButterKnife.bind(this, rootView);
+		rootView = inflater.inflate(R.layout.fragment_download, container, false);
 		//
 		GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 1);
 //        mRecyclerView.addItemDecoration(new DividerGridItemDecoration(getBaseContext()));
+		recyclerView = (XRecyclerView) rootView.findViewById(R.id.rv);
 		recyclerView.setLayoutManager(layoutManager);
 		recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
 		recyclerView.setLoadingMoreProgressStyle(ProgressStyle.Pacman);
@@ -85,9 +81,8 @@ public class FragmentDownload extends Fragment {
 				.subscribe(new Consumer<Boolean>() {
 					@Override
 					public void accept(Boolean aBoolean) throws Exception {
-						strings.clear();
 						models.clear();
-						strings = FileUtil.Get.getFileList();
+						List<String> strings = FileUtil.Get.getFileList();
 						int i = 0;
 						OfflineModel model = null;
 						for (String name : strings) {
@@ -117,7 +112,7 @@ public class FragmentDownload extends Fragment {
 				}, new Consumer<Throwable>() {
 					@Override
 					public void accept(Throwable throwable) throws Exception {
-						Toast.makeText(recyclerView.getContext(), "刷新失败", Toast.LENGTH_LONG).show();
+						Toast.makeText(rootView.getContext(), "刷新失败", Toast.LENGTH_LONG).show();
 					}
 				});
 	}

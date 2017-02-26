@@ -1,4 +1,4 @@
-package com.twirling.demo.fragment;
+package com.twirling.player.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,22 +12,15 @@ import android.view.ViewGroup;
 import com.twirling.demo.R;
 import com.twirling.player.activity.HLSActivity;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-
 /**
  * Created by 谢秋鹏 on 2016/5/27.
  */
 public class FragmentLive extends Fragment {
-	@BindView(R.id.cv)
-	CardView cv;
-
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_live, null);
-		ButterKnife.bind(this, view);
+		CardView cv = (CardView) view.findViewById(R.id.cv);
 		cv.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent();

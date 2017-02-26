@@ -16,11 +16,11 @@ import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic
 import com.tencent.bugly.crashreport.CrashReport;
 import com.twirling.demo.Constants;
 import com.twirling.demo.R;
-import com.twirling.demo.fragment.FragmentDownload;
-import com.twirling.demo.fragment.FragmentLive;
 import com.twirling.demo.fragment.FragmentOnline;
 import com.twirling.lib_cobb.adapter.ViewPagerAdapter;
 import com.twirling.lib_cobb.util.DisplayUtil;
+import com.twirling.player.fragment.FragmentDownload;
+import com.twirling.player.fragment.FragmentLive;
 
 public class MainActivity extends AppCompatActivity {
 	private ViewPager viewPager = null;

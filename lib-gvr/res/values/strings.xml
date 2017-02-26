@@ -2,6 +2,7 @@
     <string name="app_name">libgvr</string>
     <string name="loading_video">加载视频&#8230;</string>
     <string name="menu_item">2D&#160;&#160;</string>
+    <string name="live">直播</string>
 
     <!-- dialog -->
     <string name="agree">确定</string>
