@@ -6,6 +6,7 @@ import android.databinding.Bindable;
 import android.graphics.drawable.Drawable;
 
 import com.twirling.lib_cobb.widget.WidgetIcon;
+import com.twirling.player.BR;
 
 /**
  * Created by xieqi on 2017/1/23.
@@ -18,7 +19,9 @@ public class OfflineModel extends BaseObservable {
 	private String name = "";
 	// 删除图标
 	private Drawable iconTrash = null;
-	// 视频路径
+	// 视频下载Url
+	private String videoUrl = "";
+	// 视频本地存储路径
 	private String videoPath = "";
 	// assets文件
 	private boolean asset = false;
@@ -32,6 +35,11 @@ public class OfflineModel extends BaseObservable {
 		return position;
 	}
 
+	public void setPosition(int position) {
+		this.position = position;
+		notifyPropertyChanged(BR.position);
+	}
+
 	@Bindable
 	public String getName() {
 		return name;
@@ -42,20 +50,14 @@ public class OfflineModel extends BaseObservable {
 		return iconTrash;
 	}
 
-	public void setPosition(int position) {
-		this.position = position;
-	}
-
 	public void setName(String name) {
 		this.name = name;
-		if (name.endsWith("asset")) {
-			iconTrash = null;
-		}
-//		notifyPropertyChanged();
+		notifyPropertyChanged(BR.name);
 	}
 
 	public void setIconTrash(Drawable iconTrash) {
 		this.iconTrash = iconTrash;
+		notifyPropertyChanged(BR.iconTrash);
 	}
 
 	@Bindable
@@ -74,5 +76,25 @@ public class OfflineModel extends BaseObservable {
 
 	public void setAsset(boolean asset) {
 		this.asset = asset;
+	}
+
+	@Bindable
+	public String getVideoUrl() {
+		return videoUrl;
+	}
+
+	public void setVideoUrl(String videoUrl) {
+		this.videoUrl = videoUrl;
+	}
+
+	@Override
+	public String toString() {
+		return "OfflineModel{" +
+				"position=" + position +
+				", name='" + name + '\'' +
+				", videoUrl='" + videoUrl + '\'' +
+				", videoPath='" + videoPath + '\'' +
+				", asset='" + asset + '\'' +
+				'}';
 	}
 }
