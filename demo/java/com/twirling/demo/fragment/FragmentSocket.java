@@ -18,17 +18,10 @@ import com.twirling.player.adapter.OffineAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-
 /**
  * Created by 谢秋鹏 on 2016/5/27.
  */
 public class FragmentSocket extends Fragment {
-	@BindView(R.id.rv)
-	XRecyclerView recyclerView;
-
 	private OffineAdapter mAdapter = null;
 	private List<String> datas = new ArrayList<String>();
 	private SharedPreferences settings;
@@ -39,8 +32,8 @@ public class FragmentSocket extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_download, container, false);
-		ButterKnife.bind(this, rootView);
 		//
+		XRecyclerView recyclerView = rootView.findViewById(R.id.rv);
 		GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 1);
 //        mRecyclerView.addItemDecoration(new DividerGridItemDecoration(getBaseContext()));
 		recyclerView.setLayoutManager(layoutManager);
