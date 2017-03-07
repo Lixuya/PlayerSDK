@@ -1,5 +1,6 @@
 package com.twirling.demo.fragment;
 
+import android.Manifest;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.twirling.demo.Constants;
 import com.twirling.demo.R;
 import com.twirling.demo.databinding.FragmentOnlineBinding;
@@ -19,6 +21,7 @@ import com.twirling.player.activity.VRPlayerActivity;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import zlc.season.rxdownload2.RxDownload;
 import zlc.season.rxdownload2.entity.DownloadStatus;
@@ -45,32 +48,54 @@ public class FragmentOnline extends Fragment {
 
 	public class Presenter {
 		public void onIvDownloadClick(View view) {
-			RxDownload.getInstance()
-					.download(URL, Constants.FILE_NAME, Constants.PATH_MOVIES)
-					.subscribeOn(Schedulers.io())
+			new RxPermissions(getActivity())
+					.request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+					.doOnNext(new Consumer<Boolean>() {
+						@Override
+						public void accept(Boolean granted) throws Exception {
+							if (!granted) {
+								Toast.makeText(getActivity(), "请到设置中心打开应用存储权限", Toast.LENGTH_LONG).show();
+							}
+						}
+					})
 					.observeOn(AndroidSchedulers.mainThread())
-					.subscribe(new Observer<DownloadStatus>() {
+					.subscribeOn(AndroidSchedulers.mainThread())
+					.subscribe(new Consumer<Boolean>() {
 						@Override
-						public void onSubscribe(Disposable d) {
-						}
+						public void accept(Boolean aBoolean) throws Exception {
+							RxDownload.getInstance()
+									.download(URL, Constants.FILE_NAME, Constants.PATH_MOVIES)
+									.subscribeOn(Schedulers.io())
+									.observeOn(AndroidSchedulers.mainThread())
+									.subscribe(new Observer<DownloadStatus>() {
+										@Override
+										public void onSubscribe(Disposable d) {
+										}
 
-						@Override
-						public void onNext(DownloadStatus value) {
-							// 获得下载状态
-							onlineModel.setMax((int) value.getTotalSize());
-							onlineModel.setProgress((int) value.getDownloadSize());
-						}
+										@Override
+										public void onNext(DownloadStatus value) {
+											// 获得下载状态
+											onlineModel.setMax((int) value.getTotalSize());
+											onlineModel.setProgress((int) value.getDownloadSize());
+										}
 
-						@Override
-						public void onError(Throwable e) {
-							// 下载出错
-							Toast.makeText(getActivity(), "下载出错", Toast.LENGTH_LONG).show();
-						}
+										@Override
+										public void onError(Throwable e) {
+											// 下载出错
+											Toast.makeText(getActivity(), "下载出错", Toast.LENGTH_LONG).show();
+										}
 
+										@Override
+										public void onComplete() {
+											// 下载完成
+											Toast.makeText(getActivity(), "下载完成", Toast.LENGTH_LONG).show();
+										}
+									});
+						}
+					}, new Consumer<Throwable>() {
 						@Override
-						public void onComplete() {
-							// 下载完成
-							Toast.makeText(getActivity(), "下载完成", Toast.LENGTH_LONG).show();
+						public void accept(Throwable throwable) throws Exception {
+							Toast.makeText(getActivity(), "刷新失败", Toast.LENGTH_LONG).show();
 						}
 					});
 		}

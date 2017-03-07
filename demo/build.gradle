@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion rootProject.setup.compileSdk
@@ -78,9 +77,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     //
     compile 'com.tencent.bugly:crashreport:latest.release'
-    //
-    compile 'com.jakewharton:butterknife:8.4.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     //
     compile "com.android.support:appcompat-v7:$rootProject.versions.supportLib"
     compile "com.android.support:cardview-v7:$rootProject.versions.supportLib"

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import android.view.ViewGroup;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.Theme;
-import com.jakewharton.rxbinding2.view.RxView;
 import com.twirling.lib_cobb.util.FileUtil;
 import com.twirling.player.Constants;
 import com.twirling.player.R;
@@ -24,10 +22,6 @@ import com.twirling.player.widget.BindingViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
 
 /**
  * Target: 适配本地列表单项
@@ -49,8 +43,9 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 
 	@Override
 	public void onBindViewHolder(BindingViewHolder holder, int position) {
-		holder.getBinding().setVariable(com.twirling.player.BR.presenter, new Presenter());
+		models.get(position).setPosition(position);
 		holder.getBinding().setVariable(com.twirling.player.BR.item, models.get(position));
+		holder.getBinding().setVariable(com.twirling.player.BR.presenter, new Presenter());
 		holder.getBinding().executePendingBindings();
 	}
 
@@ -60,45 +55,30 @@ public class OffineAdapter extends RecyclerView.Adapter<BindingViewHolder> {
 	}
 
 	public class Presenter {
-		public void onIvDeleteClick(final View view, final OfflineModel item) {
-			RxView.clicks(view)
-					.throttleFirst(2, TimeUnit.SECONDS)
-					.observeOn(AndroidSchedulers.mainThread())
-					.subscribeOn(AndroidSchedulers.mainThread())
-					.subscribe(new Consumer<Object>() {
+		public void onIvDeleteClick(View view, final OfflineModel item) {
+			// 删除本地文件
+			new MaterialDialog.Builder(view.getContext())
+					.onPositive(new MaterialDialog.SingleButtonCallback() {
 						@Override
-						public void accept(Object o) throws Exception {
-							// 删除本地文件
-							new MaterialDialog.Builder(view.getContext())
-									.onPositive(new MaterialDialog.SingleButtonCallback() {
-										@Override
-										public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-											FileUtil.Delete.deleteByPath(Constants.PATH_MOVIES + item.getName());
-											//
-											models.remove(item.getPosition());
-											//
+						public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+							FileUtil.Delete.deleteByPath(Constants.PATH_MOVIES + item.getName());
+							//
+							models.remove(item.getPosition());
+							//
 //											DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffCallBack<>(oldModels, models), true);
 //											result.dispatchUpdatesTo(OffineAdapter.this);
 //											setModels(models);
 //											notifyItemRemoved(position);
-											notifyDataSetChanged();
-										}
-									})
-									.theme(Theme.LIGHT)
-									.title(R.string.title)
-									.content("确定离开App吗")
-									.positiveText(R.string.agree)
-									.negativeText(R.string.disagree)
-									.content(String.format(view.getContext().getResources().getString(R.string.delete), item.getName()))
-//									.icon(WidgetIcon.getTrashIcon(view.getContext()))
-									.show();
+							notifyDataSetChanged();
 						}
-					}, new Consumer<Throwable>() {
-						@Override
-						public void accept(Throwable throwable) throws Exception {
-							Log.e(getClass() + "", throwable.toString());
-						}
-					});
+					})
+					.theme(Theme.LIGHT)
+					.title(R.string.title)
+					.positiveText(R.string.agree)
+					.negativeText(R.string.disagree)
+					.content(String.format(view.getContext().getResources().getString(R.string.delete), item.getName()))
+//					.icon(WidgetIcon.getTrashIcon(view.getContext()))
+					.show();
 			notifyDataSetChanged();
 		}
 
