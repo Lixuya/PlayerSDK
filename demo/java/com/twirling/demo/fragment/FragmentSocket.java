@@ -25,7 +25,7 @@ public class FragmentSocket extends Fragment {
 	private OffineAdapter mAdapter = null;
 	private List<String> datas = new ArrayList<String>();
 	private SharedPreferences settings;
-
+	private XRecyclerView recyclerView = null;
 //	private Broadcast broadcast = null;
 
 	@Nullable
@@ -33,7 +33,7 @@ public class FragmentSocket extends Fragment {
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_download, container, false);
 		//
-		XRecyclerView recyclerView = rootView.findViewById(R.id.rv);
+		recyclerView = (XRecyclerView) rootView.findViewById(R.id.rv);
 		GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 1);
 //        mRecyclerView.addItemDecoration(new DividerGridItemDecoration(getBaseContext()));
 		recyclerView.setLayoutManager(layoutManager);
