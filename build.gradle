@@ -5,7 +5,7 @@ ext {
              minSdk    : 21,
              targetSdk : 25,
              vcode     : 29,
-             vname     : "1.8.1"]
+             vname     : "1.8.2"]
     versions = [libSupport : "25.2.0",
                 libRxJava  : "2.0.1",
                 libRetrofit: "2.1.0",
