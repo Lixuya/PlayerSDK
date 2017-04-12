@@ -259,7 +259,7 @@ public final class AudioTrack {
 	 */
 	public AudioTrack(AudioCapabilities audioCapabilities, int streamType) {
 //		if (!EventBus.getDefault().hasSubscriberForEvent(HeadAnglesEvent.class)) {
-			EventBus.getDefault().register(this);
+//			EventBus.getDefault().register(this);
 //		}
 
 		this.audioCapabilities = audioCapabilities;
@@ -721,6 +721,7 @@ public final class AudioTrack {
 								audioInput[j * 4 + 3] = (float) sounddata[j * outputChannelCount + 4] / 32768;
 							}
 						}
+						onEvent();
 						audioEngine.audioProcess(audioEngineInst, m_yaw, m_pitch, 0, audioInput, audioOutput, metadata);
 						for (int k = 0; k < audioframesize; k++) {
 							for (int j = 0; j < 2; j++) {
@@ -1426,8 +1427,8 @@ public final class AudioTrack {
 
 	// TODO getAnglesHere
 	@Subscribe
-	public void onEvent(HeadAnglesEvent event) {
-		float[] yawAndPitch = event.getYawAndPitch();
+	public void onEvent() {
+		float[] yawAndPitch = HeadAnglesEvent.m_HeadAnglesEvent.getYawAndPitch();
 		float yaw = -yawAndPitch[0];
 		float pitch = -yawAndPitch[1];
 		m_yaw = (float) (yaw / 180.0f * Math.PI);

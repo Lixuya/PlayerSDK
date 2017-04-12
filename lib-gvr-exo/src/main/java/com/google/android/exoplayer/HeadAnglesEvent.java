@@ -5,10 +5,10 @@ package com.google.android.exoplayer;
  */
 
 public class HeadAnglesEvent {
-
+    public static HeadAnglesEvent m_HeadAnglesEvent=new HeadAnglesEvent();
 	private float[] yawAndPitch = new float[2];
 
-	public HeadAnglesEvent(float[] yawAndPitch) {
+	public void HeadAnglesEvent(float[] yawAndPitch) {
 		this.yawAndPitch = yawAndPitch;
 	}
 

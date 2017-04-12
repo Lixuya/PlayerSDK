@@ -269,7 +269,8 @@ public class VRPlayerActivity extends Activity {
 			seekBar.setProgress((int) videoWidgetView.getCurrentPosition());
 			float[] yawAndPitch = new float[2];
 			videoWidgetView.getHeadRotation(yawAndPitch);
-			EventBus.getDefault().post(new HeadAnglesEvent(yawAndPitch));
+			//EventBus.getDefault().post(new HeadAnglesEvent(yawAndPitch));
+			HeadAnglesEvent.m_HeadAnglesEvent.HeadAnglesEvent(yawAndPitch);
 		}
 
 		@Override
