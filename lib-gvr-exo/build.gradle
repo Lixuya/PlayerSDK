@@ -1,6 +1,6 @@
 apply plugin: 'com.android.model.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.xieqiupeng'
+group = 'com.github.Lixuya'
 version = setup.vname
 
 model {
